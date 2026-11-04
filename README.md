@@ -1,35 +1,41 @@
 # Jejak Tanah Jawa
 
-Bab 1: Tegalrejo, Juli 1825. Godot 4.7.2, renderer Compatibility.
+Bab 1: Tegalrejo, Juli 1825. Proyek Godot 4.7.2, renderer Compatibility.
 
 ## Menjalankan
-Buka project.godot di Godot dan tekan F5, lalu pilih Mulai perjalanan.
+
+Buka `project.godot` di Godot, tekan F5, lalu pilih **Mulai perjalanan**.
 
 ## Kontrol
+
 - A/D atau panah: bergerak
 - Space: lompat
-- E: interaksi, tampilkan teks, lanjut dialog
-- J: serang ke arah hadap
+- E: bicara, tampilkan teks, lanjut dialog, pilih jawaban pertama
+- 1/2 atau klik: memilih jawaban pada dialog
+- J: menembak; animasi memakai spritesheet `Animasi_Menembak.png`. Pada Bab 1 tidak ada pertarungan wajib menurut naskah terbaru.
 - T: catatan sejarah
-- Esc: pause / lanjut
+- Esc: jeda / lanjut
 
-## Progres
-Menu, pengantar, desa Tegalrejo, dialog Sari dan Wirya, dua tentara, kesehatan, kucing pendamping, catatan sejarah, pause, ulang permainan, dan transisi akhir Bab 1 sudah tersedia. Bab 2 belum tersedia. Belum ada audio; aset yang diberikan berupa gambar.
+## Alur Bab 1
 
-Jaka, Sari, Wirya, percakapan, dan pertarungan merupakan dramatisasi fiksi. Sumber sejarah: docs/HISTORY.md.
+Jaka berbicara dengan sesepuh untuk memahami ketegangan di Tegalrejo. Ia menerima pesan dari utusan, mengantarkannya kepada penjaga di ujung desa, lalu keluar. Bab 2 menurut naskah baru adalah jalur menuju Selarong dan belum tersedia. Pilihan jawaban memberi respons singkat yang berbeda, tetapi fakta sejarah dan hasil cerita tetap sama.
+
+Menu, desa, dialog dengan potret dan pilihan jawaban, tiga catatan sejarah, kucing pendamping, jeda, dan layar selesai tersedia. Panel dialog berada di atas area permainan supaya Jaka tetap terlihat. Belum ada audio.
+
+Jaka dan NPC pendukung adalah tokoh fiksi; percakapan bukan kutipan historis. Lihat `docs/HISTORY.md` untuk sumber dan pilihan redaksi.
 
 ## Mengedit
-- scripts/chapter_one.gd membangun dunia, UI, dan alur saat permainan dijalankan. Sebagian besar layout terlihat saat runtime.
-- data/chapter_one.json berisi dialog dan catatan sejarah.
-- player.gd dan scripts/enemy.gd mengatur gerak dan pertarungan.
-- scripts/actor_visual.gd menentukan crop dan animasi. PNG asli dipertahankan.
-- game_state.gd menyimpan state sesi yang direset saat mengulang.
+
+- `scripts/chapter_one.gd`: dunia, UI, dan alur saat permainan dijalankan. Sebagian besar layout baru terlihat saat runtime.
+- `data/chapter_one.json`: dialog, jawaban, dan catatan sejarah.
+- `player.gd` dan `scripts/actor_visual.gd`: kontrol serta animasi Jaka. Latar putih pada lembar menembak disaring saat runtime; PNG asli tidak diubah.
+- `scripts/enemy.gd`: musuh tersedia sebagai fondasi Bab 2, belum dipakai di Bab 1.
+- `game_state.gd`: status sesi.
 
 ## Pengujian
+
 Jalankan executable Godot dengan argumen:
 
     --headless --path . --log-file chapter-smoke.log res://tests/chapter_smoke.tscn
 
-Hasil: CHAPTER_SMOKE failures=0, diuji headless dan dengan renderer OpenGL. Meliputi gerak/lompat, dialog, pause, exit sebelum misi selesai, serangan kedua pihak, penghitung musuh, transisi, penyelesaian, reset, dan layar gagal. Tampilan menu, permainan, dialog, jurnal, hasil, dan retry diperiksa melalui tangkapan renderer.
-
-Sandbox pengujian mengeluarkan peringatan shader cache dan certificate store; tidak ada error script pada run pengujian.
+Hasil saat revisi: `CHAPTER_SMOKE failures=0` pada headless dan renderer OpenGL. Tes mencakup gerak/lompat, interaksi tiga NPC, pilihan jawaban kedua, perubahan tujuan, exit terkunci, penggunaan animasi menembak, pause, catatan sejarah, penyelesaian bab, dan reset sesi. Tampilan menu, dialog, pilihan jawaban, dan layar selesai diperiksa dari tangkapan renderer.

@@ -28,14 +28,25 @@ static func make_sprite(path: String, height: float, region: Rect2 = Rect2()) ->
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	return sprite
 
-static func _normalized(texture: Texture2D, region: Rect2, height: float = 112.0) -> Texture2D:
+static func _normalized(texture: Texture2D, region: Rect2, height: float = 112.0, key_white: bool = false) -> Texture2D:
 	# Normalize all animation frames to a common canvas and feet anchor.
 	var source: Image = texture.get_image().get_region(Rect2i(region))
+	if key_white:
+		# The supplied shooting sheet has an opaque white backdrop. Key only pale
+		# near-neutral pixels at runtime; the source PNG remains untouched.
+		source.convert(Image.FORMAT_RGBA8)
+		for y in range(source.get_height()):
+			for x in range(source.get_width()):
+				var pixel := source.get_pixel(x, y)
+				var lightness := minf(pixel.r, minf(pixel.g, pixel.b))
+				if lightness > 0.91 and maxf(pixel.r, maxf(pixel.g, pixel.b)) - lightness < 0.09:
+					pixel.a = 0.0
+					source.set_pixel(x, y, pixel)
 	var factor: float = height / float(source.get_height())
 	source.resize(maxi(1, roundi(source.get_width() * factor)), roundi(height), Image.INTERPOLATE_LANCZOS)
-	var canvas := Image.create(58, 112, false, Image.FORMAT_RGBA8)
+	var canvas := Image.create(90, 112, false, Image.FORMAT_RGBA8)
 	canvas.fill(Color.TRANSPARENT)
-	canvas.blit_rect(source, Rect2i(Vector2i.ZERO, source.get_size()), Vector2i((58-source.get_width()) / 2, 112-source.get_height()))
+	canvas.blit_rect(source, Rect2i(Vector2i.ZERO, source.get_size()), Vector2i((90-source.get_width()) / 2, 112-source.get_height()))
 	return ImageTexture.create_from_image(canvas)
 
 static func jaka_frames() -> SpriteFrames:
@@ -59,4 +70,12 @@ static func jaka_frames() -> SpriteFrames:
 			var right: int = roundi((index + 1) * 217.2)
 			var region: Rect2 = Rect2(left, 140, right - left, 470) if animation == "walk" else Rect2(left, 100, right - left, 500)
 			frames.add_frame(animation, _normalized(sheet, region))
+	frames.add_animation("shoot")
+	frames.set_animation_speed("shoot", 28.0)
+	frames.set_animation_loop("shoot", false)
+	var shoot_sheet: Texture2D = load("res://assets/Animasi Karakter/Jaka/Animasi_Menembak.png") as Texture2D
+	for index in range(10):
+		var left: int = roundi(index * 217.2)
+		var right: int = roundi((index + 1) * 217.2)
+		frames.add_frame("shoot", _normalized(shoot_sheet, Rect2(left, 185, right - left, 380), 112.0, true))
 	return frames

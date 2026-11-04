@@ -1,30 +1,90 @@
 {
   "intro": [
-    {"speaker": "Narator", "text": "Tegalrejo, Juli 1825. Ketegangan terasa di antara rumah-rumah dan jalan desa."},
-    {"speaker": "Narator", "text": "Kamu adalah Jaka, seorang pemuda rekaan yang menjadi saksi. Temui Sari untuk mencari tahu apa yang terjadi."}
+    {
+      "speaker": "Narator",
+      "text": "Yogyakarta, 1825. Ketegangan di Tegalrejo tumbuh di tengah tekanan pemerintahan kolonial."
+    },
+    {
+      "speaker": "Jaka",
+      "text": "Warga membicarakan tanah dan jalan. Aku harus menemui sesepuh desa."
+    }
   ],
-  "sari": [
-    {"speaker": "Sari", "text": "Kamu dengar kabar tentang patok-patok jalan itu?"},
-    {"speaker": "Jaka", "text": "Patok jalan? Kenapa semua orang membicarakannya?"},
-    {"speaker": "Sari", "text": "Jalan yang direncanakan melewati tanah makam leluhur Pangeran Diponegoro. Banyak warga menganggapnya sebagai penghinaan."},
-    {"speaker": "Sari", "text": "Tapi ketegangan tidak muncul dalam sehari. Campur tangan pemerintah kolonial dan berbagai beban yang dirasakan masyarakat sudah lama menumpuk."},
-    {"speaker": "Narator", "text": "Pemasangan patok jalan menjadi pemicu langsung konflik di Tegalrejo pada Juli 1825."}
+  "elder": [
+    {
+      "speaker": "Sesepuh",
+      "text": "Bukan hanya soal tanah, Nak. Makam leluhur memiliki arti yang jauh lebih dalam bagi keluarga Diponegoro."
+    },
+    {
+      "speaker": "Sesepuh",
+      "text": "Patok jalan yang melewati tanah itu membuat warga marah. Namun ketegangan sudah lama menumpuk.",
+      "choices": [
+        {
+          "text": "Jadi ini bukan sekadar soal jalan?",
+          "reply": "Benar. Campur tangan kolonial dalam urusan keraton dan beban rakyat juga memperkeruh keadaan."
+        },
+        {
+          "text": "Apa yang membuat warga begitu gelisah?",
+          "reply": "Kehormatan keluarga, tekanan politik, dan beban hidup telah lama mengusik mereka."
+        }
+      ]
+    },
+    {
+      "speaker": "Narator",
+      "text": "Patok jalan di Tegalrejo menjadi salah satu pemicu langsung konflik pada 1825; penyebab perang lebih luas."
+    }
   ],
-  "attack": [
-    {"speaker": "Wirya", "text": "Jaka, tentara Belanda datang! Jangan biarkan mereka mengepung jalan keluar. Bantu kami melewati jalur ini!"}
+  "messenger": [
+    {
+      "speaker": "Utusan",
+      "text": "Jaka, bawalah pesan ini kepada penjaga di jalur keluar desa."
+    },
+    {
+      "speaker": "Utusan",
+      "text": "Keadaan makin tegang. Pergilah dengan hati-hati.",
+      "choices": [
+        {
+          "text": "Baik, aku akan mengantarkannya.",
+          "reply": "Terima kasih. Temui penjaga di dekat gerbang kanan."
+        },
+        {
+          "text": "Siapa yang menunggu pesan itu?",
+          "reply": "Penjaga di ujung desa. Ia menunggu kabar agar warga dapat bergerak dengan aman."
+        }
+      ]
+    }
   ],
-  "after_battle": [
-    {"speaker": "Wirya", "text": "Kita harus pergi. Pangeran Diponegoro berhasil lolos dari Tegalrejo dan mundur ke Selarong untuk melanjutkan perlawanan."},
-    {"speaker": "Narator", "text": "Tegalrejo diserbu pada Juli 1825. Diponegoro kemudian menjadikan Selarong sebagai basis awal perlawanan."}
+  "delivery": [
+    {
+      "speaker": "Penjaga",
+      "text": "Pesannya sampai. Terima kasih, Jaka. Pergilah melalui jalur di kanan."
+    },
+    {
+      "speaker": "Narator",
+      "text": "Pada Juli 1825, Tegalrejo diserbu. Diponegoro kemudian mundur ke Selarong, yang menjadi basis awal perlawanan."
+    }
   ],
   "transition": [
-    {"speaker": "Narator", "text": "Juli 1825. Setelah peristiwa Tegalrejo, Pangeran Diponegoro mundur ke Selarong. Tempat itu menjadi basis awal perlawanan."},
-    {"speaker": "Narator", "text": "Perjalanan Jaka adalah cerita rekaan. Pertarungan yang kamu mainkan bukan rekonstruksi pertempuran yang tercatat dalam sejarah."},
-    {"speaker": "Narator", "text": "Bab 1 selesai. Jejak berikutnya menuju Selarong; Bab 2 belum tersedia dalam versi ini."}
+    {
+      "speaker": "Narator",
+      "text": "Jaka meninggalkan Tegalrejo. Perjalanan tokoh rekaan ini menghubungkan peristiwa sejarah yang benar-benar terjadi."
+    },
+    {
+      "speaker": "Narator",
+      "text": "Jejak berikutnya menuju jalur Selarong. Bab 1 selesai; kelanjutan cerita masih dalam pengembangan."
+    }
   ],
   "facts": [
-    {"title": "01 / Pemicu di Tegalrejo", "text": "Pemasangan patok pembangunan jalan di tanah Diponegoro, yang berkaitan dengan area makam leluhurnya, menjadi pemicu langsung konflik pada 1825."},
-    {"title": "02 / Ketegangan yang menumpuk", "text": "Pembangunan jalan bukan satu-satunya sebab. Campur tangan kolonial dalam politik keraton serta beban sosial dan ekonomi masyarakat ikut melatarbelakangi perlawanan."},
-    {"title": "03 / Menuju Selarong", "text": "Tegalrejo diserbu pada Juli 1825. Diponegoro lolos dan mundur ke Selarong, yang menjadi basis awal perlawanan dalam Perang Jawa (1825-1830)."}
+    {
+      "title": "01 / Pemicu di Tegalrejo",
+      "text": "Patok pembangunan jalan melewati tanah yang terkait dengan area makam leluhur Diponegoro dan menjadi pemicu langsung konflik."
+    },
+    {
+      "title": "02 / Sebab yang lebih luas",
+      "text": "Campur tangan kolonial dalam politik keraton dan beban sosial ekonomi ikut melatarbelakangi perang; persoalannya tidak hanya satu jalan."
+    },
+    {
+      "title": "03 / Menuju Selarong",
+      "text": "Tegalrejo diserbu pada Juli 1825. Diponegoro mundur ke Selarong, basis awal perlawanan."
+    }
   ]
 }

@@ -7,8 +7,7 @@ const MUTED := Color("a9bbb1")
 const FLOOR_Y := 570.0
 const WORLD_WIDTH := 3800.0
 const ActorVisual = preload("res://scripts/actor_visual.gd")
-const Enemy = preload("res://scripts/enemy.gd")
-enum Stage { MENU, INTRO, EXPLORE, WARNING, BATTLE, AFTERMATH, EXIT, TRANSITION, COMPLETE, FAILED }
+enum Stage { MENU, INTRO, EXPLORE, WARNING, AFTERMATH, EXIT, TRANSITION, COMPLETE, FAILED }
 
 var stage: Stage = Stage.MENU
 var story: Dictionary
@@ -20,6 +19,8 @@ var mountains: Node2D
 var sari: Node2D
 var wirya: Node2D
 var sari_area: Area2D
+var messenger_area: Area2D
+var guard_area: Area2D
 var exit_area: Area2D
 var ui: Control
 var hud: Control
@@ -32,6 +33,8 @@ var speaker_label: Label
 var dialogue_label: RichTextLabel
 var dialogue_counter: Label
 var portrait: TextureRect
+var choice_container: Control
+var choice_active: bool = false
 var prompt: Label
 var notice: Label
 var overlay: Control
@@ -44,7 +47,6 @@ var dialogue_callback: Callable
 var typing: float = 0.0
 var elapsed: float = 0.0
 var notice_time: float = 0.0
-var defeated_ids: Dictionary = {}
 var facts_unlocked: int = 0
 var paused: bool = false
 var overlay_mode: String = ""
@@ -102,20 +104,29 @@ func _build_world() -> void:
 	cat = ActorVisual.make_sprite("res://assets/Karakter/Cuking Taby.png", 39.0, Rect2(279, 118, 999, 822))
 	cat.position = Vector2(155, FLOOR_Y - 19.5)
 	world.add_child(cat)
-	sari = _npc("Sari", "res://assets/Karakter/NPC Ibu2.png", Rect2(254,152,463,1314), 900)
-	wirya = _npc("Wirya", "res://assets/Karakter/NPC cwo.png", Rect2(253,150,483,1330), 1510)
+	sari = _npc("Sesepuh", "res://assets/Karakter/sesepuh.png", Rect2(264,102,499,1377), 900)
+	wirya = _npc("Utusan", "res://assets/Karakter/NPC cwo.png", Rect2(253,150,483,1330), 1510)
 	sari_area = _area(Vector2(900, FLOOR_Y - 60), Vector2(210, 180))
 	sari_area.set_script(load("res://interactable.gd"))
 	# The script is attached after entering the tree; wire the reusable area's ready hook explicitly.
 	sari_area._ready()
-	sari_area.interaction_requested.connect(_talk_to_sari)
+	sari_area.interaction_requested.connect(_talk_to_elder)
+	messenger_area = _area(Vector2(1510, FLOOR_Y - 60), Vector2(210, 180))
+	messenger_area.set_script(load("res://interactable.gd"))
+	messenger_area._ready()
+	messenger_area.interaction_requested.connect(_talk_to_messenger)
+	_npc("Penjaga", "res://assets/Karakter/Penjaga Selarong.png", Rect2(), 3300)
+	guard_area = _area(Vector2(3300, FLOOR_Y - 60), Vector2(210, 180))
+	guard_area.set_script(load("res://interactable.gd"))
+	guard_area._ready()
+	guard_area.interaction_requested.connect(_deliver_message)
 	exit_area = _area(Vector2(3550, FLOOR_Y - 80), Vector2(160, 240))
 	exit_area.body_entered.connect(func(body: Node2D) -> void:
 		if body == player:
 			exit_near = true
 			if stage == Stage.EXIT:
 				_begin_transition()
-			elif stage in [Stage.EXPLORE, Stage.BATTLE]:
+			elif stage in [Stage.EXPLORE, Stage.WARNING, Stage.AFTERMATH]:
 				_notify("Selesaikan tujuan terlebih dahulu. Jalur belum aman."))
 	exit_area.body_exited.connect(func(body: Node2D) -> void:
 		if body == player: exit_near = false)
@@ -127,7 +138,7 @@ func _build_world() -> void:
 	camera.limit_bottom = 720
 	world.add_child(camera)
 	_world_label("TEGALREJO", Vector2(100, 495), 22, GOLD)
-	_world_label("JALUR KE SELARONG  >", Vector2(3320, 405), 19, GOLD)
+	_world_label("JALUR KELUAR  >", Vector2(3320, 405), 19, GOLD)
 
 func _region_sprite(parent: Node, path: String, region: Rect2, at: Vector2, factor: Vector2) -> Sprite2D:
 	var sprite := Sprite2D.new()
@@ -261,8 +272,8 @@ func _build_ui() -> void:
 	_label(hud,"JAKA",Rect2(1044,36,100,22),16,GOLD)
 	health_label = _label(hud,"",Rect2(1044,64,190,30),22)
 	_panel(hud,Rect2(28,662,1224,38),Color("142b2ae6"))
-	_label(hud,"A D / PANAH   Gerak       SPACE   Lompat       E   Bicara       J   Serang",Rect2(45,669,880,25),16)
-	_label(hud,"T  Catatan    ESC  Jeda",Rect2(1020,669,220,25),16,GOLD)
+	_label(hud,"A D / PANAH   Gerak       SPACE   Lompat       E   Bicara       1 / 2   Pilih jawaban",Rect2(45,669,930,25),16)
+	_label(hud,"J  Tembak    T  Catatan    ESC  Jeda",Rect2(966,669,275,25),15,GOLD)
 	prompt = _label(hud,"",Rect2(390,392,500,44),21,GOLD)
 	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	prompt.add_theme_color_override("font_shadow_color",INK)
@@ -272,28 +283,38 @@ func _build_ui() -> void:
 	notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	notice.add_theme_stylebox_override("normal",_style(Color("142b2ae6")))
 	notice.hide()
-	dialogue_box = _panel(ui,Rect2(80,452,1120,192),Color("102826fa"),GOLD)
+	# Place the conversation over the sky so Jaka and the village remain visible.
+	dialogue_box = _panel(ui,Rect2(28,153,1224,155),Color("102826ed"),GOLD)
 	portrait = TextureRect.new()
-	portrait.position = Vector2(20,15)
-	portrait.size = Vector2(108,160)
+	portrait.position = Vector2(18,11)
+	portrait.size = Vector2(96,135)
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	dialogue_box.add_child(portrait)
-	speaker_label = _label(dialogue_box,"",Rect2(155,15,760,32),22,GOLD)
+	speaker_label = _label(dialogue_box,"",Rect2(135,12,1025,30),21,GOLD)
 	dialogue_label = RichTextLabel.new()
-	dialogue_label.position = Vector2(155,55)
-	dialogue_label.size = Vector2(925,100)
-	dialogue_label.add_theme_font_size_override("normal_font_size",22)
+	dialogue_label.position = Vector2(135,45)
+	dialogue_label.size = Vector2(1035,78)
+	dialogue_label.add_theme_font_size_override("normal_font_size",21)
 	dialogue_label.add_theme_color_override("default_color",PAPER)
 	dialogue_label.scroll_active = false
 	dialogue_box.add_child(dialogue_label)
-	dialogue_counter = _label(dialogue_box,"",Rect2(155,157,925,25),15,MUTED)
+	dialogue_counter = _label(dialogue_box,"",Rect2(135,126,1020,22),15,MUTED)
 	dialogue_box.hide()
+	choice_container = Control.new()
+	ui.add_child(choice_container)
+	choice_container.hide()
 	menu = Control.new()
 	ui.add_child(menu)
-	_panel(menu,Rect2(0,0,630,720),Color("102826f5"),Color.TRANSPARENT)
+	_panel(menu,Rect2(0,0,630,720),Color("0b1515fa"),Color.TRANSPARENT)
+	var menu_accent := Color("bd6853")
+	var accent_line := ColorRect.new()
+	accent_line.position = Vector2(64, 113)
+	accent_line.size = Vector2(235, 3)
+	accent_line.color = menu_accent
+	menu.add_child(accent_line)
 	_label(menu,"SEBUAH KISAH DARI JAWA",Rect2(64,72,500,28),17,GOLD)
-	var title := _label(menu,"JEJAK\nTANAH JAWA",Rect2(60,120,545,172),63,PAPER)
+	var title := _label(menu,"JEJAK\nTANAH JAWA",Rect2(60,135,545,172),63,PAPER)
 	var serif := SystemFont.new()
 	serif.font_names = PackedStringArray(["Georgia","DejaVu Serif"])
 	title.add_theme_font_override("font",serif)
@@ -303,7 +324,7 @@ func _build_ui() -> void:
 	_button(menu,"Tentang kisah ini",Rect2(64,554,274,46),_show_about)
 	_button(menu,"Keluar",Rect2(350,554,154,46),func() -> void: get_tree().quit())
 	_paragraph(menu,"Petualangan sejarah 2D  /  Keyboard\nJaka dan percakapannya adalah dramatisasi fiksi.",Rect2(64,643,510,48),15,MUTED)
-	_panel(menu,Rect2(967,42,265,74),Color("142b2ae6"))
+	_panel(menu,Rect2(967,42,265,74),Color("11191bf2"),menu_accent)
 	_label(menu,"01",Rect2(986,48,56,50),37,GOLD)
 	_label(menu,"AWAL PERJALANAN\nTegalrejo",Rect2(1050,54,176,45),16,PAPER)
 	overlay = Control.new()
@@ -326,11 +347,11 @@ func start_chapter() -> void:
 	menu.hide()
 	hud.show()
 	stage = Stage.INTRO
-	GameState.set_objective("Cari tahu apa yang terjadi di Tegalrejo.")
-	_start_dialogue(story.get("intro",[{"speaker":"Narator","text":"Tegalrejo, Juli 1825. Kamu adalah Jaka, saksi fiktif di tengah pergolakan. Temui Sari untuk mengetahui keadaan desa."}]),func() -> void:
+	GameState.set_objective("Temui sesepuh desa di Tegalrejo.")
+	_start_dialogue(story.intro,func() -> void:
 		stage = Stage.EXPLORE
 		player.controls_enabled = true
-		_notify("Temui Sari di sebelah kanan. Tekan E saat berada di dekatnya."))
+		_notify("Temui sesepuh di sebelah kanan. Tekan E untuk bicara."))
 
 func _process(delta: float) -> void:
 	if paused:
@@ -352,11 +373,13 @@ func _process(delta: float) -> void:
 		cat.position.y = FLOOR_Y - 19.5
 	prompt.text = ""
 	if stage == Stage.EXPLORE and sari_area.player_near and not GameState.dialogue_active:
-		prompt.text = "[ E ]  Bicara dengan Sari"
-	elif stage == Stage.BATTLE:
-		prompt.text = "[ J ]  Serang ke arah hadap   /   [ SPACE ]  Hindari serangan"
+		prompt.text = "[ E ]  Bicara dengan sesepuh"
+	elif stage == Stage.WARNING and messenger_area.player_near and not GameState.dialogue_active:
+		prompt.text = "[ E ]  Bicara dengan utusan"
+	elif stage == Stage.AFTERMATH and guard_area.player_near and not GameState.dialogue_active:
+		prompt.text = "[ E ]  Antarkan pesan kepada penjaga"
 	elif stage == Stage.EXIT:
-		prompt.text = "Jalur aman. Lanjutkan ke kanan  >"
+		prompt.text = "Pesan tersampaikan. Lanjutkan ke kanan  >"
 		if exit_near:
 			_begin_transition()
 	if notice_time > 0:
@@ -375,36 +398,68 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if paused or overlay.visible:
 		return
-	if event.is_action_pressed("journal") and stage in [Stage.EXPLORE,Stage.BATTLE,Stage.EXIT]:
+	if event.is_action_pressed("journal") and stage in [Stage.EXPLORE,Stage.WARNING,Stage.AFTERMATH,Stage.EXIT]:
 		_show_journal()
 		get_viewport().set_input_as_handled()
 		return
+	if GameState.dialogue_active and choice_active and event is InputEventKey and event.pressed:
+		if event.keycode in [KEY_1, KEY_KP_1]:
+			_choose(0)
+			get_viewport().set_input_as_handled()
+			return
+		if event.keycode in [KEY_2, KEY_KP_2]:
+			_choose(1)
+			get_viewport().set_input_as_handled()
+			return
 	if event.is_action_pressed("interact"):
 		if GameState.dialogue_active:
 			advance_dialogue()
 		elif stage == Stage.EXPLORE:
 			sari_area.trigger_interaction()
+		elif stage == Stage.WARNING:
+			messenger_area.trigger_interaction()
+		elif stage == Stage.AFTERMATH:
+			guard_area.trigger_interaction()
 		get_viewport().set_input_as_handled()
 
-func _talk_to_sari() -> void:
+func _talk_to_elder() -> void:
 	if stage != Stage.EXPLORE:
 		return
-	_start_dialogue(story.sari,func() -> void:
+	_start_dialogue(story.elder,func() -> void:
 		facts_unlocked = 2
 		stage = Stage.WARNING
-		_start_dialogue(story.attack,_start_battle)
-		event_tint.color.a = 0.14)
+		GameState.set_objective("Temui utusan di tengah desa.")
+		_notify("Sesepuh telah menjelaskan keadaan. Temui utusan di kanan."))
+
+func _talk_to_messenger() -> void:
+	if stage != Stage.WARNING:
+		return
+	_start_dialogue(story.messenger,func() -> void:
+		stage = Stage.AFTERMATH
+		GameState.set_objective("Antarkan pesan kepada penjaga di ujung desa.")
+		_notify("Cari penjaga di dekat jalur keluar desa."))
+
+func _deliver_message() -> void:
+	if stage != Stage.AFTERMATH:
+		return
+	_start_dialogue(story.delivery,func() -> void:
+		facts_unlocked = 3
+		stage = Stage.EXIT
+		GameState.set_objective("Pesan tersampaikan. Cari jalur keluar!",true)
+		_notify("Catatan sejarah baru tersimpan. Tekan T untuk membacanya."))
 
 func _start_dialogue(content: Array, completed: Callable) -> void:
 	if content.is_empty():
 		completed.call()
 		return
-	lines = content
+	lines = content.duplicate(true)
 	line_index = 0
 	dialogue_callback = completed
 	GameState.dialogue_active = true
 	GameState.dialogue_started.emit()
 	player.velocity.x = 0
+	notice_time = 0
+	notice.hide()
 	dialogue_box.show()
 	_show_line()
 
@@ -415,14 +470,18 @@ func _show_line() -> void:
 	typing = 0
 	dialogue_label.visible_characters = 0
 	dialogue_counter.text = "%d / %d     •     E  Tampilkan / lanjutkan" % [line_index+1, lines.size()]
+	_show_choices(line)
 	var path := "res://assets/Karakter/Jaka.png"
 	var region := Rect2(270,83,510,1370)
-	if line.speaker == "Sari":
-		path = "res://assets/Karakter/NPC Ibu2.png"
-		region = Rect2(254,152,463,1314)
-	elif line.speaker == "Wirya":
+	if line.speaker == "Sesepuh":
+		path = "res://assets/Karakter/sesepuh.png"
+		region = Rect2(264,102,499,1377)
+	elif line.speaker == "Utusan":
 		path = "res://assets/Karakter/NPC cwo.png"
 		region = Rect2(253,150,483,1330)
+	elif line.speaker == "Penjaga":
+		path = "res://assets/Karakter/Penjaga Selarong.png"
+		region = Rect2(0,0,1024,1536)
 	portrait.visible = line.speaker != "Narator"
 	var atlas := AtlasTexture.new()
 	atlas.atlas = load(path)
@@ -436,11 +495,15 @@ func advance_dialogue() -> void:
 		typing = float(dialogue_label.get_total_character_count())
 		dialogue_label.visible_characters = int(typing)
 		return
+	if choice_active:
+		_choose(0)
+		return
 	line_index += 1
 	if line_index < lines.size():
 		_show_line()
 		return
 	dialogue_box.hide()
+	choice_container.hide()
 	GameState.dialogue_active = false
 	GameState.dialogue_ended.emit()
 	var callback := dialogue_callback
@@ -448,37 +511,35 @@ func advance_dialogue() -> void:
 	if callback.is_valid():
 		callback.call()
 
-func _start_battle() -> void:
-	stage = Stage.BATTLE
-	player.controls_enabled = true
-	GameState.set_objective("Hadapi tentara Belanda (0/2)")
-	_notify("Dua tentara memasuki desa. Hadapi arah mereka, lalu tekan J untuk menyerang.")
-	for x in [1350.0,1720.0]:
-		var enemy := CharacterBody2D.new()
-		enemy.set_script(Enemy)
-		enemy.position = Vector2(x,FLOOR_Y)
-		enemy.target = player
-		enemy.defeated.connect(_enemy_defeated)
-		world.add_child(enemy)
-
-func _enemy_defeated(enemy: Node) -> void:
-	if stage != Stage.BATTLE or defeated_ids.has(enemy.get_instance_id()):
+func _show_choices(line: Dictionary) -> void:
+	for child in choice_container.get_children():
+		choice_container.remove_child(child)
+		child.queue_free()
+	choice_active = line.has("choices")
+	choice_container.visible = choice_active
+	if not choice_active:
 		return
-	defeated_ids[enemy.get_instance_id()] = true
-	GameState.add_enemy_defeated(2)
-	if GameState.enemies_defeated == 2:
-		# Defer narrative until the enemy finishes its physics callback.
-		_finish_battle.call_deferred()
+	var card := _panel(choice_container,Rect2(705,310,547,105),Color("102826f2"),GOLD)
+	_label(card,"JAKA  /  PILIH JAWABAN",Rect2(18,5,510,20),15,GOLD)
+	var choices: Array = line.choices
+	for i in range(choices.size()):
+		var index: int = i
+		_button(card,"%d   %s" % [i+1,choices[i].text],Rect2(18,27+i*35,510,32),func() -> void: _choose(index),i==0)
 
-func _finish_battle() -> void:
-	if stage != Stage.BATTLE:
+func _choose(index: int) -> void:
+	if not choice_active or not GameState.dialogue_active:
 		return
-	stage = Stage.AFTERMATH
-	facts_unlocked = 3
-	_start_dialogue(story.after_battle,func() -> void:
-		stage = Stage.EXIT
-		GameState.set_objective("Jalur terbuka. Cari jalan keluar!",true)
-		_notify("Catatan sejarah baru tersimpan. Tekan T untuk membacanya."))
+	var current: Dictionary = lines[line_index]
+	var choices: Array = current.choices
+	if index < 0 or index >= choices.size():
+		return
+	var choice: Dictionary = choices[index]
+	choice_active = false
+	choice_container.hide()
+	lines.insert(line_index+1,{"speaker":"Jaka","text":choice.text})
+	lines.insert(line_index+2,{"speaker":current.speaker,"text":choice.reply})
+	line_index += 1
+	_show_line()
 
 func _begin_transition() -> void:
 	if stage != Stage.EXIT or not GameState.objective_completed:
@@ -555,14 +616,14 @@ func _close_overlay() -> void:
 
 func show_result(success: bool) -> void:
 	hud.hide()
-	var box := _new_overlay("result","Bab 1 selesai" if success else "Perjalanan belum berakhir", "Tegalrejo telah kamu lewati. Perjalanan akan berlanjut di Selarong." if success else "Jaka belum berhasil melewati jalur desa. Coba kembali dan perhatikan aba-aba serangan tentara.")
+	var box := _new_overlay("result","Bab 1 selesai" if success else "Perjalanan belum berakhir", "Pesanmu sudah sampai. Perjalanan Jaka kini menuju jalur Selarong." if success else "Perjalanan Jaka terhenti sebelum keluar dari desa. Coba mulai kembali.")
 	if success:
 		_label(box,"TEGALREJO     - - - - - - - - - - - - >     SELARONG",Rect2(40,198,780,40),24,GOLD)
 		_paragraph(box,"Juli 1825\nSetelah serangan di Tegalrejo, Diponegoro mundur ke Selarong dan menjadikannya basis awal perlawanan.",Rect2(40,270,780,100),23)
-		_label(box,"2 / 2 tentara dilewati    •    3 catatan sejarah ditemukan",Rect2(40,397,780,35),19,MUTED)
-		_label(box,"Bab 2 belum tersedia dalam versi ini.",Rect2(40,441,780,30),17,MUTED)
+		_label(box,"Pesan tersampaikan    •    3 catatan sejarah ditemukan",Rect2(40,397,780,35),19,MUTED)
+		_label(box,"Bab 2: Jalur menuju Selarong masih dalam pengembangan.",Rect2(40,441,780,30),17,MUTED)
 	else:
-		_paragraph(box,"Tips perjalanan\n\nHadap ke arah tentara sebelum menekan J. Seranganmu menjangkau lebih jauh daripada pukulan mereka. Saat tanda serangan muncul, mundur atau lompat.",Rect2(40,210,780,220),23)
+		_paragraph(box,"Petunjuk\n\nTemui sesepuh, lalu utusan di tengah desa. Antarkan pesan kepada penjaga dekat gerbang sebelum berjalan ke kanan.",Rect2(40,210,780,220),23)
 	_button(box,"Main lagi",Rect2(40,494,380,58),_restart,true)
 	_button(box,"Menu utama",Rect2(440,494,380,58),_return_menu)
 
