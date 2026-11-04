@@ -120,7 +120,7 @@ func _update_animation(direction: float) -> void:
 	anim.modulate = Color(1.0, 0.64, 0.48) if hurt_time > 0.0 else Color.WHITE
 	if invulnerable_time > 0.0:
 		anim.modulate.a = 0.45 if int(invulnerable_time * 14.0) % 2 == 0 else 1.0
-	anim.rotation = -0.12 * facing if is_attacking else 0.0
+	anim.rotation = 0.0
 	if is_attacking:
 		anim.play("idle")
 	elif not is_on_floor():
@@ -135,7 +135,11 @@ func _draw() -> void:
 	draw_circle(Vector2.ZERO, 26.0, Color(0.06, 0.08, 0.06, 0.3))
 	draw_set_transform(Vector2.ZERO)
 	if is_attacking:
-		var center: Vector2 = Vector2(22.0 * facing, -62.0)
-		var angle: float = 0.0 if facing > 0 else PI
-		draw_arc(center, 91.0, angle - 0.65, angle + 0.65, 20, Color(1.0, 0.83, 0.40, 0.9), 5.0, true)
-		draw_arc(center, 80.0, angle - 0.45, angle + 0.45, 16, Color(1.0, 0.95, 0.74, 0.75), 2.0, true)
+		# A clear, non-graphic rifle silhouette and brief shot line replace the hand-swing arc.
+		var direction := float(facing)
+		draw_line(Vector2(-10.0 * direction, -66), Vector2(43.0 * direction, -76), Color("5c3925"), 10.0, true)
+		draw_line(Vector2(16.0 * direction, -71), Vector2(64.0 * direction, -80), Color("343b39"), 6.0, true)
+		draw_line(Vector2(20.0 * direction, -67), Vector2(38.0 * direction, -57), Color("5c3925"), 5.0, true)
+		if attack_timer <= 0.19 and attack_timer > 0.10:
+			draw_line(Vector2(67.0 * direction, -80), Vector2(139.0 * direction, -80), Color(1.0, 0.86, 0.55, 0.9), 3.0, true)
+			draw_circle(Vector2(67.0 * direction, -80), 7.0, Color(1.0, 0.8, 0.35, 0.9))

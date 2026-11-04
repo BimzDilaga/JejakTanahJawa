@@ -85,7 +85,7 @@ func _build_world() -> void:
 	for i in range(-1, 4):
 		_region_sprite(mountains, "res://assets/Background/Tegalrejo/tegalrejo_mountains.png", Rect2(0, 330, 2172, 310), Vector2(i * 1500, 265), Vector2(0.7, 0.7))
 	for i in range(3):
-		_region_sprite(world, "res://assets/Background/Tegalrejo/tegalrejo_village.png", Rect2(0, 265, 2172, 355), Vector2(i * 1954 - 180, 232), Vector2(0.9, 0.9))
+		_region_sprite(world, "res://assets/Background/Tegalrejo/tegalrejo_village.png", Rect2(0, 265, 2172, 355), Vector2(i * 1954 - 180, 266), Vector2(0.9, 0.9))
 	for i in range(4):
 		_region_sprite(world, "res://assets/Background/Tegalrejo/ground.png", Rect2(0, 346, 2172, 378), Vector2(i * 1303 - 100, 564), Vector2(0.6, 0.6))
 	_solid(Vector2(WORLD_WIDTH / 2, FLOOR_Y + 100), Vector2(WORLD_WIDTH + 400, 200))
