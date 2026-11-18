@@ -1,0 +1,102 @@
+{
+  "intro": [
+    {
+      "speaker": "Narator",
+      "text": "Jalur menuju Selarong, 1825. Warga meninggalkan desa, jembatan rusak, dan patroli membuat perjalanan semakin berbahaya."
+    },
+    {
+      "speaker": "Jaka",
+      "text": "Aku akan mencari jalan dan membantu siapa pun yang kutemui."
+    }
+  ],
+  "sari": [
+    {
+      "speaker": "Sari",
+      "text": "Jaka, jalan utama terputus. Di depan ada batu-batu yang bisa dipakai menyeberang."
+    },
+    {
+      "speaker": "Sari",
+      "text": "Temui Lasmi setelah hutan. Beberapa keluarga di tempat singgah membutuhkan bantuan.",
+      "choices": [
+        {"text": "Bagaimana keadaan mereka?", "reply": "Mereka lelah dan kekurangan bekal. Sekecil apa pun bantuanmu akan berarti."},
+        {"text": "Adakah jalan menghindari patroli?", "reply": "Ada titian tinggi di hutan. Sebagian patroli bisa dilewati dari sana, tetapi tetaplah waspada."}
+      ]
+    }
+  ],
+  "villager": [
+    {
+      "speaker": "Warga",
+      "text": "Kami membawa yang bisa diselamatkan. Banyak orang hanya ingin mencari tempat aman."
+    },
+    {
+      "speaker": "Jaka",
+      "text": "Aku akan menyampaikan kabar jika menemukan jalur yang bisa dilalui."
+    }
+  ],
+  "note": [
+    {
+      "speaker": "Narator",
+      "text": "Catatan di pondok: jalan menjadi sepi; warga berbagi kabar untuk menjaga jalur perjalanan. Catatan ini adalah dramatisasi kehidupan masyarakat."
+    }
+  ],
+  "bridge": [
+    {
+      "speaker": "Jaka",
+      "text": "Papan jembatannya patah. Batu di atas sungai membentuk jalur lain. Aku bisa melompat dari satu batu ke batu berikutnya."
+    }
+  ],
+  "lasmi": [
+    {
+      "speaker": "Lasmi",
+      "text": "Ada bekal tertinggal di pondok atas sebelah kanan. Tolong ambil dan antarkan kepada warga yang menunggu lebih jauh."
+    },
+    {
+      "speaker": "Jaka",
+      "text": "Aku akan membawanya. Mereka pasti sudah menunggu."
+    }
+  ],
+  "delivery": [
+    {
+      "speaker": "Warga",
+      "text": "Terima kasih. Bekal ini sangat berarti saat perjalanan menjadi sulit."
+    },
+    {
+      "speaker": "Narator",
+      "text": "Perang memengaruhi keamanan perjalanan dan kehidupan sehari-hari. Bantuan Jaka adalah cerita fiktif yang menggambarkan pengalaman masyarakat."
+    }
+  ],
+  "guide": [
+    {
+      "speaker": "Utusan",
+      "text": "Selarong sudah dekat. Kawasan ini menjadi tempat penting bagi perlawanan pada awal perang."
+    },
+    {
+      "speaker": "Utusan",
+      "text": "Ikuti jalan di kanan. Penjaga di dekat gua akan menunjukkan siapa yang harus kau temui."
+    }
+  ],
+  "outro": [
+    {
+      "speaker": "Jaka",
+      "text": "Di desa aku mendengar ketegangan. Di jalan ini aku melihat sendiri beban yang ditanggung warga."
+    },
+    {
+      "speaker": "Narator",
+      "text": "Selarong menjadi salah satu basis awal perlawanan Diponegoro. Perjalanan Jaka akan berlanjut di kawasan gua."
+    }
+  ],
+  "facts": [
+    {
+      "title": "01 / Jalur perjalanan",
+      "text": "Perang memengaruhi keamanan perjalanan masyarakat. Rute Jaka dan jembatan dalam permainan adalah rekaan."
+    },
+    {
+      "title": "02 / Kehidupan masyarakat",
+      "text": "Konflik membebani penduduk, termasuk keamanan, tempat tinggal, dan kegiatan sehari-hari. Misi bekal adalah dramatisasi."
+    },
+    {
+      "title": "03 / Selarong",
+      "text": "Selarong merupakan basis awal perlawanan. Pusat kegiatan kemudian berpindah seiring perkembangan perang."
+    }
+  ]
+}

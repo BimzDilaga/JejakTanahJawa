@@ -1,0 +1,33 @@
+{
+  "intro": [
+    {"speaker":"Narator","text":"Selarong, 1825. Selepas jalan hutan, Jaka mendekati kawasan gua yang menjadi tempat berkumpulnya para pengikut Diponegoro."},
+    {"speaker":"Jaka","text":"Utusan memintaku menemui penjaga gua. Aku harus melewati lereng batu di depan."}
+  ],
+  "guard": [
+    {"speaker":"Penjaga","text":"Berhenti sebentar. Dari mana kau datang?"},
+    {"speaker":"Jaka","text":"Aku datang dari jalur hutan. Warga di tempat singgah sudah menerima bekal. Utusan di tepi tebing menyuruhku menyampaikan kabar ini."},
+    {"speaker":"Penjaga","text":"Baik. Pangeran Diponegoro berada lebih jauh di kawasan gua. Sampaikan kabar warga kepadanya."}
+  ],
+  "prince": [
+    {"speaker":"Pangeran Diponegoro","text":"Selamat datang di Selarong. Bagaimana keadaan orang-orang yang kau temui di jalan?"},
+    {"speaker":"Jaka","text":"Mereka mencari jalan aman. Bekal sudah sampai, tetapi jalur hutan masih membuat mereka cemas."},
+    {"speaker":"Pangeran Diponegoro","text":"Kabar mereka harus didengar. Lihat jalur dari batu pengamat di sebelah kanan, lalu kembali dan ceritakan apa yang kau lihat.","choices":[
+      {"text":"Aku akan memeriksa jalurnya.","reply":"Berhati-hatilah di lereng. Amati jalan, lalu kembali dengan selamat."},
+      {"text":"Mengapa perlu melihat dari atas?","reply":"Dari tempat tinggi, keadaan jalur lebih mudah dipahami tanpa mendekati bahaya."}
+    ]}
+  ],
+  "lookout": [
+    {"speaker":"Narator","text":"Dari batu pengamat, Jaka melihat jalan setapak menuju permukiman. Rute dan tempat pengamatan ini adalah bagian dari cerita fiksi permainan."},
+    {"speaker":"Jaka","text":"Aku sudah tahu arah jalannya. Sekarang aku harus kembali menyampaikan pengamatan ini."}
+  ],
+  "report": [
+    {"speaker":"Jaka","text":"Ada jalan setapak yang menuju permukiman. Aku belum tahu apakah seluruhnya aman, tetapi warga dapat diberi tahu arahnya."},
+    {"speaker":"Pangeran Diponegoro","text":"Terima kasih. Ceritakan hanya yang benar-benar kau lihat. Keselamatan warga perlu dipikirkan dengan hati-hati."},
+    {"speaker":"Narator","text":"Di Selarong, perjalanan Jaka berlanjut dari kabar di jalan menuju keadaan desa-desa yang terdampak. Jaka dan percakapan ini adalah rekaan."}
+  ],
+  "facts": [
+    {"title":"01 / Selarong","text":"Setelah serangan di Tegalrejo pada Juli 1825, Diponegoro menuju Selarong. Kawasan ini penting pada awal perlawanan."},
+    {"title":"02 / Gua Selarong","text":"Gua Selarong dikenal dalam kisah awal perlawanan Diponegoro. Letak gua dan jalur yang dimainkan disederhanakan untuk permainan."},
+    {"title":"03 / Cerita Jaka","text":"Jaka, penjaga, pesan warga, dan batu pengamat merupakan dramatisasi. Dialog Diponegoro bukan kutipan sejarah."}
+  ]
+}

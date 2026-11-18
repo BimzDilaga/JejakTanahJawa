@@ -23,7 +23,15 @@ Tiga informasi yang disampaikan kepada pemain:
 
 Sumber museum menyebut 21 Juli, sementara keterangan Kemantren Tegalrejo dan kajian Bantul menyebut 20 Juli untuk penyerangan. Karena naskah desain juga memakai bulan, game konsisten menampilkan **Juli 1825**, tanpa menetapkan tanggal harian.
 
-Transisi hanya menggambarkan hubungan Tegalrejo dengan Selarong secara skematis. Peta bukan peta militer atau bukti bahwa semua keluarga dan pasukan melewati satu rute bersama. Bab 1 berakhir setelah pesan diserahkan kepada penjaga. Bab 2 tentang jalur menuju Selarong belum tersedia. Pilihan jawaban hanya mengubah respons singkat, tanpa mengubah fakta atau akhir cerita.
+Transisi hanya menggambarkan hubungan Tegalrejo dengan Selarong secara skematis. Peta bukan peta militer atau bukti bahwa semua keluarga dan pasukan melewati satu rute bersama. Bab 1 berakhir setelah pesan diserahkan kepada penjaga. Bab 2 melanjutkan perjalanan fiktif menuju Selarong. Pilihan jawaban hanya mengubah respons singkat, tanpa mengubah fakta atau akhir cerita.
+
+## Bab 2: Menembus Jalur Perlawanan
+
+Sari, Lasmi, warga penerima, utusan, jembatan rusak, misi bekal, jumlah 16 tentara, dan rute platform merupakan rekaan desain gameplay. Mereka tidak dimaksudkan sebagai rekonstruksi pertempuran atau tokoh historis. Kartu sejarah membahas dampak umum konflik pada kehidupan warga dan peran Selarong sebagai basis awal, memakai konteks sumber di atas. Permainan tidak menetapkan koordinat geografis, jumlah korban, atau tanggal pertempuran baru.
+
+## Bab 3: Selarong
+
+Museum Benteng Vredeburg menyebut kawasan Gua Selarong sebagai tempat perundingan siasat awal perlawanan Diponegoro setelah peristiwa Tegalrejo. Dalam permainan, tata letak lereng dan gua disederhanakan. Jaka, pesan warga, penjaga, batu pengamat, serta semua dialog dengan Diponegoro merupakan rekaan, bukan kutipan atau rekonstruksi pertemuan historis. Sumber: [Diorama perjuangan Pangeran Diponegoro](https://vredeburg.id/id/post/diorama-perjuangan-pangeran-diponegoro).
 
 ## Aset
 
