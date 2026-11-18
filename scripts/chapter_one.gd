@@ -1,4 +1,12 @@
 extends Node2D
+const SARI_IMAGE := "res://assets/Karakter/WAIFU .png"
+const SARI_REGION := Rect2(303, 127, 416, 1364)
+const PROLOGUE := [
+	{"speaker": "Narator", "text": "Tegalrejo, Juli 1825. Menjelang petang, Sari masih berada di jalan desa ketika para warga mulai menutup pintu rumah."},
+	{"speaker": "Sari", "text": "Di dekat makam aku melihat patok baru. Orang-orang berkumpul, dan tak seorang pun tahu apakah jalan itu masih aman besok."},
+	{"speaker": "Sari", "text": "Aku akan beri tahu keluarga di ujung desa. Kalau Jaka datang, minta dia menemui sesepuh. Beliau tahu apa yang terjadi."},
+	{"speaker": "Narator", "text": "Sari pun pergi menyusuri pematang. Tak lama kemudian, Jaka tiba di Tegalrejo."},
+]
 ## Chapter 1 owns progression; actors only report actions and damage.
 const INK := Color("142b2a")
 const GOLD := Color("e8c581")
@@ -6,6 +14,9 @@ const PAPER := Color("fff2d4")
 const MUTED := Color("a9bbb1")
 const FLOOR_Y := 570.0
 const WORLD_WIDTH := 3800.0
+const CAMERA_ZOOM := 1.25
+const CAMERA_Y := 460.0
+const CAMERA_HALF_WIDTH := 640.0 / CAMERA_ZOOM
 const ActorVisual = preload("res://scripts/actor_visual.gd")
 enum Stage { MENU, INTRO, EXPLORE, WARNING, AFTERMATH, EXIT, TRANSITION, COMPLETE, FAILED }
 
@@ -13,7 +24,7 @@ var stage: Stage = Stage.MENU
 var story: Dictionary
 var world: Node2D
 var player: CharacterBody2D
-var cat: Sprite2D
+var cat: AnimatedSprite2D
 var camera: Camera2D
 var mountains: Node2D
 var sari: Node2D
@@ -26,6 +37,7 @@ var ui: Control
 var hud: Control
 var menu: Control
 var objective_label: Label
+var health_icons: Array[TextureRect] = []
 var health_label: Label
 var chapter_steps: Label
 var dialogue_box: Control
@@ -84,10 +96,17 @@ func _build_world() -> void:
 	add_child(world)
 	mountains = Node2D.new()
 	world.add_child(mountains)
+	var mountain_region := Rect2(0, 330, 2172, 300)
+	var mountain_scale := Vector2(0.7, 1.02)
+	var mountain_width := mountain_region.size.x * mountain_scale.x
 	for i in range(-1, 4):
-		_region_sprite(mountains, "res://assets/Background/Tegalrejo/tegalrejo_mountains.png", Rect2(0, 330, 2172, 310), Vector2(i * 1500, 265), Vector2(0.7, 0.7))
+		var tile := _region_sprite(mountains, "res://assets/Background/Tegalrejo/tegalrejo_mountains.png", mountain_region, Vector2(i * mountain_width, 261), mountain_scale)
+		# Mirrored tiles meet at matching edges of the ridge.
+		tile.flip_h = posmod(i, 2) == 1
 	for i in range(3):
-		_region_sprite(world, "res://assets/Background/Tegalrejo/tegalrejo_village.png", Rect2(0, 265, 2172, 355), Vector2(i * 1954 - 180, 266), Vector2(0.9, 0.9))
+		var village := _region_sprite(world, "res://assets/Background/Tegalrejo/tegalrejo_village.png", Rect2(0, 265, 2172, 355), Vector2(i * 1900 - 180, 266), Vector2(0.9, 0.9))
+		if i > 0:
+			village.material = _horizontal_fade(0.0, 0.03, false)
 	for i in range(4):
 		_region_sprite(world, "res://assets/Background/Tegalrejo/ground.png", Rect2(0, 346, 2172, 378), Vector2(i * 1303 - 100, 564), Vector2(0.6, 0.6))
 	_solid(Vector2(WORLD_WIDTH / 2, FLOOR_Y + 100), Vector2(WORLD_WIDTH + 400, 200))
@@ -96,14 +115,14 @@ func _build_world() -> void:
 	var scenery := Node2D.new()
 	scenery.set_script(load("res://scripts/scenery.gd"))
 	world.add_child(scenery)
+	_add_walker("female", 575.0, 470.0, 675.0)
+	_add_walker("male", 2280.0, 2140.0, 2420.0, -1.0)
 	player = preload("res://player.tscn").instantiate()
 	player.position = Vector2(230, FLOOR_Y)
 	world.add_child(player)
 	if not player.is_in_group("player"):
 		player.add_to_group("player")
-	cat = ActorVisual.make_sprite("res://assets/Karakter/Cuking Taby.png", 39.0, Rect2(279, 118, 999, 822))
-	cat.position = Vector2(155, FLOOR_Y - 19.5)
-	world.add_child(cat)
+	cat = _make_cat(Vector2(155, FLOOR_Y - 56.0))
 	sari = _npc("Sesepuh", "res://assets/Karakter/sesepuh.png", Rect2(264,102,499,1377), 900)
 	wirya = _npc("Utusan", "res://assets/Karakter/NPC cwo.png", Rect2(253,150,483,1330), 1510)
 	sari_area = _area(Vector2(900, FLOOR_Y - 60), Vector2(210, 180))
@@ -131,14 +150,16 @@ func _build_world() -> void:
 	exit_area.body_exited.connect(func(body: Node2D) -> void:
 		if body == player: exit_near = false)
 	camera = Camera2D.new()
-	camera.position = Vector2(640, 360)
+	camera.position = Vector2(640, CAMERA_Y)
+	camera.zoom = Vector2.ONE * CAMERA_ZOOM
 	camera.limit_left = 0
 	camera.limit_right = int(WORLD_WIDTH)
 	camera.limit_top = 0
-	camera.limit_bottom = 720
+	camera.limit_bottom = 800
 	world.add_child(camera)
 	_world_label("TEGALREJO", Vector2(100, 495), 22, GOLD)
-	_world_label("JALUR KELUAR  >", Vector2(3320, 405), 19, GOLD)
+	_world_label("JALUR KELUAR  >", Vector2(3395, 244), 19, GOLD)
+	_add_upgrade_hut(1200.0)
 
 func _region_sprite(parent: Node, path: String, region: Rect2, at: Vector2, factor: Vector2) -> Sprite2D:
 	var sprite := Sprite2D.new()
@@ -150,6 +171,16 @@ func _region_sprite(parent: Node, path: String, region: Rect2, at: Vector2, fact
 	sprite.scale = factor
 	parent.add_child(sprite)
 	return sprite
+
+func _horizontal_fade(start: float, finish: float, fade_out: bool) -> ShaderMaterial:
+	var shader := Shader.new()
+	shader.code = "shader_type canvas_item; uniform float fade_start; uniform float fade_end; uniform bool fade_out; void fragment(){ vec4 color = texture(TEXTURE, UV); float fade = smoothstep(fade_start, fade_end, UV.x); color.a *= fade_out ? 1.0 - fade : fade; COLOR = color; }"
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("fade_start", start)
+	material.set_shader_parameter("fade_end", finish)
+	material.set_shader_parameter("fade_out", fade_out)
+	return material
 
 func _solid(at: Vector2, dimensions: Vector2) -> void:
 	var body := StaticBody2D.new()
@@ -176,6 +207,33 @@ func _area(at: Vector2, dimensions: Vector2) -> Area2D:
 	world.add_child(area)
 	return area
 
+func _make_cat(at: Vector2) -> AnimatedSprite2D:
+	var sprite := AnimatedSprite2D.new()
+	sprite.name = "Taby"
+	sprite.sprite_frames = ActorVisual.cat_frames()
+	sprite.position = at
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	world.add_child(sprite)
+	sprite.play("groom")
+	return sprite
+
+func _update_cat_animation(moving: bool, jumping: bool) -> void:
+	var animation := "jump" if jumping else ("walk" if moving else "groom")
+	if cat.animation != animation:
+		cat.play(animation)
+
+func _add_walker(variant: String, start_x: float, left_x: float, right_x: float, direction: float = 1.0) -> Node2D:
+	var walker := Node2D.new()
+	walker.set_script(load("res://scripts/village_walker.gd"))
+	walker.name = "WargaBerjalan_%d" % roundi(start_x)
+	walker.variant = variant
+	walker.left_x = left_x
+	walker.right_x = right_x
+	walker.direction = direction
+	walker.position = Vector2(start_x, FLOOR_Y)
+	world.add_child(walker)
+	return walker
+
 func _npc(npc_name: String, path: String, region: Rect2, x: float) -> Node2D:
 	var actor := Node2D.new()
 	actor.position = Vector2(x, FLOOR_Y)
@@ -193,6 +251,26 @@ func _world_label(text: String, at: Vector2, font_size: int, color: Color) -> vo
 	label.add_theme_color_override("font_shadow_color", INK)
 	label.add_theme_constant_override("shadow_offset_x", 2)
 	label.add_theme_constant_override("shadow_offset_y", 2)
+
+func _add_upgrade_hut(x: float) -> void:
+	var hut := Node2D.new()
+	hut.name = "UpgradeHut"
+	hut.position = Vector2(x, FLOOR_Y)
+	var walls := Polygon2D.new()
+	walls.polygon = PackedVector2Array([Vector2(-55, 0), Vector2(-55, -62), Vector2(55, -62), Vector2(55, 0)])
+	walls.color = Color("775540")
+	hut.add_child(walls)
+	var door := Polygon2D.new()
+	door.polygon = PackedVector2Array([Vector2(-13, 0), Vector2(-13, -39), Vector2(13, -39), Vector2(13, 0)])
+	door.color = Color("392b24")
+	hut.add_child(door)
+	var roof := Polygon2D.new()
+	roof.polygon = PackedVector2Array([Vector2(-69, -57), Vector2(0, -98), Vector2(69, -57)])
+	roof.color = Color("a07748")
+	hut.add_child(roof)
+	world.add_child(hut)
+	world.move_child(hut, player.get_index())
+	_world_label("GUBUK UPGRADE", Vector2(x - 83, FLOOR_Y - 126), 16, GOLD)
 
 func _style(bg: Color, border: Color = Color.TRANSPARENT, radius: int = 9) -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -271,9 +349,30 @@ func _build_ui() -> void:
 	_panel(hud,Rect2(1024,24,228,86),Color("142b2af2"))
 	_label(hud,"JAKA",Rect2(1044,36,100,22),16,GOLD)
 	health_label = _label(hud,"",Rect2(1044,64,190,30),22)
+	health_label.hide()
+	var badge := TextureRect.new()
+	badge.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	badge.texture = load("res://assets/Asset in game/heart/jaka_and_cat_only.png")
+	badge.position = Vector2(962, 27)
+	badge.size = Vector2(64, 72)
+	badge.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	badge.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hud.add_child(badge)
+	var heart := AtlasTexture.new()
+	heart.atlas = load("res://assets/Asset in game/heart/hearts_only.png")
+	heart.region = Rect2(0, 0, 280, 253)
+	for index in range(player.max_health):
+		var icon := TextureRect.new()
+		icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		icon.texture = heart
+		icon.position = Vector2(1044 + index * 36, 65)
+		icon.size = Vector2(30, 28)
+		icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		hud.add_child(icon)
+		health_icons.append(icon)
 	_panel(hud,Rect2(28,662,1224,38),Color("142b2ae6"))
-	_label(hud,"A D / PANAH   Gerak       SPACE   Lompat       E   Bicara       1 / 2   Pilih jawaban",Rect2(45,669,930,25),16)
-	_label(hud,"J  Tembak    T  Catatan    ESC  Jeda",Rect2(966,669,275,25),15,GOLD)
+	_label(hud,"A D  Jalan    TAHAN SHIFT  Lari    SPACE  Lompat    E  Bicara    1 / 2  Pilihan",Rect2(45,669,930,25),16)
+	_label(hud,"J  Serang    T  Catatan    ESC  Jeda",Rect2(966,669,275,25),15,GOLD)
 	prompt = _label(hud,"",Rect2(390,392,500,44),21,GOLD)
 	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	prompt.add_theme_color_override("font_shadow_color",INK)
@@ -283,23 +382,25 @@ func _build_ui() -> void:
 	notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	notice.add_theme_stylebox_override("normal",_style(Color("142b2ae6")))
 	notice.hide()
-	# Place the conversation over the sky so Jaka and the village remain visible.
-	dialogue_box = _panel(ui,Rect2(28,153,1224,155),Color("102826ed"),GOLD)
+	# Keep the conversation beneath the actors; the camera frames Jaka above it.
+	dialogue_box = _panel(ui,Rect2(28,502,1224,152),Color("102826f2"),GOLD)
+	dialogue_box.clip_contents = false
 	portrait = TextureRect.new()
-	portrait.position = Vector2(18,11)
-	portrait.size = Vector2(96,135)
 	portrait.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	portrait.position = Vector2(10,-54)
+	portrait.size = Vector2(174,198)
 	portrait.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	portrait.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	dialogue_box.add_child(portrait)
-	speaker_label = _label(dialogue_box,"",Rect2(135,12,1025,30),21,GOLD)
+	speaker_label = _label(dialogue_box,"",Rect2(202,10,962,30),21,GOLD)
 	dialogue_label = RichTextLabel.new()
-	dialogue_label.position = Vector2(135,45)
-	dialogue_label.size = Vector2(1035,78)
+	dialogue_label.position = Vector2(202,43)
+	dialogue_label.size = Vector2(962,78)
 	dialogue_label.add_theme_font_size_override("normal_font_size",21)
 	dialogue_label.add_theme_color_override("default_color",PAPER)
 	dialogue_label.scroll_active = false
 	dialogue_box.add_child(dialogue_label)
-	dialogue_counter = _label(dialogue_box,"",Rect2(135,126,1020,22),15,MUTED)
+	dialogue_counter = _label(dialogue_box,"",Rect2(202,122,962,22),15,MUTED)
 	dialogue_box.hide()
 	choice_container = Control.new()
 	ui.add_child(choice_container)
@@ -320,7 +421,9 @@ func _build_ui() -> void:
 	title.add_theme_font_override("font",serif)
 	_label(menu,"BAB 01   /   TEGALREJO, JULI 1825",Rect2(64,316,500,35),19,GOLD)
 	_paragraph(menu,"Di tengah desa yang diliputi ketegangan,\nlangkah kecil Jaka menjadi awal sebuah perjalanan.",Rect2(64,366,490,83),22)
-	_button(menu,"Mulai perjalanan   >",Rect2(64,480,440,58),start_chapter,true)
+	_button(menu,"Mulai perjalanan   >",Rect2(64,480,440,58),_start_new_journey,true)
+	_button(menu,"Main Bab 2",Rect2(64,608,212,32),func() -> void: get_tree().change_scene_to_file("res://bab_jalur_perlawanan.tscn"))
+	_button(menu,"Main Bab 3",Rect2(292,608,212,32),func() -> void: get_tree().change_scene_to_file("res://bab_selarong.tscn"))
 	_button(menu,"Tentang kisah ini",Rect2(64,554,274,46),_show_about)
 	_button(menu,"Keluar",Rect2(350,554,154,46),func() -> void: get_tree().quit())
 	_paragraph(menu,"Petualangan sejarah 2D  /  Keyboard\nJaka dan percakapannya adalah dramatisasi fiksi.",Rect2(64,643,510,48),15,MUTED)
@@ -341,7 +444,21 @@ func _set_menu() -> void:
 	player.controls_enabled = false
 	menu.show()
 	hud.hide()
-	camera.position.x = 640
+	camera.position.x = CAMERA_HALF_WIDTH
+
+func _start_new_journey() -> void:
+	GameState.reset_campaign()
+	menu.hide()
+	stage = Stage.INTRO
+	player.controls_enabled = false
+	player.hide()
+	cat.hide()
+	var prologue_sari := _npc("Sari", SARI_IMAGE, SARI_REGION, 450.0)
+	_start_dialogue(PROLOGUE, func() -> void:
+		prologue_sari.queue_free()
+		player.show()
+		cat.show()
+		start_chapter())
 
 func start_chapter() -> void:
 	menu.hide()
@@ -362,15 +479,15 @@ func _process(delta: float) -> void:
 		typing += delta * 48.0
 		dialogue_label.visible_characters = int(typing)
 	if stage != Stage.MENU:
-		camera.position.x = lerpf(camera.position.x, clampf(player.position.x + 180,640,WORLD_WIDTH-640),1.0-exp(-delta*5))
-	mountains.position.x = (camera.position.x-640)*0.65
-	var cat_target := Vector2(player.position.x - player.facing * 66, FLOOR_Y)
-	if absf(cat.position.x-cat_target.x)>12:
-		cat.position.x = move_toward(cat.position.x,cat_target.x,delta*235)
+		camera.position.x = lerpf(camera.position.x, clampf(player.position.x + 180,CAMERA_HALF_WIDTH,WORLD_WIDTH-CAMERA_HALF_WIDTH),1.0-exp(-delta*5))
+	mountains.position.x = (camera.position.x-CAMERA_HALF_WIDTH)*0.65
+	var cat_target := Vector2(player.position.x - player.facing * 66, player.position.y - 56.0)
+	var cat_moving := absf(cat.position.x-cat_target.x)>12.0
+	if cat_moving:
 		cat.flip_h = cat_target.x < cat.position.x
-		cat.position.y = FLOOR_Y - 19.5 - absf(sin(elapsed*10))*3
-	else:
-		cat.position.y = FLOOR_Y - 19.5
+		cat.position.x = move_toward(cat.position.x,cat_target.x,delta*235)
+	cat.position.y = lerpf(cat.position.y, cat_target.y, 1.0 - exp(-delta * 7.0))
+	_update_cat_animation(cat_moving, not player.is_on_floor())
 	prompt.text = ""
 	if stage == Stage.EXPLORE and sari_area.player_near and not GameState.dialogue_active:
 		prompt.text = "[ E ]  Bicara dengan sesepuh"
@@ -482,9 +599,14 @@ func _show_line() -> void:
 	elif line.speaker == "Penjaga":
 		path = "res://assets/Karakter/Penjaga Selarong.png"
 		region = Rect2(0,0,1024,1536)
+	elif line.speaker == "Sari":
+		path = SARI_IMAGE
+		region = SARI_REGION
 	portrait.visible = line.speaker != "Narator"
 	var atlas := AtlasTexture.new()
 	atlas.atlas = load(path)
+	# A bust crop keeps the head and upper body large enough to read.
+	region.size.y *= 0.48
 	atlas.region = region
 	portrait.texture = atlas
 
@@ -519,7 +641,7 @@ func _show_choices(line: Dictionary) -> void:
 	choice_container.visible = choice_active
 	if not choice_active:
 		return
-	var card := _panel(choice_container,Rect2(705,310,547,105),Color("102826f2"),GOLD)
+	var card := _panel(choice_container,Rect2(705,390,547,105),Color("102826f2"),GOLD)
 	_label(card,"JAKA  /  PILIH JAWABAN",Rect2(18,5,510,20),15,GOLD)
 	var choices: Array = line.choices
 	for i in range(choices.size()):
@@ -562,6 +684,8 @@ func _on_player_died() -> void:
 	show_result(false)
 
 func _health_changed(current: int, maximum: int) -> void:
+	for index in range(health_icons.size()):
+		health_icons[index].modulate = Color.WHITE if index < current else Color(0.25, 0.25, 0.25, 0.65)
 	health_label.text = "● ".repeat(maxi(current,0)) + "○ ".repeat(maxi(maximum-current,0))
 
 func _notify(text: String) -> void:
@@ -621,10 +745,13 @@ func show_result(success: bool) -> void:
 		_label(box,"TEGALREJO     - - - - - - - - - - - - >     SELARONG",Rect2(40,198,780,40),24,GOLD)
 		_paragraph(box,"Juli 1825\nSetelah serangan di Tegalrejo, Diponegoro mundur ke Selarong dan menjadikannya basis awal perlawanan.",Rect2(40,270,780,100),23)
 		_label(box,"Pesan tersampaikan    •    3 catatan sejarah ditemukan",Rect2(40,397,780,35),19,MUTED)
-		_label(box,"Bab 2: Jalur menuju Selarong masih dalam pengembangan.",Rect2(40,441,780,30),17,MUTED)
+		_label(box,"Bab 2: Menembus Jalur Perlawanan sudah tersedia.",Rect2(40,441,780,30),17,MUTED)
 	else:
 		_paragraph(box,"Petunjuk\n\nTemui sesepuh, lalu utusan di tengah desa. Antarkan pesan kepada penjaga dekat gerbang sebelum berjalan ke kanan.",Rect2(40,210,780,220),23)
-	_button(box,"Main lagi",Rect2(40,494,380,58),_restart,true)
+	if success:
+		_button(box,"Lanjut Bab 2",Rect2(40,494,380,58),func() -> void: get_tree().change_scene_to_file("res://bab_jalur_perlawanan.tscn"),true)
+	else:
+		_button(box,"Main lagi",Rect2(40,494,380,58),_restart,true)
 	_button(box,"Menu utama",Rect2(440,494,380,58),_return_menu)
 
 func _restart() -> void:

@@ -11,6 +11,29 @@ var objective_completed: bool = false
 var supply_checked: int = 0
 var enemies_defeated: int = 0
 var objective: String = ""
+var heal_stock := 0
+var defeats_toward_heal := 0
+var aid_heal_claimed := false
+
+func claim_aid_heal() -> bool:
+	if aid_heal_claimed:
+		return false
+	aid_heal_claimed = true
+	heal_stock += 1
+	return true
+
+func award_patrol_defeat() -> bool:
+	defeats_toward_heal += 1
+	if defeats_toward_heal < 7:
+		return false
+	defeats_toward_heal = 0
+	heal_stock += 1
+	return true
+
+func reset_campaign() -> void:
+	heal_stock = 0
+	defeats_toward_heal = 0
+	aid_heal_claimed = false
 
 func set_objective(text: String, is_done: bool = false) -> void:
 	objective = text
