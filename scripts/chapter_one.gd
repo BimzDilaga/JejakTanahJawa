@@ -72,6 +72,7 @@ var night_events: Node
 var upgrade_hut: Node
 var journey: Node
 var world_audio: Node
+var device_controls: CanvasLayer
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -113,6 +114,9 @@ func _ready() -> void:
 	journey = preload("res://scripts/journey_session.gd").new()
 	journey.chapter = self
 	add_child(journey)
+	device_controls = preload("res://scripts/device_controls.gd").new()
+	device_controls.chapter = self
+	add_child(device_controls)
 
 func _build_world() -> void:
 	var backdrop := CanvasLayer.new()

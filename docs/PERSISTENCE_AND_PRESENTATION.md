@@ -34,6 +34,8 @@ Pack Buto berisi 12 SFX sintetis, Banaspati sembilan SFX sumber pengguna, Jaka t
 
 ## Verifikasi dan batas praktis
 
-Enam belas suite menguji bab, combat, parry, platform Banaspati, fase boss, rumor, upgrade, ending, save/restore, menu dan audio. Tes tambahan menulis/membaca slot dalam dua proses Godot yang berbeda. Screenshot renderer memeriksa framing menu, peta terkunci/terbuka, ukuran Headless, ultimate dan ketiga epilog. Versi Web diuji lewat proses Chrome terpisah untuk persistensi; paket ekspor juga diperiksa untuk aset runtime dan pengecualian sumber mentah.
+Perangkat sentuh menampilkan 11 tombol aksi, jeda, dan fullscreen; dialog memakai tombol Lanjut. TouchScreenButton mendukung multitouch untuk gerak + dash + lompat. Windows memiliki tombol fullscreen di menu dan F11; browser meminta fullscreen melalui klik pengguna. Uji perangkat Android fisik tetap belum dilakukan.
+
+Tujuh belas suite menguji bab, combat, parry, platform Banaspati, fase boss, rumor, upgrade, ending, save/restore, menu, audio dan multitouch. Tes tambahan menulis/membaca slot dalam dua proses Godot yang berbeda. Screenshot renderer memeriksa framing menu, peta terkunci/terbuka, ukuran Headless, ultimate dan ketiga epilog. Versi Web diuji lewat proses Chrome terpisah untuk persistensi; paket ekspor juga diperiksa untuk aset runtime dan pengecualian sumber mentah.
 
 Angka damage, tempo dan koreografi tetap perlu playtest manusia. UI gubuk/peta/combat masih dapat diganti dengan aset final pengguna. Berkas Library Headless tetap dapat menggantikan versi sekarang saat tersedia.

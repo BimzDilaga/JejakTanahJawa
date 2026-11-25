@@ -30,8 +30,11 @@ Banaspati bergantian bertarung di tanah dan terbang kebal. Saat terbang, tembok 
 - L: dash yang melukai dan membuat musuh terkena stun. Lima serangan yang mengenai musuh mengisi ulti.
 - T: catatan sejarah
 - M: peta, teleport ke daerah terbuka, dan simpan perjalanan
+- F11 atau tombol Layar penuh di menu: fullscreen/keluar fullscreen pada Windows dan browser
 - Esc: jeda / lanjut
 - F6 (editor/debug): pratinjau fase waktu berikutnya. Tidak aktif pada build release.
+
+Perangkat sentuh mendapat tombol gerak, lompat, serang, parry, dash/lari, mundur, bicara, heal, ulti dan catatan. Gerak + dash + lompat mendukung beberapa jari sekaligus. Combat disembunyikan saat dialog dan diganti tombol Lanjut; pilihan dialog tetap bisa disentuh. Gunakan HP dalam posisi mendatar. Android asli belum diuji.
 
 ## Siklus waktu
 
