@@ -140,6 +140,7 @@ func take_damage(amount: int, source_x: float) -> void:
 	cooldown = maxf(cooldown, 0.65)
 	velocity.x = 145.0 if global_position.x >= source_x else -145.0
 	if health == 0:
+		GameState.award_upgrade_defeat()
 		dead = true
 		active = false
 		collision_layer = 0

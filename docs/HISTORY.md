@@ -33,6 +33,15 @@ Sari, Lasmi, warga penerima, utusan, jembatan rusak, misi bekal, jumlah 16 tenta
 
 Museum Benteng Vredeburg menyebut kawasan Gua Selarong sebagai tempat perundingan siasat awal perlawanan Diponegoro setelah peristiwa Tegalrejo. Dalam permainan, tata letak lereng dan gua disederhanakan. Jaka, pesan warga, penjaga, batu pengamat, serta semua dialog dengan Diponegoro merupakan rekaan, bukan kutipan atau rekonstruksi pertemuan historis. Sumber: [Diorama perjuangan Pangeran Diponegoro](https://vredeburg.id/id/post/diorama-perjuangan-pangeran-diponegoro).
 
-## Aset
+## Bab 4–5 dan penutup
 
-Aset visual berasal dari folder assets yang disediakan pengguna. Dokumentasi ini tidak menetapkan asal pencipta atau lisensi tambahan yang belum diberikan. Tidak ada lukisan atau gambar sejarah dari internet yang ditambahkan dalam Bab 1.
+Desa Terdampak adalah desa rekaan tanpa koordinat atau klaim serangan tertentu. Transisi ke Magelang secara eksplisit melompati tahun-tahun perang; seluruh lima bab tidak berlangsung dalam satu malam. Jaka, Sari, penunjuk jalan, keluarga warga, komandan terakhir dan pertarungan keluar kota adalah fiksi. Komandan tidak dimaksudkan sebagai rekonstruksi De Kock. Buto Ijo, Banaspati dan Headless Swordsman adalah fantasi dalam game, bukan bukti peristiwa Perang Jawa.
+
+Semua ending mempertahankan penangkapan Diponegoro di Magelang pada **28 Maret 1830** dalam konteks perundingan. Kemenangan Jaka tidak membatalkan peristiwa itu. Catatan Jaka/Sari berisi pengalaman tokoh rekaan dan tidak disajikan sebagai kutipan sumber autentik. Sumber pemeriksaan tambahan pada 25 November 2026:
+
+- [Dinas Pendidikan dan Kebudayaan Kota Magelang](https://disdikbud.magelangkota.go.id/index.php/main/selanjutnya/21), untuk konteks penangkapan di Magelang dan tanggalnya.
+- [UNESCO: Babad Diponegoro](https://www.unesco.org/en/memory-world/babad-diponegoro-or-autobiographical-chronicle-prince-diponegoro-1785-1855-javanese-nobleman), untuk konteks kronik autobiografi Diponegoro, yang berbeda dari catatan rekaan Jaka/Sari.
+
+## Aset tambahan
+
+Aset sumber pengguna dipertahankan dalam folder assets. Tambahan animasi dan panorama dibuat melalui image_gen, dengan prompt dan raw disimpan terpisah; rincian di UPDATE_2026_11_25.md. Dokumentasi ini tidak menetapkan asal pencipta atau lisensi tambahan atas sumber pengguna yang belum diberikan. Tidak ada lukisan atau gambar sejarah dari internet yang ditambahkan dalam Bab 1.

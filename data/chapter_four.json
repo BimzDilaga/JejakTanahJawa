@@ -1,0 +1,24 @@
+{
+  "intro": [
+    {"speaker":"Narator","text":"Desa terdampak perang. Rumah-rumah masih berdiri, tetapi banyak pintu tertutup. Jaka dan Sari mencari warga yang masih menunggu kabar."},
+    {"speaker":"Sari","text":"Kita tanya langsung kepada mereka. Jangan membawa kabar yang belum pasti."}
+  ],
+  "elder": [
+    {"speaker":"Tetua desa","text":"Keluarga di ujung jalan belum bertemu lagi dengan kerabatnya. Temui mereka, lalu bantu Sari menyusun kabar yang benar-benar kita ketahui."},
+    {"speaker":"Jaka","text":"Aku akan mendengar mereka. Tentara di jalan bisa kulewati; aku tidak perlu menyerang semua orang untuk sampai ke sana."}
+  ],
+  "family": [
+    {"speaker":"Warga","text":"Kami masih di sini. Sebagian keluarga sudah menuju tempat singgah. Tolong sampaikan bahwa kami akan menyusul melalui jalan yang aman."},
+    {"speaker":"Jaka","text":"Aku akan menyampaikannya. Namamu dan keluargamu tidak akan hilang dari kabar yang kami bawa."}
+  ],
+  "report": [
+    {"speaker":"Jaka","text":"Keluarga itu selamat. Mereka akan menyusul ke tempat singgah. Ini yang mereka minta untuk kita sampaikan."},
+    {"speaker":"Sari","text":"Aku mencatat nama dan pesan mereka. Bukan untuk mengubah apa yang terjadi, tetapi agar kita tidak melupakan siapa yang masih menunggu."},
+    {"speaker":"Narator","text":"Perjalanan terus berlanjut. Tahun-tahun perang mengubah jalan dan desa. Pada akhirnya, kabar membawa mereka menuju Magelang."}
+  ],
+  "facts": [
+    {"title":"01 / Warga di tengah perang","text":"Keluarga dan desa yang dimainkan adalah rekaan. Misi ini menggambarkan perjalanan orang biasa di tengah konflik, bukan rekonstruksi suatu serangan tertentu."},
+    {"title":"02 / Tiga legenda malam","text":"Buto Ijo, Banaspati, dan Headless Swordsman merupakan bagian fantasi permainan. Temukan rumor mereka saat malam. Tentara biasa tetap opsional."},
+    {"title":"03 / Kabar dan catatan","text":"Jaka dan Sari adalah tokoh fiksi. Pesan dan catatan mereka bukan sumber sejarah autentik."}
+  ]
+}

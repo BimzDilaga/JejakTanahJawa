@@ -1,0 +1,67 @@
+{
+  "status": "implemented_procedural_user_authorized_2026_11_25",
+  "note": "Original fal prompt plan retained as reference. User authorized code-generated SFX after the fal failure. Current generator: tools/prepare_buto_sfx.py; report: docs/BUTO_IJO_SFX_REPORT.json. No fal jobs submitted for this replacement pack.",
+  "endpoint": "elevenlabs/sound-effects/v3",
+  "clips": [
+    {
+      "name": "01_footstep_a",
+      "duration_seconds": 1.2,
+      "prompt": "One huge barefoot ogre footstep landing on compact forest soil. Deep heavy body thud, short dirt crunch, a few pebbles rattling, subtle vegetation movement. Powerful but realistic, isolated clean game sound, dry close recording, natural short decay. No music, no speech, no background ambience."
+    },
+    {
+      "name": "02_footstep_b",
+      "duration_seconds": 1.2,
+      "prompt": "One alternate heavy giant footstep on compact forest earth, slightly deeper heel impact then a brief gravel crunch and leaf movement. Consistent large ogre weight, isolated close game sound, clean background and short natural decay. No music, no speech."
+    },
+    {
+      "name": "03_light_sword_swing",
+      "duration_seconds": 0.7,
+      "prompt": "One fast heavy iron sword swing through air, a sharp rising whoosh with a small metallic blade resonance at the end. Large ogre weapon, powerful and compact, clean isolated game SFX, no impact, no music or voice, short dry tail."
+    },
+    {
+      "name": "04_reverse_sword_swing",
+      "duration_seconds": 0.85,
+      "prompt": "One reverse-direction sweep of a large heavy iron sword. Low initial air rush, fast bright edge whistle, brief vibrating metal tail. Distinct second swing in a giant's combo, clean isolated close game SFX, no music, no speech, no impact."
+    },
+    {
+      "name": "05_heavy_windup",
+      "duration_seconds": 1.2,
+      "prompt": "A giant slowly pulls back a massive iron sword preparing a heavy blow. Low gathering air rush, tense wood and leather creak, restrained resonant blade vibration rising toward release. Isolated telegraph game SFX, no actual impact, no music, no speech."
+    },
+    {
+      "name": "06_heavy_ground_impact",
+      "duration_seconds": 2,
+      "prompt": "A giant's massive iron sword crashes once into hard earth and limestone. Strong sharp metal-on-stone attack, deep weighty earth thump, spreading stone debris and dirt settling with a short natural tail. Clean isolated fantasy game SFX, no music, no speech, no prolonged rumble bed."
+    },
+    {
+      "name": "07_parry_metal_clash",
+      "duration_seconds": 1,
+      "prompt": "One clear sharp clash between a small steel keris dagger and a massive iron sword. Bright metallic transient, resonant double blade ring and tiny sparks, short restrained outdoor decay. Precise successful parry sound, clean isolated game SFX, no music, no voice."
+    },
+    {
+      "name": "08_earth_shockwave",
+      "duration_seconds": 2.4,
+      "prompt": "A heavy giant sword strike sends a low rolling shockwave along stony forest soil. An initial deep crack followed by a fast travelling sequence of earth fractures, pebbles and gritty debris, then a clean fading rumble. Isolated fantasy game SFX, no music or speech."
+    },
+    {
+      "name": "09_pain_grunt",
+      "duration_seconds": 1.2,
+      "prompt": "One short low strained pain grunt from a huge humanoid green ogre. Rough breath and deep chest resonance, organic throat texture, no intelligible syllables or words. Close isolated monster game SFX, restrained and believable, no dinosaur roar, no music, no ambience."
+    },
+    {
+      "name": "10_stance_break",
+      "duration_seconds": 2,
+      "prompt": "A huge humanoid ogre loses balance and drops to one knee: short strained breath, a sharp sword vibration, heavy knee thud on earth and a few stones scattering. A distinct readable stance-break game cue, natural weight and brief decay, no spoken words or music."
+    },
+    {
+      "name": "11_spawn_roar",
+      "duration_seconds": 3,
+      "prompt": "One intimidating low chest roar from a huge humanoid green ogre emerging at night. Rough breath gathers, a powerful organic growl swells then ends in a breathy snarl, with very restrained outdoor resonance. Isolated monster game SFX, no words, no music, no dinosaur or robotic voice."
+    },
+    {
+      "name": "12_death_fall",
+      "duration_seconds": 3.5,
+      "prompt": "A huge humanoid ogre gives a weakening breathy groan then collapses heavily onto forest earth. Deep body thud, massive iron sword clatters once beside him, dirt and small stones settle, clean fading tail. Isolated fantasy game defeat sound, no words, no music, no gore sounds."
+    }
+  ]
+}

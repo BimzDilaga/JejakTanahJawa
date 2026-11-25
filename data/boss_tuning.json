@@ -1,0 +1,42 @@
+{
+  "note": "Nilai sementara arena uji, disetujui pengguna. Bukan keseimbangan final.",
+  "buto": {
+    "health": 72, "stance_max": 8, "damage": 1, "heavy_damage": 2,
+    "phase_count": 2, "phase_hold": 2.0, "phase_two_tempo": 1.25,
+    "light_knockback": 250.0, "heavy_knockback": 380.0,
+    "walk_speed": 65, "run_speed": 210, "melee_range": 205,
+    "windup": 0.55, "heavy_windup": 0.95, "recovery": 0.75,
+    "stance_hold": 4.0, "parry_stance": 2, "hit_stance": 1
+  },
+  "headless": {
+    "visual_scale": 0.62,
+    "health": 64, "stance_max": 8, "damage": 1, "heavy_damage": 2,
+    "phase_count": 1, "phase_hold": 2.0, "phase_two_tempo": 1.25,
+    "light_knockback": 250.0, "heavy_knockback": 380.0,
+    "walk_speed": 90, "run_speed": 225, "melee_range": 135,
+    "windup": 0.5, "heavy_windup": 0.9, "recovery": 0.8,
+    "stance_hold": 4.0, "parry_stance": 2, "hit_stance": 1
+  },
+  "commander": {
+    "health": 160, "stance_max": 12, "damage": 1, "heavy_damage": 2,
+    "phase_count": 2, "phase_hold": 2.0, "phase_two_tempo": 1.35,
+    "light_knockback": 250.0, "heavy_knockback": 380.0,
+    "walk_speed": 100, "run_speed": 220, "melee_range": 175,
+    "windup": 0.55, "heavy_windup": 0.95, "recovery": 0.7,
+    "stance_hold": 4.0, "parry_stance": 2, "hit_stance": 1,
+    "reload_time": 2.0, "projectile_speed": 430
+  },
+  "banaspati": {
+    "health": 56, "stance_max": 6, "damage": 1, "heavy_damage": 2,
+    "phase_count": 2, "phase_hold": 2.0, "phase_two_tempo": 1.25,
+    "light_knockback": 250.0, "heavy_knockback": 380.0,
+    "walk_speed": 85, "run_speed": 170, "melee_range": 165,
+    "windup": 0.6, "heavy_windup": 1.0, "recovery": 0.9,
+    "stance_hold": 4.0, "parry_stance": 2, "hit_stance": 1,
+    "air_shot_interval": 1.15, "projectile_speed": 260,
+    "air_cast_windup": 0.38, "pillar_warning": 0.75,
+    "flight_cooldown": 16.0,
+    "platform_stand_seconds": 1.8, "platform_warning_seconds": 0.6,
+    "rear_fire_speed": 140, "rear_fire_max_distance": 360
+  }
+}

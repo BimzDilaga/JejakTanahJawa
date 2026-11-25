@@ -51,12 +51,15 @@ func _build_world() -> void:
 	mountains = Node2D.new()
 	world.add_child(mountains)
 	for i in range(-1,11):
-		_region_sprite(mountains,"res://assets/Background/Forest/forest_distant_trees.png",Rect2(0,0,2172,724),Vector2(i*1737,0),Vector2(0.8,0.8))
+		var distant := _region_sprite(mountains,"res://assets/Background/Forest/forest_distant_trees.png",Rect2(0,0,2172,724),Vector2(i*1735,-160),Vector2(0.8,1.5))
+		distant.flip_h = posmod(i,2)==1
 	# Overlap the two panoramas so the village gives way to the forest gradually.
 	for i in range(9):
 		var forest := _region_sprite(world,"res://assets/Background/Forest/forest_midground.png.png",Rect2(0,0,2172,724),Vector2(850 + i * 1737,26),Vector2(0.8,0.8))
-		if i == 0:
-			forest.material = _horizontal_fade(0.0, 0.23, false)
+		var blend := ShaderMaterial.new()
+		blend.shader = preload("res://shaders/background_edge.gdshader")
+		blend.set_shader_parameter("fade_left",0.23 if i==0 else 0.0)
+		forest.material = blend
 	var village := _region_sprite(world,"res://assets/Background/Tegalrejo/tegalrejo_village.png",Rect2(0,265,2172,355),Vector2(0,290),Vector2(0.8,0.8))
 	village.material = _horizontal_fade(0.60, 1.0, true)
 	_region_sprite(world,"res://assets/Background/Selarong/Pixel Art Karst Cliff Panorama.png",Rect2(0,0,2172,724),Vector2(13400,63),Vector2(0.9,0.7))
@@ -133,12 +136,7 @@ func _build_world() -> void:
 
 func _floor(x: float, width: float) -> void:
 	_solid(Vector2(x+width/2,670),Vector2(width,200))
-	var ground_path := "res://assets/Background/Tegalrejo/ground.png" if x < 3200 else "res://assets/Background/Forest/forest_ground.png.png"
-	var cursor := x
-	while cursor < x+width:
-		var w := minf(1303.2,x+width-cursor)
-		_region_sprite(world,ground_path,Rect2(0,346,w/0.6,378),Vector2(cursor,564),Vector2(0.6,0.6))
-		cursor += w
+	_ground_art(x,width)
 
 func _platform(rect: Rect2) -> void:
 	platforms.append(rect)
@@ -199,8 +197,8 @@ func _process(delta: float) -> void:
 	location_label.text = region
 	location_label.visible = not GameState.dialogue_active
 	combat_label.visible = not GameState.dialogue_active
-	var parry_status := "%.1f dtk" % player.parry_cooldown if player.parry_cooldown > 0.0 else "siap"
-	combat_label.text = "K Parry: %s   •   H Heal: %d   •   L Ulti: %d/%d" % [parry_status, GameState.heal_stock, player.ultimate_charge, player.ULTIMATE_HITS]
+	var parry_status: String = player.parry_status()
+	combat_label.text = "Klik kanan Parry: %s   •   H Heal: %d   •   L Ulti: %d/%d" % [parry_status, GameState.heal_stock, player.ultimate_charge, player.ULTIMATE_HITS]
 	nearest = -1
 	var best := 130.0
 	for i in range(markers.size()):
@@ -225,7 +223,7 @@ func _process(delta: float) -> void:
 			checkpoint_name = "Sebelum patroli"
 			player.reset_health()
 			_spawn_patrol()
-			_notify("Checkpoint tersimpan. Jalur atas melewati sebagian patroli; J untuk melawan.")
+			_notify("Checkpoint tersimpan. Patroli boleh dilewati; kalahkan tentara untuk poin upgrade.")
 		if x>11700 and mission==4:
 			mission = 5
 			ravine_checkpoint_reached = true
@@ -349,6 +347,7 @@ func _respawn() -> void:
 	_notify("Kembali ke checkpoint: "+checkpoint_name)
 
 func _finish_chapter() -> void:
+	GameState.complete_chapter(2,self)
 	stage=Stage.TRANSITION
 	player.controls_enabled=false
 	GameState.ending_started=true
@@ -365,7 +364,7 @@ func _chapter_three_card() -> void:
 	_paragraph(box,"Di balik pepohonan, tebing Selarong mulai terlihat. Seorang penjaga menunggu di mulut gua. Pesan apa yang harus Jaka bawa selanjutnya?",Rect2(40,190,780,150),24)
 	_label(box,"Bekal tersampaikan  •  %d / %d patroli dikalahkan" % [defeated_count, PATROL_POSITIONS.size()],Rect2(40,360,780,40),21,GOLD)
 	_label(box,"Penjaga Selarong menunggu pesanmu di dekat gua.",Rect2(40,414,780,35),19,MUTED)
-	_button(box,"Lanjut Bab 3",Rect2(40,494,380,58),func() -> void: get_tree().change_scene_to_file("res://bab_selarong.tscn"),true)
+	_button(box,"Lanjut Bab 3",Rect2(40,494,380,58),func() -> void: GameState.travel_to(3,self,false),true)
 	_button(box,"Menu utama",Rect2(440,494,380,58),_return_menu)
 
 func _show_pause() -> void:
@@ -392,6 +391,7 @@ func _show_line() -> void:
 	portrait.texture = atlas
 
 func _return_menu() -> void:
+	GameState.save_campaign(self)
 	get_tree().paused=false
 	GameState.start_on_load=false
 	get_tree().change_scene_to_file("res://bab_tegalrejo.tscn")
@@ -399,7 +399,7 @@ func _return_menu() -> void:
 func _draw() -> void:
 	# Simple code-drawn scenery placeholders use the existing earth palette.
 	draw_rect(Rect2(2500,579,700,156),Color("365c5a"))
-	draw_rect(Rect2(RAVINE_START, 605, RAVINE_END - RAVINE_START, 130), Color("344d49"))
+	# The distant forest fills the ravine instead of an opaque flat rectangle.
 	for i in range(9):
 		var wave_x := 2520.0+float(i)*76.0+sin(elapsed)*8.0
 		draw_line(Vector2(wave_x,655+i%3*16),Vector2(wave_x+38,655+i%3*16),Color("8dada0"),2)

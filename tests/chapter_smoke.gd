@@ -47,13 +47,14 @@ func press(action: String) -> void:
 	await frames(2)
 
 func _run() -> void:
+	preload("res://tests/test_session.gd").isolate("chapter_smoke.gd")
 	Input.action_press("sprint")
 	game = load("res://bab_tegalrejo.tscn").instantiate()
 	add_child(game)
 	await frames(8)
-	for animation in ["walk", "run", "jump", "hurt", "parry", "heal", "ultimate"]:
-		check(game.player.anim.sprite_frames.get_frame_count(animation) == 10, "Sorted folder supplies ten frames for " + animation)
-	check(is_equal_approx(game.player.anim.sprite_frames.get_animation_speed("parry"), 25.0), "Ten parry frames fit the 0.4-second window")
+	var expected_frames := {"walk":8, "run":8, "jump":6, "hurt":3, "parry":6, "heal":8, "ultimate":8, "stun":6, "death":6, "dash":6, "backdash":6, "chain_2":6, "chain_3":6}
+	for animation in expected_frames:
+		check(game.player.anim.sprite_frames.get_frame_count(animation) == expected_frames[animation], "New Jaka sheet supplies frames for " + animation)
 	for animation in ["walk", "jump", "groom"]:
 		check(game.cat.sprite_frames.get_frame_count(animation) == 10, "Taby uses ten cut frames for " + animation)
 	check(game.world.find_children("WargaBerjalan*", "", true, false).size() == 2, "Tegalrejo has two wandering villagers")
@@ -113,11 +114,11 @@ func _run() -> void:
 	await finish_dialogue()
 	check(game.stage==game.Stage.WARNING,"Elder conversation advances to messenger")
 	check(game.facts_unlocked==2,"First two facts unlocked")
-	check(game.player.anim.sprite_frames.get_frame_count("bamboo_attack")==3,"Bamboo attack reuses three ultimate frames")
+	check(game.player.anim.sprite_frames.get_frame_count("keris_attack")==6,"Keris attack uses the latest dedicated six-frame sheet")
 	game.player.perform_attack()
 	await frames(2)
-	check(game.player.anim.animation=="bamboo_attack","Jaka attacks with the bamboo animation")
-	await shot("04-bamboo-attack")
+	check(game.player.anim.animation=="keris_attack","Jaka attacks with the keris animation")
+	await shot("04-keris-attack")
 	await frames(35)
 	game._show_pause()
 	check(get_tree().paused,"Pause pauses world")
@@ -145,7 +146,7 @@ func _run() -> void:
 	await finish_dialogue()
 	check(game.stage==game.Stage.EXIT,"Delivering message unlocks exit")
 	check(GameState.objective_completed,"Exit objective completed")
-	check(get_tree().get_nodes_in_group("enemies").is_empty(),"No patrol combat in revised Chapter 1")
+	check(game.upgrade_hut.soldiers.size()==3 and GameState.upgrade_defeats==0,"Chapter one has optional patrols; its story completes without defeating them")
 	game._show_journal()
 	await shot("05-journal")
 	game._close_overlay()

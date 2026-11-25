@@ -1,0 +1,74 @@
+{
+  "telescope": {
+    "path": "res://assets/Generated/Selarong/telescope-v1.png",
+    "size": [
+      1312,
+      1199
+    ],
+    "region": [
+      202,
+      67,
+      969,
+      1085
+    ],
+    "sha256": "aaf6e9d9c95c00926f990fda975f8fcda0ee256b0e05415fe90b738a8c2ed1f4"
+  },
+  "platform": {
+    "path": "res://assets/Generated/Selarong/limestone-platform-v1.png",
+    "size": [
+      2172,
+      724
+    ],
+    "region": [
+      27,
+      139,
+      2116,
+      499
+    ],
+    "sha256": "9ec3941467587a8fc64b0d777ca272c6b1e1eb03a712a86adc769e8a15fdf78c",
+    "surface_from_top": 79
+  },
+  "lookout": {
+    "path": "res://assets/Generated/Selarong/lookout-rock-v1.png",
+    "size": [
+      1774,
+      887
+    ],
+    "region": [
+      63,
+      205,
+      1652,
+      559
+    ],
+    "sha256": "af1a56b37727546b750963f25564434465532bc0466750cb8918ce8e042c2b9d",
+    "surface_from_top": 17
+  },
+  "shelter": {
+    "path": "res://assets/Generated/Selarong/shelter-v1.png",
+    "size": [
+      1774,
+      887
+    ],
+    "region": [
+      20,
+      117,
+      1734,
+      691
+    ],
+    "sha256": "2e80ac068650d1a2de19f55ea83d73cf5bc76d56b0dbb2ec563a12d4f02f1554"
+  },
+  "valley": {
+    "path": "res://assets/Generated/Selarong/valley-depth-v1.png",
+    "size": [
+      1774,
+      887
+    ],
+    "region": [
+      0,
+      0,
+      1774,
+      887
+    ],
+    "sha256": "7073dadd739465b6ecac9462047681b12cb5299b6f247b44f2b20d0727136679"
+  }
+}

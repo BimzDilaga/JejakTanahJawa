@@ -1,0 +1,178 @@
+{
+  "generator": "procedural_stdlib_v1",
+  "sample_rate": 44100,
+  "channels": 1,
+  "bits_per_sample": 16,
+  "preview_timeline": [
+    {
+      "key": "footstep_a",
+      "start_seconds": 0.0,
+      "duration_seconds": 0.72,
+      "peak_dbfs": -3.8,
+      "rms_dbfs": -17.72,
+      "sha256": "897e4113eb6fa77afee2eb744bb2f3e10fdc8e0f5d00932aa8d461886b576fdb"
+    },
+    {
+      "key": "footstep_b",
+      "start_seconds": 1.27,
+      "duration_seconds": 0.76,
+      "peak_dbfs": -3.46,
+      "rms_dbfs": -17.72,
+      "sha256": "586f7b3aba33fe771ef856e9402202c59e8994c542f54d780bc3d36be9fdbd29"
+    },
+    {
+      "key": "light_swing",
+      "start_seconds": 2.58,
+      "duration_seconds": 0.48,
+      "peak_dbfs": -4.2,
+      "rms_dbfs": -18.42,
+      "sha256": "a8d58a6dd46eeafa3437409e6cc3a61f3815082bb877e911790d47fbc82751c7"
+    },
+    {
+      "key": "reverse_swing",
+      "start_seconds": 3.61,
+      "duration_seconds": 0.55,
+      "peak_dbfs": -4.01,
+      "rms_dbfs": -18.42,
+      "sha256": "8294af2f09acc1dae50829323fe73a5c719c4170251aab614ed587bc490ce406"
+    },
+    {
+      "key": "heavy_windup",
+      "start_seconds": 4.71,
+      "duration_seconds": 0.82,
+      "peak_dbfs": -3.79,
+      "rms_dbfs": -18.42,
+      "sha256": "26b0dd67101e990d04820484639e2f9dbe3aeb10358c102ef828d5580e0dbdb1"
+    },
+    {
+      "key": "heavy_impact",
+      "start_seconds": 6.08,
+      "duration_seconds": 1.55,
+      "peak_dbfs": -1.74,
+      "rms_dbfs": -14.89,
+      "sha256": "3de8fc8a42c3cbd95426f920f846a0178dd898207f05f180966611a741d3aab9"
+    },
+    {
+      "key": "parry",
+      "start_seconds": 8.18,
+      "duration_seconds": 0.72,
+      "peak_dbfs": -2.57,
+      "rms_dbfs": -18.42,
+      "sha256": "2fd2d409ea1a3c95b0652f52dcb9a6dc541355d3b45ba616385f847c488ba12f"
+    },
+    {
+      "key": "wave",
+      "start_seconds": 9.45,
+      "duration_seconds": 1.85,
+      "peak_dbfs": -3.36,
+      "rms_dbfs": -15.92,
+      "sha256": "f0eae51e0965d497d211d0bd7cce08917deb1346df415e53dc72727e80db3742"
+    },
+    {
+      "key": "pain",
+      "start_seconds": 11.85,
+      "duration_seconds": 0.68,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.46,
+      "sha256": "98f035237e7042e719bccd7263b8735cf680be023600dec4143131415298b2dc"
+    },
+    {
+      "key": "break",
+      "start_seconds": 13.08,
+      "duration_seconds": 1.48,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -17.02,
+      "sha256": "9e9694cc6302aa8fd85b04e8e78ecbc18036b859de65427917649a8c80f59884"
+    },
+    {
+      "key": "spawn",
+      "start_seconds": 15.11,
+      "duration_seconds": 2.35,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -14.27,
+      "sha256": "1bc84bbc048e97af1ad2e80945b3ac5bbf003820a1f0a4d2f6c81f809b670707"
+    },
+    {
+      "key": "death",
+      "start_seconds": 18.01,
+      "duration_seconds": 2.65,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.45,
+      "sha256": "01173d0361f1c679637625b6c586cca821037f87a6f0c1133e8ca583bcf6ef4b"
+    }
+  ],
+  "clips": {
+    "footstep_a": {
+      "duration_seconds": 0.72,
+      "peak_dbfs": -3.8,
+      "rms_dbfs": -17.72,
+      "sha256": "897e4113eb6fa77afee2eb744bb2f3e10fdc8e0f5d00932aa8d461886b576fdb"
+    },
+    "footstep_b": {
+      "duration_seconds": 0.76,
+      "peak_dbfs": -3.46,
+      "rms_dbfs": -17.72,
+      "sha256": "586f7b3aba33fe771ef856e9402202c59e8994c542f54d780bc3d36be9fdbd29"
+    },
+    "light_swing": {
+      "duration_seconds": 0.48,
+      "peak_dbfs": -4.2,
+      "rms_dbfs": -18.42,
+      "sha256": "a8d58a6dd46eeafa3437409e6cc3a61f3815082bb877e911790d47fbc82751c7"
+    },
+    "reverse_swing": {
+      "duration_seconds": 0.55,
+      "peak_dbfs": -4.01,
+      "rms_dbfs": -18.42,
+      "sha256": "8294af2f09acc1dae50829323fe73a5c719c4170251aab614ed587bc490ce406"
+    },
+    "heavy_windup": {
+      "duration_seconds": 0.82,
+      "peak_dbfs": -3.79,
+      "rms_dbfs": -18.42,
+      "sha256": "26b0dd67101e990d04820484639e2f9dbe3aeb10358c102ef828d5580e0dbdb1"
+    },
+    "heavy_impact": {
+      "duration_seconds": 1.55,
+      "peak_dbfs": -1.74,
+      "rms_dbfs": -14.89,
+      "sha256": "3de8fc8a42c3cbd95426f920f846a0178dd898207f05f180966611a741d3aab9"
+    },
+    "parry": {
+      "duration_seconds": 0.72,
+      "peak_dbfs": -2.57,
+      "rms_dbfs": -18.42,
+      "sha256": "2fd2d409ea1a3c95b0652f52dcb9a6dc541355d3b45ba616385f847c488ba12f"
+    },
+    "wave": {
+      "duration_seconds": 1.85,
+      "peak_dbfs": -3.36,
+      "rms_dbfs": -15.92,
+      "sha256": "f0eae51e0965d497d211d0bd7cce08917deb1346df415e53dc72727e80db3742"
+    },
+    "pain": {
+      "duration_seconds": 0.68,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.46,
+      "sha256": "98f035237e7042e719bccd7263b8735cf680be023600dec4143131415298b2dc"
+    },
+    "break": {
+      "duration_seconds": 1.48,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -17.02,
+      "sha256": "9e9694cc6302aa8fd85b04e8e78ecbc18036b859de65427917649a8c80f59884"
+    },
+    "spawn": {
+      "duration_seconds": 2.35,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -14.27,
+      "sha256": "1bc84bbc048e97af1ad2e80945b3ac5bbf003820a1f0a4d2f6c81f809b670707"
+    },
+    "death": {
+      "duration_seconds": 2.65,
+      "peak_dbfs": -1.51,
+      "rms_dbfs": -16.45,
+      "sha256": "01173d0361f1c679637625b6c586cca821037f87a6f0c1133e8ca583bcf6ef4b"
+    }
+  }
+}

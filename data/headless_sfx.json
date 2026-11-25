@@ -1,0 +1,18 @@
+{
+  "status":"ready_procedural",
+  "root":"res://assets/Generated/Audio/Headless/",
+  "clips":{
+    "step_a":{"file":"step-a.wav","volume_db":-24,"cooldown":0.12},
+    "step_b":{"file":"step-b.wav","volume_db":-24,"cooldown":0.12},
+    "swing_a":{"file":"swing-a.wav","volume_db":-18,"cooldown":0.12},
+    "swing_b":{"file":"swing-b.wav","volume_db":-18,"cooldown":0.12},
+    "windup":{"file":"windup.wav","volume_db":-20,"cooldown":0.25},
+    "slam":{"file":"slam.wav","volume_db":-17,"cooldown":0.2},
+    "parry":{"file":"parry.wav","volume_db":-16,"cooldown":0},
+    "smoke":{"file":"smoke.wav","volume_db":-20,"cooldown":0.25},
+    "pain":{"file":"pain.wav","volume_db":-23,"cooldown":0.4},
+    "break":{"file":"break.wav","volume_db":-18,"cooldown":0.5},
+    "spawn":{"file":"spawn.wav","volume_db":-20,"cooldown":0.5},
+    "death":{"file":"death.wav","volume_db":-20,"cooldown":0.5}
+  }
+}

@@ -18,6 +18,8 @@ const CAMERA_ZOOM := 1.25
 const CAMERA_Y := 460.0
 const CAMERA_HALF_WIDTH := 640.0 / CAMERA_ZOOM
 const ActorVisual = preload("res://scripts/actor_visual.gd")
+const DayNight = preload("res://scripts/day_night_cycle.gd")
+const Atmosphere = preload("res://scripts/ambient_atmosphere.gd")
 enum Stage { MENU, INTRO, EXPLORE, WARNING, AFTERMATH, EXIT, TRANSITION, COMPLETE, FAILED }
 
 var stage: Stage = Stage.MENU
@@ -63,6 +65,13 @@ var facts_unlocked: int = 0
 var paused: bool = false
 var overlay_mode: String = ""
 var exit_near: bool = false
+var day_night: CanvasLayer
+var time_label: Label
+var atmosphere: Node2D
+var night_events: Node
+var upgrade_hut: Node
+var journey: Node
+var world_audio: Node
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -70,14 +79,40 @@ func _ready() -> void:
 	story = JSON.parse_string(FileAccess.get_file_as_string("res://data/chapter_one.json"))
 	_build_world()
 	_build_ui()
+	day_night = DayNight.new()
+	day_night.name = "DayNightCycle"
+	day_night.chapter = self
+	day_night.phase_label = time_label
+	add_child(day_night)
+	atmosphere = Atmosphere.new()
+	atmosphere.name = "Atmosphere"
+	atmosphere.camera = camera
+	atmosphere.embers = get("kind")=="banaspati"
+	atmosphere.mist = not get_script().resource_path.ends_with("chapter_one.gd")
+	atmosphere.wooded = get_script().resource_path.get_file() in ["chapter_two.gd","chapter_three.gd","boss_arena.gd"]
+	world.add_child(atmosphere)
+	world_audio = preload("res://scripts/world_audio.gd").new()
+	world_audio.chapter = self
+	world.add_child(world_audio)
 	GameState.objective_updated.connect(func(text: String) -> void: objective_label.text = text)
 	player.health_changed.connect(_health_changed)
 	player.died.connect(_on_player_died)
 	_health_changed(player.health, player.max_health)
 	_set_menu()
+	if get_script().resource_path.get_file()!="boss_arena.gd":
+		upgrade_hut = preload("res://scripts/upgrade_hut.gd").new()
+		upgrade_hut.chapter = self
+		add_child(upgrade_hut)
+	if get_script().resource_path.get_file() in ["chapter_one.gd","chapter_two.gd","chapter_four.gd"]:
+		night_events = preload("res://scripts/night_encounters.gd").new()
+		night_events.chapter = self
+		add_child(night_events)
 	if GameState.start_on_load:
 		GameState.start_on_load = false
 		start_chapter()
+	journey = preload("res://scripts/journey_session.gd").new()
+	journey.chapter = self
+	add_child(journey)
 
 func _build_world() -> void:
 	var backdrop := CanvasLayer.new()
@@ -107,8 +142,7 @@ func _build_world() -> void:
 		var village := _region_sprite(world, "res://assets/Background/Tegalrejo/tegalrejo_village.png", Rect2(0, 265, 2172, 355), Vector2(i * 1900 - 180, 266), Vector2(0.9, 0.9))
 		if i > 0:
 			village.material = _horizontal_fade(0.0, 0.03, false)
-	for i in range(4):
-		_region_sprite(world, "res://assets/Background/Tegalrejo/ground.png", Rect2(0, 346, 2172, 378), Vector2(i * 1303 - 100, 564), Vector2(0.6, 0.6))
+	_ground_art(-100, WORLD_WIDTH+200)
 	_solid(Vector2(WORLD_WIDTH / 2, FLOOR_Y + 100), Vector2(WORLD_WIDTH + 400, 200))
 	_solid(Vector2(-35, 340), Vector2(70, 700))
 	_solid(Vector2(WORLD_WIDTH + 35, 340), Vector2(70, 700))
@@ -181,6 +215,23 @@ func _horizontal_fade(start: float, finish: float, fade_out: bool) -> ShaderMate
 	material.set_shader_parameter("fade_end", finish)
 	material.set_shader_parameter("fade_out", fade_out)
 	return material
+
+func _ground_art(x: float, width: float) -> void:
+	var ground := TextureRect.new()
+	ground.name = "GroundArt"
+	ground.texture = load("res://assets/Background/Tanah Baru.png")
+	ground.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	ground.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	ground.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Image surface is at source y=560; the collision floor is at world y=570.
+	ground.position = Vector2(x,FLOOR_Y-26)
+	ground.size = Vector2(width,400)
+	var material := ShaderMaterial.new()
+	material.shader = preload("res://shaders/ground_strip.gdshader")
+	material.set_shader_parameter("strip_size",ground.size)
+	material.set_shader_parameter("world_x",x)
+	ground.material = material
+	world.add_child(ground)
 
 func _solid(at: Vector2, dimensions: Vector2) -> void:
 	var body := StaticBody2D.new()
@@ -371,8 +422,22 @@ func _build_ui() -> void:
 		hud.add_child(icon)
 		health_icons.append(icon)
 	_panel(hud,Rect2(28,662,1224,38),Color("142b2ae6"))
-	_label(hud,"A D  Jalan    TAHAN SHIFT  Lari    SPACE  Lompat    E  Bicara    1 / 2  Pilihan",Rect2(45,669,930,25),16)
-	_label(hud,"J  Serang    T  Catatan    ESC  Jeda",Rect2(966,669,275,25),15,GOLD)
+	var stance_hud := preload("res://scripts/stance_meter.gd").new()
+	stance_hud.name = "StanceMeter"
+	stance_hud.player = player
+	stance_hud.position = Vector2(1024, 146)
+	stance_hud.size = Vector2(228, 72)
+	hud.add_child(stance_hud)
+	var stamina_hud := preload("res://scripts/stamina_meter.gd").new()
+	stamina_hud.name = "StaminaMeter"
+	stamina_hud.player = player
+	stamina_hud.position = Vector2(1024,114)
+	stamina_hud.size = Vector2(228,26)
+	hud.add_child(stamina_hud)
+	var time_badge := _panel(hud,Rect2(690,24,214,46),Color("142b2ae6"))
+	time_label = _label(time_badge,"",Rect2(12,9,190,28),17,GOLD)
+	time_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_label(hud,"A/D Jalan  •  Shift Dash / tahan Lari  •  S+Shift Mundur  •  Space Lompat  •  Klik kiri Combo  •  Klik kanan Parry  •  E Bicara",Rect2(45,669,1200,25),14)
 	prompt = _label(hud,"",Rect2(390,392,500,44),21,GOLD)
 	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	prompt.add_theme_color_override("font_shadow_color",INK)
@@ -405,31 +470,7 @@ func _build_ui() -> void:
 	choice_container = Control.new()
 	ui.add_child(choice_container)
 	choice_container.hide()
-	menu = Control.new()
-	ui.add_child(menu)
-	_panel(menu,Rect2(0,0,630,720),Color("0b1515fa"),Color.TRANSPARENT)
-	var menu_accent := Color("bd6853")
-	var accent_line := ColorRect.new()
-	accent_line.position = Vector2(64, 113)
-	accent_line.size = Vector2(235, 3)
-	accent_line.color = menu_accent
-	menu.add_child(accent_line)
-	_label(menu,"SEBUAH KISAH DARI JAWA",Rect2(64,72,500,28),17,GOLD)
-	var title := _label(menu,"JEJAK\nTANAH JAWA",Rect2(60,135,545,172),63,PAPER)
-	var serif := SystemFont.new()
-	serif.font_names = PackedStringArray(["Georgia","DejaVu Serif"])
-	title.add_theme_font_override("font",serif)
-	_label(menu,"BAB 01   /   TEGALREJO, JULI 1825",Rect2(64,316,500,35),19,GOLD)
-	_paragraph(menu,"Di tengah desa yang diliputi ketegangan,\nlangkah kecil Jaka menjadi awal sebuah perjalanan.",Rect2(64,366,490,83),22)
-	_button(menu,"Mulai perjalanan   >",Rect2(64,480,440,58),_start_new_journey,true)
-	_button(menu,"Main Bab 2",Rect2(64,608,212,32),func() -> void: get_tree().change_scene_to_file("res://bab_jalur_perlawanan.tscn"))
-	_button(menu,"Main Bab 3",Rect2(292,608,212,32),func() -> void: get_tree().change_scene_to_file("res://bab_selarong.tscn"))
-	_button(menu,"Tentang kisah ini",Rect2(64,554,274,46),_show_about)
-	_button(menu,"Keluar",Rect2(350,554,154,46),func() -> void: get_tree().quit())
-	_paragraph(menu,"Petualangan sejarah 2D  /  Keyboard\nJaka dan percakapannya adalah dramatisasi fiksi.",Rect2(64,643,510,48),15,MUTED)
-	_panel(menu,Rect2(967,42,265,74),Color("11191bf2"),menu_accent)
-	_label(menu,"01",Rect2(986,48,56,50),37,GOLD)
-	_label(menu,"AWAL PERJALANAN\nTegalrejo",Rect2(1050,54,176,45),16,PAPER)
+	_build_title_menu()
 	overlay = Control.new()
 	ui.add_child(overlay)
 	overlay.hide()
@@ -439,15 +480,136 @@ func _build_ui() -> void:
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(fade)
 
+func _build_title_menu() -> void:
+	menu = Control.new()
+	menu.name = "TitleMenu"
+	ui.add_child(menu)
+	var picture := TextureRect.new()
+	picture.name = "GeneratedTitleArtwork"
+	picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	var art_path := "res://assets/Generated/Menu/title-keyart-v1.png"
+	picture.texture = load(art_path if ResourceLoader.exists(art_path) else "res://assets/Background/Tegalrejo/tegalrejo_village.png")
+	picture.position = Vector2(-8,-6)
+	picture.size = Vector2(1296,732)
+	picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	menu.add_child(picture)
+	# Readability over the generated image, without building the scene from sprites.
+	var veil := TextureRect.new()
+	var gradient := Gradient.new()
+	gradient.set_color(0,Color(0.015,0.025,0.025,0.26))
+	gradient.set_color(1,Color(0.015,0.025,0.025,0))
+	gradient.add_point(0.30,Color(0.015,0.025,0.025,0.12))
+	gradient.add_point(0.42,Color(0.015,0.025,0.025,0))
+	var fill := GradientTexture2D.new()
+	fill.gradient = gradient
+	fill.fill_from = Vector2.ZERO
+	fill.fill_to = Vector2.RIGHT
+	veil.texture = fill
+	veil.size = Vector2(1280,720)
+	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	menu.add_child(veil)
+	_label(menu,"TEGALREJO  /  JULI 1825",Rect2(58,45,420,26),14,GOLD)
+	var title := _label(menu,"JEJAK\nTANAH JAWA",Rect2(54,98,470,136),53,PAPER)
+	title.add_theme_color_override("font_shadow_color",Color("090e0dcc"))
+	title.add_theme_constant_override("shadow_offset_x",3)
+	title.add_theme_constant_override("shadow_offset_y",4)
+	var serif := FontVariation.new()
+	serif.base_font = preload("res://assets/Fonts/CormorantGaramond.ttf")
+	serif.variation_opentype = {"wght":700.0}
+	title.add_theme_font_override("font",serif)
+	var line := ColorRect.new()
+	line.position = Vector2(58,249)
+	line.size = Vector2(173,2)
+	line.color = GOLD.darkened(0.2)
+	menu.add_child(line)
+	var continue_button := _menu_button("Lanjutkan perjalanan",294,func() -> void: GameState.continue_campaign())
+	continue_button.disabled = not GameState.has_save()
+	_menu_button("Mulai perjalanan baru",344,_request_new_journey)
+	_menu_button("Peta & progres",398,func() -> void: journey.show_map())
+	_menu_button("Arena uji boss",442,_show_boss_trials)
+	_menu_button("Pengaturan",486,_show_settings)
+	_menu_button("Tentang kisah ini",530,_show_about)
+	_menu_button("Keluar",574,func() -> void: get_tree().quit())
+	_label(menu,"5 BAB  •  3 LEGENDA MALAM  •  3 ENDING",Rect2(58,646,500,24),12,GOLD)
+	_label(menu,"Petualangan sejarah fantasi • Tokoh dan dialog Jaka adalah rekaan.",Rect2(58,679,650,22),12,MUTED)
+	var motion := preload("res://scripts/title_menu_art.gd").new()
+	motion.menu = menu
+	motion.picture = picture
+	menu.add_child(motion)
+
+func _menu_button(text: String, y: float, callback: Callable) -> Button:
+	var button := _button(menu,text,Rect2(58,y,380,42),callback)
+	button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	button.add_theme_font_size_override("font_size",23)
+	button.add_theme_color_override("font_color",Color("d2d0bf"))
+	button.add_theme_color_override("font_hover_color",PAPER)
+	button.add_theme_color_override("font_focus_color",GOLD)
+	button.add_theme_color_override("font_disabled_color",Color("626b65"))
+	for state in ["normal","hover","pressed","focus","disabled"]:
+		var style := StyleBoxEmpty.new()
+		style.set_content_margin(SIDE_LEFT,26)
+		button.add_theme_stylebox_override(state,style)
+	var marker := _label(button,">",Rect2(0,10,20,24),14,GOLD)
+	marker.hide()
+	button.mouse_entered.connect(func() -> void:
+		if not button.disabled: button.grab_focus())
+	button.mouse_entered.connect(marker.show)
+	button.mouse_exited.connect(func() -> void: marker.visible = button.has_focus())
+	button.focus_entered.connect(marker.show)
+	button.focus_exited.connect(func() -> void: marker.visible = button.is_hovered())
+	return button
+
+func _show_boss_trials() -> void:
+	var box := _new_overlay("boss_trials","Arena uji boss","Latihan terpisah dari perjalanan. Kemenangan di sini tidak membuka syarat ending.")
+	var names := {"buto":"Buto Ijo","banaspati":"Banaspati","headless":"Headless Swordsman","commander":"Komandan Belanda"}
+	var index := 0
+	for kind: String in names:
+		_button(box,str(names[kind]),Rect2(40+(index%2)*400,205+(index/2)*90,380,68),func() -> void: _open_boss_trial(kind))
+		index += 1
+	_button(box,"Kembali",Rect2(40,444,780,54),_close_overlay,true)
+
+func _show_settings() -> void:
+	paused = true
+	get_tree().paused = true
+	var box := _new_overlay("settings","Pengaturan audio","Volume disimpan di perangkat ini dan tetap dipakai saat memulai perjalanan baru.")
+	var names := {"Master":"Volume utama","Music":"Musik","SFX":"Efek pertarungan","Ambience":"Suara lingkungan"}
+	var index := 0
+	for key: String in names:
+		_label(box,str(names[key]),Rect2(40,180+index*62,280,29),19,PAPER)
+		var value := _label(box,"%d%%" % roundi(float(AudioPrefs.levels[key])*100),Rect2(710,180+index*62,100,29),18,GOLD)
+		var slider := HSlider.new()
+		slider.position = Vector2(330,183+index*62)
+		slider.size = Vector2(350,28)
+		slider.max_value = 100
+		slider.step = 1
+		slider.value = float(AudioPrefs.levels[key])*100
+		slider.value_changed.connect(func(amount: float) -> void:
+			AudioPrefs.set_level(key,amount/100)
+			value.text = "%d%%" % roundi(amount))
+		box.add_child(slider)
+		index += 1
+	_button(box,"Kembali",Rect2(40,476,780,54),_close_overlay,true)
+
 func _set_menu() -> void:
 	stage = Stage.MENU
 	player.controls_enabled = false
 	menu.show()
 	hud.hide()
 	camera.position.x = CAMERA_HALF_WIDTH
+	for child in menu.get_children():
+		if child is Button and not child.disabled:
+			child.grab_focus()
+			break
+
+func _open_boss_trial(kind: String) -> void:
+	GameState.boss_trial_kind = kind
+	GameState.start_on_load = false
+	get_tree().change_scene_to_file("res://boss_trial.tscn")
 
 func _start_new_journey() -> void:
-	GameState.reset_campaign()
+	GameState.reset_campaign(true)
+	GameState.begin_chapter(self)
 	menu.hide()
 	stage = Stage.INTRO
 	player.controls_enabled = false
@@ -459,6 +621,16 @@ func _start_new_journey() -> void:
 		player.show()
 		cat.show()
 		start_chapter())
+
+func _request_new_journey() -> void:
+	if not GameState.has_save():
+		_start_new_journey()
+		return
+	var box := _new_overlay("new_journey","Mulai dari awal?","Progres perjalanan yang tersimpan akan diganti. Demo baru mulai dengan 600 poin, semua atribut level 0, dan tiga hati.")
+	_button(box,"Mulai baru",Rect2(40,330,380,58),func() -> void:
+		_close_overlay()
+		_start_new_journey())
+	_button(box,"Batal",Rect2(440,330,380,58),_close_overlay,true)
 
 func start_chapter() -> void:
 	menu.hide()
@@ -507,7 +679,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
 		return
 	if event.is_action_pressed("pause"):
-		if overlay.visible and overlay_mode in ["pause","journal","about"]:
+		if overlay.visible and overlay_mode in ["pause","journal","about","upgrade"]:
 			_close_overlay()
 		elif stage not in [Stage.MENU,Stage.COMPLETE,Stage.FAILED]:
 			_show_pause()
@@ -588,8 +760,8 @@ func _show_line() -> void:
 	dialogue_label.visible_characters = 0
 	dialogue_counter.text = "%d / %d     •     E  Tampilkan / lanjutkan" % [line_index+1, lines.size()]
 	_show_choices(line)
-	var path := "res://assets/Karakter/Jaka.png"
-	var region := Rect2(270,83,510,1370)
+	var path := "res://assets/Generated/Jaka/portrait.png"
+	var region := Rect2(0,0,210,335)
 	if line.speaker == "Sesepuh":
 		path = "res://assets/Karakter/sesepuh.png"
 		region = Rect2(264,102,499,1377)
@@ -602,11 +774,16 @@ func _show_line() -> void:
 	elif line.speaker == "Sari":
 		path = SARI_IMAGE
 		region = SARI_REGION
+	elif is_instance_valid(night_events) and str(line.speaker)==str(night_events.entry.get("speaker","")):
+		path = night_events.entry.portrait
+		var bounds: Array = night_events.entry.region
+		region = Rect2(bounds[0],bounds[1],bounds[2],bounds[3])
 	portrait.visible = line.speaker != "Narator"
 	var atlas := AtlasTexture.new()
 	atlas.atlas = load(path)
 	# A bust crop keeps the head and upper body large enough to read.
-	region.size.y *= 0.48
+	if path != "res://assets/Generated/Jaka/portrait.png":
+		region.size.y *= 0.48
 	atlas.region = region
 	portrait.texture = atlas
 
@@ -656,6 +833,7 @@ func _choose(index: int) -> void:
 	if index < 0 or index >= choices.size():
 		return
 	var choice: Dictionary = choices[index]
+	if is_instance_valid(night_events): night_events.note_choice(choice)
 	choice_active = false
 	choice_container.hide()
 	lines.insert(line_index+1,{"speaker":"Jaka","text":choice.text})
@@ -684,6 +862,19 @@ func _on_player_died() -> void:
 	show_result(false)
 
 func _health_changed(current: int, maximum: int) -> void:
+	if health_icons.size()!=maximum and not health_icons.is_empty():
+		var texture := health_icons[0].texture
+		for icon in health_icons: icon.queue_free()
+		health_icons.clear()
+		for index in range(maximum):
+			var icon := TextureRect.new()
+			icon.texture = texture
+			icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			icon.position = Vector2(1040+index*34,65)
+			icon.size = Vector2(30,28)
+			icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			hud.add_child(icon)
+			health_icons.append(icon)
 	for index in range(health_icons.size()):
 		health_icons[index].modulate = Color.WHITE if index < current else Color(0.25, 0.25, 0.25, 0.65)
 	health_label.text = "● ".repeat(maxi(current,0)) + "○ ".repeat(maxi(maximum-current,0))
@@ -715,7 +906,7 @@ func _show_pause() -> void:
 	_button(box,"Lanjutkan perjalanan",Rect2(40,190,780,58),_close_overlay,true)
 	_button(box,"Ulangi Bab 1",Rect2(40,267,780,58),_restart)
 	_button(box,"Menu utama",Rect2(40,344,780,58),_return_menu)
-	_paragraph(box,"A / D atau panah: bergerak   •   Space: lompat\nE: bicara / lanjut dialog   •   J: serang   •   T: catatan sejarah",Rect2(40,458,780,80),18,MUTED)
+	_paragraph(box,"A/D: jalan • Shift: dash lalu tahan untuk lari • Space: lompat\nKlik kiri: combo • Klik kanan: parry • S+Shift: dash mundur\nE: bicara • H: heal • L: ulti • T: catatan",Rect2(40,448,780,92),16,MUTED)
 
 func _show_journal() -> void:
 	paused = true
@@ -739,6 +930,7 @@ func _close_overlay() -> void:
 	get_tree().paused = false
 
 func show_result(success: bool) -> void:
+	if success: GameState.complete_chapter(1,self)
 	hud.hide()
 	var box := _new_overlay("result","Bab 1 selesai" if success else "Perjalanan belum berakhir", "Pesanmu sudah sampai. Perjalanan Jaka kini menuju jalur Selarong." if success else "Perjalanan Jaka terhenti sebelum keluar dari desa. Coba mulai kembali.")
 	if success:
@@ -749,7 +941,7 @@ func show_result(success: bool) -> void:
 	else:
 		_paragraph(box,"Petunjuk\n\nTemui sesepuh, lalu utusan di tengah desa. Antarkan pesan kepada penjaga dekat gerbang sebelum berjalan ke kanan.",Rect2(40,210,780,220),23)
 	if success:
-		_button(box,"Lanjut Bab 2",Rect2(40,494,380,58),func() -> void: get_tree().change_scene_to_file("res://bab_jalur_perlawanan.tscn"),true)
+		_button(box,"Lanjut Bab 2",Rect2(40,494,380,58),func() -> void: GameState.travel_to(2,self,false),true)
 	else:
 		_button(box,"Main lagi",Rect2(40,494,380,58),_restart,true)
 	_button(box,"Menu utama",Rect2(440,494,380,58),_return_menu)
@@ -760,6 +952,7 @@ func _restart() -> void:
 	get_tree().reload_current_scene()
 
 func _return_menu() -> void:
+	GameState.save_campaign(self)
 	GameState.start_on_load = false
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://bab_tegalrejo.tscn")

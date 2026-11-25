@@ -54,6 +54,8 @@ func shot(name: String) -> void:
 		get_viewport().get_texture().get_image().save_png(capture_dir.path_join(name+".png"))
 
 func _run() -> void:
+	preload("res://tests/test_session.gd").isolate("chapter_three_smoke.gd")
+	GameState.upgrade_levels.heart = 2
 	game=load("res://bab_selarong.tscn").instantiate()
 	add_child(game)
 	await frames(6)

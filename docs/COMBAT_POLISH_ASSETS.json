@@ -1,0 +1,54 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-24",
+  "record_type": "Normalized production specifications; exact dash prompts are recorded separately in JAKA_DASH_ASSET_PROMPTS.json.",
+  "common": "Crisp detailed 2D pixel art matching the reference, same character identity, clothes, body proportions and palette in every frame. Side-view platformer sprite, FACE RIGHT throughout. Use a strict evenly spaced grid of square cells, fixed camera and scale, whole body and weapon fully inside every cell, consistent grounded baseline at 88 percent of each cell height. Genuinely transparent alpha background, no black/brown backdrop, no checkerboard, no frame numbers, grid lines, labels, ground plane or extra characters. No gore.",
+  "assets": [
+    {
+      "path": "assets/Generated/Jaka/Concepts/jump-sheet-v1.png",
+      "grid": [
+        3,
+        2
+      ],
+      "reference": "assets/Animasi Karakter/Jaka New/Javanese-Inspired Pixel Art Warrior.png",
+      "brief": "Six jump frames: anticipation, rise, tuck, apex, descend, landing. Same root position and scale; no double jump, new physics or dash."
+    },
+    {
+      "path": "assets/Generated/Jaka/Concepts/reactions-sheet-v1.png",
+      "grid": [
+        6,
+        2
+      ],
+      "reference": "assets/Animasi Karakter/Jaka New/Javanese-Inspired Pixel Art Warrior.png",
+      "brief": "Row 1 six stance break frames ending in stable kneeling, reversed for standing. Row 2 six non-graphic defeat frames ending lying unconscious. Keep exact clothing, identity and palette."
+    },
+    {
+      "path": "assets/Generated/Bosses/Sources/buto-spawn-v1.png",
+      "grid": [
+        3,
+        2
+      ],
+      "reference": "assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Green Ogre Warrior with Ornate Light Armor.png",
+      "brief": "Six spawn frames: crouch, rise, heavy foot plant, ready with ornate sword. No baked fade, smoke or particles."
+    },
+    {
+      "path": "assets/Generated/Bosses/Sources/buto-stagger-v1.png",
+      "grid": [
+        3,
+        2
+      ],
+      "reference": "assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Green Ogre Warrior with Ornate Light Armor.png",
+      "brief": "Six stance break frames from standing through stumble to one-knee kneel in frame 6. Hold last pose four seconds then reverse in gameplay. Output faces left and is flipped during deterministic preparation to match right-facing runtime base."
+    },
+    {
+      "path": "assets/Generated/Bosses/Sources/buto-death-v1.png",
+      "grid": [
+        3,
+        2
+      ],
+      "reference": "assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Green Ogre Warrior with Ornate Light Armor.png",
+      "brief": "Six non-graphic defeat frames: exhausted stand, kneel, fall sideways, lying body with sword. No gore or baked fading."
+    }
+  ],
+  "preparation": "tools/combat_art.gd cuts equal cells, thresholds alpha >= 0.5, uses a fixed scale per sheet and aligns feet. Raw images are preserved and excluded from export."
+}

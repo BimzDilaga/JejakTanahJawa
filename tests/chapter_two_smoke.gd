@@ -59,7 +59,8 @@ func traverse_patrol() -> void:
 			game.player.perform_heal()
 		if closest != null and distance<135:
 			game.player.facing=1 if closest.position.x>game.player.position.x else -1
-			if not game.player.perform_ultimate():
+			# One deliberate tap per swing; calling every frame would buffer a full combo.
+			if not game.player.perform_ultimate() and not game.player.is_attacking:
 				game.player.perform_attack()
 			if distance<95:
 				Input.action_press("move_left" if game.player.facing==1 else "move_right")
@@ -72,6 +73,8 @@ func traverse_patrol() -> void:
 	check(not game.player.dead and ticks<12000,"Entire patrol route traversed with normal health and attacks")
 	print("PATROL_ROUTE seconds=",float(ticks)/60.0," health=",game.player.health," defeated=",game.defeated_count)
 func _run() -> void:
+	preload("res://tests/test_session.gd").isolate("chapter_two_smoke.gd")
+	GameState.upgrade_levels.heart = 2
 	game=load("res://bab_jalur_perlawanan.tscn").instantiate()
 	add_child(game)
 	await frames(6)
@@ -162,9 +165,10 @@ func _run() -> void:
 	enemy.active = false
 	game.player.reset_health()
 	check(game.player.perform_parry(),"Parry starts when ready")
-	check(not game.player.perform_parry(),"Parry cannot restart during cooldown")
+	check(not game.player.perform_parry(),"An active parry window cannot be restarted")
 	game.player.take_damage(1, game.player.position.x + 10.0, true)
 	check(game.player.health==5,"Parry blocks melee damage within the active window")
+	check(game.player.parry_cooldown==0.0 and game.player.perform_parry(),"Successful parry allows an immediate new attempt")
 	var shot_scene = load("res://scripts/patrol_shot.gd")
 	var projectile: Node2D = shot_scene.new()
 	projectile.direction = -1

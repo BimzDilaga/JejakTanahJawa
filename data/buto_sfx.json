@@ -1,0 +1,70 @@
+{
+  "status": "ready_procedural",
+  "checked_date": "2026-11-25",
+  "root": "res://assets/Generated/Audio/ButoIjo/",
+  "clips": {
+    "footstep_a": {
+      "file": "01_footstep_a.wav",
+      "volume_db": -22,
+      "cooldown": 0.12
+    },
+    "footstep_b": {
+      "file": "02_footstep_b.wav",
+      "volume_db": -22,
+      "cooldown": 0.12
+    },
+    "light_swing": {
+      "file": "03_light_sword_swing.wav",
+      "volume_db": -17,
+      "cooldown": 0.12
+    },
+    "reverse_swing": {
+      "file": "04_reverse_sword_swing.wav",
+      "volume_db": -17,
+      "cooldown": 0.12
+    },
+    "heavy_windup": {
+      "file": "05_heavy_windup.wav",
+      "volume_db": -19,
+      "cooldown": 0.3
+    },
+    "heavy_impact": {
+      "file": "06_heavy_ground_impact.wav",
+      "volume_db": -15,
+      "cooldown": 0.2
+    },
+    "parry": {
+      "file": "07_parry_metal_clash.wav",
+      "volume_db": -16,
+      "cooldown": 0.0
+    },
+    "wave": {
+      "file": "08_earth_shockwave.wav",
+      "volume_db": -18,
+      "cooldown": 0.2
+    },
+    "pain": {
+      "file": "09_pain_grunt.wav",
+      "volume_db": -21,
+      "cooldown": 0.4
+    },
+    "break": {
+      "file": "10_stance_break.wav",
+      "volume_db": -18,
+      "cooldown": 0.5
+    },
+    "spawn": {
+      "file": "11_spawn_roar.wav",
+      "volume_db": -18,
+      "cooldown": 0.5
+    },
+    "death": {
+      "file": "12_death_fall.wav",
+      "volume_db": -18,
+      "cooldown": 0.5
+    }
+  },
+  "generator": "tools/prepare_buto_sfx.py",
+  "format": "WAV PCM16 mono 44100Hz",
+  "note": "Original code-generated SFX, authorized by user after fal billing failed. No AI audio/API used."
+}

@@ -1,0 +1,25 @@
+{
+  "intro": [
+    {"speaker":"Narator","text":"Magelang, Maret 1830. Setelah bertahun-tahun membawa kabar di jalan, Jaka dan Sari tiba di kota yang tegang menjelang akhir perang."},
+    {"speaker":"Sari","text":"Ada keluarga menunggu di luar kota. Cari jalan keluarnya. Aku akan menjaga mereka tetap bersama."}
+  ],
+  "guide": [
+    {"speaker":"Penunjuk jalan","text":"Jalan keluar berada di balik pos penjagaan. Tentara di jalur samping masih bisa kau hindari. Komandan di pos utama tidak akan membiarkanmu lewat begitu saja."},
+    {"speaker":"Jaka","text":"Aku akan membuka jalan. Jangan tunggu di dekat pos itu."}
+  ],
+  "challenge": [
+    {"speaker":"Sari","text":"Komandan itu menjaga jalan di depan. Jangan terpancing hanya oleh tembakannya. Setelah menembak, ia perlu bersiap lagi."},
+    {"speaker":"Jaka","text":"Tetaplah bersama warga. Aku akan kembali setelah jalan terbuka."}
+  ],
+  "after": [
+    {"speaker":"Jaka","text":"Aku mengalahkannya. Jalan sudah terbuka. Sekarang kita masih bisa berbuat sesuatu."},
+    {"speaker":"Sari","text":"Ada kabar dari perundingan. Diponegoro sudah ditangkap di Magelang. Kemenanganmu tidak dapat membalikkan itu."},
+    {"speaker":"Jaka","text":"Lalu mereka yang menunggu kita?"},
+    {"speaker":"Sari","text":"Mereka masih di sini. Kita harus menentukan langkah berikutnya."}
+  ],
+  "facts": [
+    {"title":"01 / Magelang, 1830","text":"Diponegoro ditangkap di Magelang pada 28 Maret 1830 saat perundingan dengan pihak Belanda. Hasil sejarah tersebut tetap sama pada semua ending."},
+    {"title":"02 / Komandan permainan","text":"Komandan yang dihadapi Jaka, pola serangan, pos penjagaan, dan pertarungan di jalan merupakan rekaan gameplay. Tokoh itu bukan rekonstruksi De Kock."},
+    {"title":"03 / Tiga penutup","text":"Setelah komandan dikalahkan, pilih menyelamatkan warga atau bertahan agar mereka lolos. Penutup rahasia membutuhkan kemenangan atas ketiga urban boss dan komandan terakhir."}
+  ]
+}

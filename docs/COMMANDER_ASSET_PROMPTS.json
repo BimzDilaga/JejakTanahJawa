@@ -1,0 +1,112 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "assets/Animasi Karakter/BOSBELANDA/FINALSALVO/final-salvo-01.png",
+  "date": "2026-11-25",
+  "prompts": [
+    {
+      "name": "idle",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Seamless combat idle loop. Subtle breathing and coat movement, pistol lowered but ready, planted feet. Last pose connects to first."
+    },
+    {
+      "name": "walk",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 8 frames in a strict 4-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Seamless grounded forward walk cycle animated IN PLACE: contact, down, passing, up, opposite contact, down, passing, up. Clear alternating boots and coat sway. Do not translate across cells."
+    },
+    {
+      "name": "run",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 8 frames in a strict 4-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Seamless fast pursuit run cycle IN PLACE with forward lean, clear contacts and short airborne passing poses. Keep pistol pointed safely low, plume and coat trailing. Different from walking, no muzzle flashes."
+    },
+    {
+      "name": "spawn",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Entrance: head slightly bowed pistol low; straighten shoulders; plant a boot; lift pistol hand slightly; set confident guard; stable threatening ready pose. In place, no fading or smoke."
+    },
+    {
+      "name": "hurt",
+      "count": 4,
+      "columns": 4,
+      "rows": 1,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 4 frames in a strict 4-COLUMN x 1-ROW grid of identical square cells, reading left to right then top to bottom. Compact non-graphic hit reaction from unseen opponent: small torso recoil, shoulder pushed back, brace feet, recover. Remain standing, no opponent or impact effects."
+    },
+    {
+      "name": "stagger",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Stance-break transition: guard up; pistol arm knocked aside; stagger and bend knees; lower torso; touch one knee; hold vulnerable kneeling with pistol still held. End stable. Must reverse cleanly to stand."
+    },
+    {
+      "name": "death",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 8 frames in a strict 4-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. Non-graphic defeat transition: exhausted standing; recoil; buckle knees; one knee down; free hand reaches down; fall sideways; settle; lie motionless with pistol visible near hand. Same scale, do not shrink collapsed poses. Reverse will be used for a phase recovery."
+    },
+    {
+      "name": "light",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One quick close-range pistol-butt strike: prepare compact guard; draw pistol grip near chest; extend arm to strike with metal grip; short follow-through; retract; ready. No shot, no muzzle flash."
+    },
+    {
+      "name": "heavy",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One committed heavy close-range downward pistol-butt blow: plant boots; raise pistol arm high; obvious held windup; smash downward with grip while bending torso; deep follow-through; exposed recovery. No shot or detached effects."
+    },
+    {
+      "name": "reload",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 8 frames in a strict 4-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. A readable flintlock pistol reload/recovery cycle: lower pistol; bring it near torso; work the lock and loading action with free hand; pack/load; cock hammer; regain two-handed control; raise toward guard; ready. Keep same pistol and hand, do not add modern magazine or extra weapons."
+    },
+    {
+      "name": "combo_1_2",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One fast front kick continuing a close-range combo: guarded right-facing pose; lift front knee; extend black boot forward at waist height; recoil leg; plant foot; guard. Keep pistol held safely close."
+    },
+    {
+      "name": "combo_1_4",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One reverse backhand pistol-butt strike: start extended after a shot; draw hand across chest; sweep pistol grip outward in a controlled reverse arc; recoil torso; regain balance; guard. No firing."
+    },
+    {
+      "name": "combo_2_1",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One forward gap-closing rushing pistol-butt thrust: low preparation; push off rear boot; compact forward lunge silhouette; arm extends with pistol grip forward; front boot plants; recover guard. Animation in place, code moves root. No shot."
+    },
+    {
+      "name": "combo_3_2",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One forceful commanding brace in an ultimate combo: lower pistol after a shot; step into wide planted stance; free hand briefly gestures forward; brace pistol and shoulders; hold aggressive firing-ready pose; end in stable aim. No drawn soldiers or muzzle flash."
+    },
+    {
+      "name": "combo_3_5",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use case: identity-preserve game sprite animation. Use the provided image as the EXACT reference for the same Dutch officer boss: human male with the same face and moustache, tall dark military shako with gold emblem and red-white plume, dark navy long coat with gold epaulettes and buttons, red collar and red lining/trim, cream white trousers, knee-high black boots, and the same short flintlock pistol in the same anatomical hand. No added saber, no headlessness, no monster redesign. 2D side-scrolling crisp detailed pixel art, face RIGHT (mirror the reference orientation). Fixed camera, same character size in every frame, fixed root position, whole hat/plume/coat/boots and pistol entirely inside each cell, stable grounded baseline. Real transparent alpha background; no black/brown backdrop, no floor, shadow, scenery, UI, labels, numbers, grid borders, motion blur or other characters. No gore. Create EXACTLY 6 frames in a strict 3-COLUMN x 2-ROW grid of identical square cells, reading left to right then top to bottom. One ultimate heavy finishing kick: dramatic knee lift; lean back slightly; forceful high forward black-boot kick with pistol retained close; extended follow-through; plant boot; end exhausted and exposed. Distinct larger anticipation than normal kick, no shot or effects."
+    }
+  ]
+}

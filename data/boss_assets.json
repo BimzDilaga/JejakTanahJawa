@@ -1,0 +1,1519 @@
+{
+	"banaspati": {
+		"air_1": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_1_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_1_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_1_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_1_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_1_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Fiery Banaspati Fireball Casting Sprite Sheet-1.png"
+		},
+		"air_2": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_2_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_2_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_2_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_2_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_2_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Flame Casting Sprite Sheet-2.png"
+		},
+		"air_3": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_3_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_3_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_3_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_3_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_3_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Flaming Cast Sprite Strip-3.png"
+		},
+		"air_4": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_4_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_4_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_4_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_4_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_4_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Flaming Sword Casting Sprite Sheet-4.png"
+		},
+		"air_5": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_5_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_5_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_5_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_5_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_5_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Flame Sword Sprite Sheet-5.png"
+		},
+		"air_6": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_6_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_6_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_6_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_6_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_6_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_6_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati’s Six-Frame Casting Animation-6.png"
+		},
+		"air_7": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_7_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_7_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_7_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_7_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_7_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_7_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Firecaster Animation Sprite Sheet-7.png"
+		},
+		"air_8": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_8_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_8_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_8_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_8_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_8_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_8_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 2/Banaspati Fire Demon Attack Sprite Sheet-8.png"
+		},
+		"air_death": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_death_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_death_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_death_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_death_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_death_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_death_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_18 PM-7.png"
+		},
+		"air_stagger": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_air_stagger_01.png",
+				"res://assets/Generated/Bosses/banaspati_air_stagger_02.png",
+				"res://assets/Generated/Bosses/banaspati_air_stagger_03.png",
+				"res://assets/Generated/Bosses/banaspati_air_stagger_04.png",
+				"res://assets/Generated/Bosses/banaspati_air_stagger_05.png",
+				"res://assets/Generated/Bosses/banaspati_air_stagger_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_17 PM-6.png"
+		},
+		"combo_1_1": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/Fiery Claw Swipe Sprite Sheet (1).png"
+		},
+		"combo_1_2": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/Flaming Claw Swipe Animation Sprite Sheet (1).png"
+		},
+		"combo_1_3": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/ChatGPT Image Nov 23, 2026, 01_58_42 PM.png"
+		},
+		"combo_1_4": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/ChatGPT Image Nov 23, 2026, 01_59_32 PM.png"
+		},
+		"combo_1_5": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/ChatGPT Image Nov 23, 2026, 02_00_49 PM.png"
+		},
+		"combo_3_1": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 3/Banaspati Flame Marking Animation-1.png"
+		},
+		"combo_3_2": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 3/Banaspati Flame Warrior Casting Sprite Sheet-2.png"
+		},
+		"combo_3_3": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 3/Six-Frame Fire Warrior Summoning Animation-3.png"
+		},
+		"combo_3_4": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 3/Banaspati Fire Boss Attack Spritesheet-4.png"
+		},
+		"combo_3_5": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_3_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 3/Banaspati Flame Warrior Attack Sequence-5.png"
+		},
+		"death": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_death_01.png",
+				"res://assets/Generated/Bosses/banaspati_death_02.png",
+				"res://assets/Generated/Bosses/banaspati_death_03.png",
+				"res://assets/Generated/Bosses/banaspati_death_04.png",
+				"res://assets/Generated/Bosses/banaspati_death_05.png",
+				"res://assets/Generated/Bosses/banaspati_death_06.png",
+				"res://assets/Generated/Bosses/banaspati_death_07.png",
+				"res://assets/Generated/Bosses/banaspati_death_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Stance/Banaspati’s Fiery Dissolution Death.png"
+		},
+		"descend": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_descend_01.png",
+				"res://assets/Generated/Bosses/banaspati_descend_02.png",
+				"res://assets/Generated/Bosses/banaspati_descend_03.png",
+				"res://assets/Generated/Bosses/banaspati_descend_04.png",
+				"res://assets/Generated/Bosses/banaspati_descend_05.png",
+				"res://assets/Generated/Bosses/banaspati_descend_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_15 PM-4.png"
+		},
+		"flight": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_flight_01.png",
+				"res://assets/Generated/Bosses/banaspati_flight_02.png",
+				"res://assets/Generated/Bosses/banaspati_flight_03.png",
+				"res://assets/Generated/Bosses/banaspati_flight_04.png",
+				"res://assets/Generated/Bosses/banaspati_flight_05.png",
+				"res://assets/Generated/Bosses/banaspati_flight_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_10 PM-1.png"
+		},
+		"fx_1": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_1_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_1_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_1_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_1_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_1_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_06_57 PM-1.png"
+		},
+		"fx_2": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_2_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_2_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_2_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_2_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_2_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_06_58 PM-2.png"
+		},
+		"fx_3": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_3_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_3_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_3_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_3_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_3_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_06_59 PM-3.png"
+		},
+		"fx_4": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_4_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_4_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_4_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_4_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_4_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_07_01 PM-4.png"
+		},
+		"fx_5": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_5_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_5_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_5_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_5_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_5_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_07_02 PM-5.png"
+		},
+		"fx_6": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_6_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_6_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_6_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_6_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_6_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_6_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_07_03 PM-6.png"
+		},
+		"fx_7": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_7_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_7_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_7_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_7_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_7_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_7_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_07_06 PM-7.png"
+		},
+		"fx_8": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_fx_8_01.png",
+				"res://assets/Generated/Bosses/banaspati_fx_8_02.png",
+				"res://assets/Generated/Bosses/banaspati_fx_8_03.png",
+				"res://assets/Generated/Bosses/banaspati_fx_8_04.png",
+				"res://assets/Generated/Bosses/banaspati_fx_8_05.png",
+				"res://assets/Generated/Bosses/banaspati_fx_8_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Projectile dan mark projectile/ChatGPT Image Nov 23, 2026, 02_07_09 PM-8.png"
+		},
+		"heavy": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_5_06.png"
+			],
+			"placeholder": true,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/ChatGPT Image Nov 23, 2026, 02_00_49 PM.png"
+		},
+		"hover": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_hover_01.png",
+				"res://assets/Generated/Bosses/banaspati_hover_02.png",
+				"res://assets/Generated/Bosses/banaspati_hover_03.png",
+				"res://assets/Generated/Bosses/banaspati_hover_04.png",
+				"res://assets/Generated/Bosses/banaspati_hover_05.png",
+				"res://assets/Generated/Bosses/banaspati_hover_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_14 PM-3.png"
+		},
+		"hurt": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_hurt_01.png",
+				"res://assets/Generated/Bosses/banaspati_hurt_02.png",
+				"res://assets/Generated/Bosses/banaspati_hurt_03.png",
+				"res://assets/Generated/Bosses/banaspati_hurt_04.png",
+				"res://assets/Generated/Bosses/banaspati_hurt_05.png",
+				"res://assets/Generated/Bosses/banaspati_hurt_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_16 PM-5.png"
+		},
+		"idle": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_walk_01.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Walking/Banaspati Flaming Sword Walk Cycle.png"
+		},
+		"light": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_01.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_02.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_03.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_04.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_05.png",
+				"res://assets/Generated/Bosses/banaspati_combo_1_1_06.png"
+			],
+			"placeholder": true,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Chained attack/Chained Attack 1/Fiery Claw Swipe Sprite Sheet (1).png"
+		},
+		"platform": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_platform_01.png",
+				"res://assets/Generated/Bosses/banaspati_platform_02.png",
+				"res://assets/Generated/Bosses/banaspati_platform_03.png",
+				"res://assets/Generated/Bosses/banaspati_platform_04.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Platform fall/Progressive Damage Platform Tiles.png"
+		},
+		"rise": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_rise_01.png",
+				"res://assets/Generated/Bosses/banaspati_rise_02.png",
+				"res://assets/Generated/Bosses/banaspati_rise_03.png",
+				"res://assets/Generated/Bosses/banaspati_rise_04.png",
+				"res://assets/Generated/Bosses/banaspati_rise_05.png",
+				"res://assets/Generated/Bosses/banaspati_rise_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Flying banaspati/ChatGPT Image Nov 23, 2026, 01_57_12 PM-2.png"
+		},
+		"run": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_walk_01.png",
+				"res://assets/Generated/Bosses/banaspati_walk_02.png",
+				"res://assets/Generated/Bosses/banaspati_walk_03.png",
+				"res://assets/Generated/Bosses/banaspati_walk_04.png",
+				"res://assets/Generated/Bosses/banaspati_walk_05.png",
+				"res://assets/Generated/Bosses/banaspati_walk_06.png",
+				"res://assets/Generated/Bosses/banaspati_walk_07.png",
+				"res://assets/Generated/Bosses/banaspati_walk_08.png"
+			],
+			"placeholder": true,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Walking/Banaspati Flaming Sword Walk Cycle.png"
+		},
+		"spawn": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_spawn_01.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_02.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_03.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_04.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_05.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_06.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_07.png",
+				"res://assets/Generated/Bosses/banaspati_spawn_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Stance/Banaspati Flame Spawn Animation Sprite Sheet.png"
+		},
+		"stagger": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_stagger_01.png",
+				"res://assets/Generated/Bosses/banaspati_stagger_02.png",
+				"res://assets/Generated/Bosses/banaspati_stagger_03.png",
+				"res://assets/Generated/Bosses/banaspati_stagger_04.png",
+				"res://assets/Generated/Bosses/banaspati_stagger_05.png",
+				"res://assets/Generated/Bosses/banaspati_stagger_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Stance/Banaspati Stance Break Animation (1).png"
+		},
+		"walk": {
+			"files": [
+				"res://assets/Generated/Bosses/banaspati_walk_01.png",
+				"res://assets/Generated/Bosses/banaspati_walk_02.png",
+				"res://assets/Generated/Bosses/banaspati_walk_03.png",
+				"res://assets/Generated/Bosses/banaspati_walk_04.png",
+				"res://assets/Generated/Bosses/banaspati_walk_05.png",
+				"res://assets/Generated/Bosses/banaspati_walk_06.png",
+				"res://assets/Generated/Bosses/banaspati_walk_07.png",
+				"res://assets/Generated/Bosses/banaspati_walk_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Banaspati/Walking/Banaspati Flaming Sword Walk Cycle.png"
+		}
+	},
+	"buto": {
+		"combo_1_1": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_1_1_01.png",
+				"res://assets/Generated/Bosses/buto_combo_1_1_02.png",
+				"res://assets/Generated/Bosses/buto_combo_1_1_03.png",
+				"res://assets/Generated/Bosses/buto_combo_1_1_04.png",
+				"res://assets/Generated/Bosses/buto_combo_1_1_05.png",
+				"res://assets/Generated/Bosses/buto_combo_1_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained attack 1/CA KE 1.png"
+		},
+		"combo_1_2": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_1_2_01.png",
+				"res://assets/Generated/Bosses/buto_combo_1_2_02.png",
+				"res://assets/Generated/Bosses/buto_combo_1_2_03.png",
+				"res://assets/Generated/Bosses/buto_combo_1_2_04.png",
+				"res://assets/Generated/Bosses/buto_combo_1_2_05.png",
+				"res://assets/Generated/Bosses/buto_combo_1_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained attack 1/CA KE 2.png"
+		},
+		"combo_1_3": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_1_3_01.png",
+				"res://assets/Generated/Bosses/buto_combo_1_3_02.png",
+				"res://assets/Generated/Bosses/buto_combo_1_3_03.png",
+				"res://assets/Generated/Bosses/buto_combo_1_3_04.png",
+				"res://assets/Generated/Bosses/buto_combo_1_3_05.png",
+				"res://assets/Generated/Bosses/buto_combo_1_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained attack 1/CA KE 3.png"
+		},
+		"combo_1_4": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_1_4_01.png",
+				"res://assets/Generated/Bosses/buto_combo_1_4_02.png",
+				"res://assets/Generated/Bosses/buto_combo_1_4_03.png",
+				"res://assets/Generated/Bosses/buto_combo_1_4_04.png",
+				"res://assets/Generated/Bosses/buto_combo_1_4_05.png",
+				"res://assets/Generated/Bosses/buto_combo_1_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained attack 1/CA KE 4.png"
+		},
+		"combo_1_5": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_1_5_01.png",
+				"res://assets/Generated/Bosses/buto_combo_1_5_02.png",
+				"res://assets/Generated/Bosses/buto_combo_1_5_03.png",
+				"res://assets/Generated/Bosses/buto_combo_1_5_04.png",
+				"res://assets/Generated/Bosses/buto_combo_1_5_05.png",
+				"res://assets/Generated/Bosses/buto_combo_1_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained attack 1/CA KE 5.png"
+		},
+		"combo_2_1": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_2_1_01.png",
+				"res://assets/Generated/Bosses/buto_combo_2_1_02.png",
+				"res://assets/Generated/Bosses/buto_combo_2_1_03.png",
+				"res://assets/Generated/Bosses/buto_combo_2_1_04.png",
+				"res://assets/Generated/Bosses/buto_combo_2_1_05.png",
+				"res://assets/Generated/Bosses/buto_combo_2_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 2/CA KE 1.png"
+		},
+		"combo_2_2": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_2_2_01.png",
+				"res://assets/Generated/Bosses/buto_combo_2_2_02.png",
+				"res://assets/Generated/Bosses/buto_combo_2_2_03.png",
+				"res://assets/Generated/Bosses/buto_combo_2_2_04.png",
+				"res://assets/Generated/Bosses/buto_combo_2_2_05.png",
+				"res://assets/Generated/Bosses/buto_combo_2_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 2/CA KE 2.png"
+		},
+		"combo_2_3": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_2_3_01.png",
+				"res://assets/Generated/Bosses/buto_combo_2_3_02.png",
+				"res://assets/Generated/Bosses/buto_combo_2_3_03.png",
+				"res://assets/Generated/Bosses/buto_combo_2_3_04.png",
+				"res://assets/Generated/Bosses/buto_combo_2_3_05.png",
+				"res://assets/Generated/Bosses/buto_combo_2_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 2/CA KE 3.png"
+		},
+		"combo_2_4": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_2_4_01.png",
+				"res://assets/Generated/Bosses/buto_combo_2_4_02.png",
+				"res://assets/Generated/Bosses/buto_combo_2_4_03.png",
+				"res://assets/Generated/Bosses/buto_combo_2_4_04.png",
+				"res://assets/Generated/Bosses/buto_combo_2_4_05.png",
+				"res://assets/Generated/Bosses/buto_combo_2_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 2/CA KE 4.png"
+		},
+		"combo_3_1": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_3_1_01.png",
+				"res://assets/Generated/Bosses/buto_combo_3_1_02.png",
+				"res://assets/Generated/Bosses/buto_combo_3_1_03.png",
+				"res://assets/Generated/Bosses/buto_combo_3_1_04.png",
+				"res://assets/Generated/Bosses/buto_combo_3_1_05.png",
+				"res://assets/Generated/Bosses/buto_combo_3_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 3/CA KE 1.png"
+		},
+		"combo_3_2": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_3_2_01.png",
+				"res://assets/Generated/Bosses/buto_combo_3_2_02.png",
+				"res://assets/Generated/Bosses/buto_combo_3_2_03.png",
+				"res://assets/Generated/Bosses/buto_combo_3_2_04.png",
+				"res://assets/Generated/Bosses/buto_combo_3_2_05.png",
+				"res://assets/Generated/Bosses/buto_combo_3_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 3/CA KE 2.png"
+		},
+		"combo_3_3": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_3_3_01.png",
+				"res://assets/Generated/Bosses/buto_combo_3_3_02.png",
+				"res://assets/Generated/Bosses/buto_combo_3_3_03.png",
+				"res://assets/Generated/Bosses/buto_combo_3_3_04.png",
+				"res://assets/Generated/Bosses/buto_combo_3_3_05.png",
+				"res://assets/Generated/Bosses/buto_combo_3_3_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 3/CA KE 3.png"
+		},
+		"combo_3_4": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_3_4_01.png",
+				"res://assets/Generated/Bosses/buto_combo_3_4_02.png",
+				"res://assets/Generated/Bosses/buto_combo_3_4_03.png",
+				"res://assets/Generated/Bosses/buto_combo_3_4_04.png",
+				"res://assets/Generated/Bosses/buto_combo_3_4_05.png",
+				"res://assets/Generated/Bosses/buto_combo_3_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 3/CA KE 4.png"
+		},
+		"combo_3_5": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_combo_3_5_01.png",
+				"res://assets/Generated/Bosses/buto_combo_3_5_02.png",
+				"res://assets/Generated/Bosses/buto_combo_3_5_03.png",
+				"res://assets/Generated/Bosses/buto_combo_3_5_04.png",
+				"res://assets/Generated/Bosses/buto_combo_3_5_05.png",
+				"res://assets/Generated/Bosses/buto_combo_3_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Chained attack/Chained Attack 3/CA KE 5.png"
+		},
+		"death": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_death_01.png",
+				"res://assets/Generated/Bosses/buto_death_02.png",
+				"res://assets/Generated/Bosses/buto_death_03.png",
+				"res://assets/Generated/Bosses/buto_death_04.png",
+				"res://assets/Generated/Bosses/buto_death_05.png",
+				"res://assets/Generated/Bosses/buto_death_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/buto-death-v1.png"
+		},
+		"heavy": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_heavy_01.png",
+				"res://assets/Generated/Bosses/buto_heavy_02.png",
+				"res://assets/Generated/Bosses/buto_heavy_03.png",
+				"res://assets/Generated/Bosses/buto_heavy_04.png",
+				"res://assets/Generated/Bosses/buto_heavy_05.png",
+				"res://assets/Generated/Bosses/buto_heavy_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Heavy Attack/Buto Ijo Heavy Attack Sprite Sheet.png"
+		},
+		"idle": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_light_01.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Light Attack/Buto Ijo Light Attack Sprite Sheet.png"
+		},
+		"light": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_light_01.png",
+				"res://assets/Generated/Bosses/buto_light_02.png",
+				"res://assets/Generated/Bosses/buto_light_03.png",
+				"res://assets/Generated/Bosses/buto_light_04.png",
+				"res://assets/Generated/Bosses/buto_light_05.png",
+				"res://assets/Generated/Bosses/buto_light_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Light Attack/Buto Ijo Light Attack Sprite Sheet.png"
+		},
+		"spawn": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_spawn_01.png",
+				"res://assets/Generated/Bosses/buto_spawn_02.png",
+				"res://assets/Generated/Bosses/buto_spawn_03.png",
+				"res://assets/Generated/Bosses/buto_spawn_04.png",
+				"res://assets/Generated/Bosses/buto_spawn_05.png",
+				"res://assets/Generated/Bosses/buto_spawn_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/buto-spawn-v1.png"
+		},
+		"stagger": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_stagger_01.png",
+				"res://assets/Generated/Bosses/buto_stagger_02.png",
+				"res://assets/Generated/Bosses/buto_stagger_03.png",
+				"res://assets/Generated/Bosses/buto_stagger_04.png",
+				"res://assets/Generated/Bosses/buto_stagger_05.png",
+				"res://assets/Generated/Bosses/buto_stagger_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/buto-stagger-v1.png"
+		},
+		"walk": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_walk_01.png",
+				"res://assets/Generated/Bosses/buto_walk_02.png",
+				"res://assets/Generated/Bosses/buto_walk_03.png",
+				"res://assets/Generated/Bosses/buto_walk_04.png",
+				"res://assets/Generated/Bosses/buto_walk_05.png",
+				"res://assets/Generated/Bosses/buto_walk_06.png",
+				"res://assets/Generated/Bosses/buto_walk_07.png",
+				"res://assets/Generated/Bosses/buto_walk_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Waking/Buto Ijo Boss Walk Cycle.png"
+		},
+		"wave": {
+			"files": [
+				"res://assets/Generated/Bosses/buto_wave_01.png",
+				"res://assets/Generated/Bosses/buto_wave_02.png",
+				"res://assets/Generated/Bosses/buto_wave_03.png",
+				"res://assets/Generated/Bosses/buto_wave_04.png",
+				"res://assets/Generated/Bosses/buto_wave_05.png",
+				"res://assets/Generated/Bosses/buto_wave_06.png",
+				"res://assets/Generated/Bosses/buto_wave_07.png",
+				"res://assets/Generated/Bosses/buto_wave_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/Boss Urban Legend/Buto Ijo/Projectile/Pixel Earth Shockwave Sprite Sheet.png"
+		}
+	},
+	"commander": {
+		"combo_1_1": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_light_01.png",
+				"res://assets/Generated/Bosses/commander_light_02.png",
+				"res://assets/Generated/Bosses/commander_light_03.png",
+				"res://assets/Generated/Bosses/commander_light_04.png",
+				"res://assets/Generated/Bosses/commander_light_05.png",
+				"res://assets/Generated/Bosses/commander_light_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "light",
+			"source": "res://assets/Generated/Bosses/Sources/Commander/light-v1.png"
+		},
+		"combo_1_2": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_combo_1_2_01.png",
+				"res://assets/Generated/Bosses/commander_combo_1_2_02.png",
+				"res://assets/Generated/Bosses/commander_combo_1_2_03.png",
+				"res://assets/Generated/Bosses/commander_combo_1_2_04.png",
+				"res://assets/Generated/Bosses/commander_combo_1_2_05.png",
+				"res://assets/Generated/Bosses/commander_combo_1_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/combo_1_2-v1.png"
+		},
+		"combo_1_3": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_flintshot_01.png",
+				"res://assets/Generated/Bosses/commander_flintshot_02.png",
+				"res://assets/Generated/Bosses/commander_flintshot_03.png",
+				"res://assets/Generated/Bosses/commander_flintshot_04.png",
+				"res://assets/Generated/Bosses/commander_flintshot_05.png",
+				"res://assets/Generated/Bosses/commander_flintshot_06.png",
+				"res://assets/Generated/Bosses/commander_flintshot_07.png",
+				"res://assets/Generated/Bosses/commander_flintshot_08.png",
+				"res://assets/Generated/Bosses/commander_flintshot_09.png",
+				"res://assets/Generated/Bosses/commander_flintshot_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "flintshot",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FLINTSHOT"
+		},
+		"combo_1_4": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_combo_1_4_01.png",
+				"res://assets/Generated/Bosses/commander_combo_1_4_02.png",
+				"res://assets/Generated/Bosses/commander_combo_1_4_03.png",
+				"res://assets/Generated/Bosses/commander_combo_1_4_04.png",
+				"res://assets/Generated/Bosses/commander_combo_1_4_05.png",
+				"res://assets/Generated/Bosses/commander_combo_1_4_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/combo_1_4-v1.png"
+		},
+		"combo_1_5": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_heavy_01.png",
+				"res://assets/Generated/Bosses/commander_heavy_02.png",
+				"res://assets/Generated/Bosses/commander_heavy_03.png",
+				"res://assets/Generated/Bosses/commander_heavy_04.png",
+				"res://assets/Generated/Bosses/commander_heavy_05.png",
+				"res://assets/Generated/Bosses/commander_heavy_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "heavy",
+			"source": "res://assets/Generated/Bosses/Sources/Commander/heavy-v1.png"
+		},
+		"combo_2_1": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_combo_2_1_01.png",
+				"res://assets/Generated/Bosses/commander_combo_2_1_02.png",
+				"res://assets/Generated/Bosses/commander_combo_2_1_03.png",
+				"res://assets/Generated/Bosses/commander_combo_2_1_04.png",
+				"res://assets/Generated/Bosses/commander_combo_2_1_05.png",
+				"res://assets/Generated/Bosses/commander_combo_2_1_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/combo_2_1-v1.png"
+		},
+		"combo_2_2": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_flintshot_01.png",
+				"res://assets/Generated/Bosses/commander_flintshot_02.png",
+				"res://assets/Generated/Bosses/commander_flintshot_03.png",
+				"res://assets/Generated/Bosses/commander_flintshot_04.png",
+				"res://assets/Generated/Bosses/commander_flintshot_05.png",
+				"res://assets/Generated/Bosses/commander_flintshot_06.png",
+				"res://assets/Generated/Bosses/commander_flintshot_07.png",
+				"res://assets/Generated/Bosses/commander_flintshot_08.png",
+				"res://assets/Generated/Bosses/commander_flintshot_09.png",
+				"res://assets/Generated/Bosses/commander_flintshot_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "flintshot",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FLINTSHOT"
+		},
+		"combo_2_3": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_rapid_01.png",
+				"res://assets/Generated/Bosses/commander_rapid_02.png",
+				"res://assets/Generated/Bosses/commander_rapid_03.png",
+				"res://assets/Generated/Bosses/commander_rapid_04.png",
+				"res://assets/Generated/Bosses/commander_rapid_05.png",
+				"res://assets/Generated/Bosses/commander_rapid_06.png",
+				"res://assets/Generated/Bosses/commander_rapid_07.png",
+				"res://assets/Generated/Bosses/commander_rapid_08.png",
+				"res://assets/Generated/Bosses/commander_rapid_09.png",
+				"res://assets/Generated/Bosses/commander_rapid_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "rapid",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/RAPID"
+		},
+		"combo_2_4": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_heavy_01.png",
+				"res://assets/Generated/Bosses/commander_heavy_02.png",
+				"res://assets/Generated/Bosses/commander_heavy_03.png",
+				"res://assets/Generated/Bosses/commander_heavy_04.png",
+				"res://assets/Generated/Bosses/commander_heavy_05.png",
+				"res://assets/Generated/Bosses/commander_heavy_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "heavy",
+			"source": "res://assets/Generated/Bosses/Sources/Commander/heavy-v1.png"
+		},
+		"combo_3_1": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_flintshot_01.png",
+				"res://assets/Generated/Bosses/commander_flintshot_02.png",
+				"res://assets/Generated/Bosses/commander_flintshot_03.png",
+				"res://assets/Generated/Bosses/commander_flintshot_04.png",
+				"res://assets/Generated/Bosses/commander_flintshot_05.png",
+				"res://assets/Generated/Bosses/commander_flintshot_06.png",
+				"res://assets/Generated/Bosses/commander_flintshot_07.png",
+				"res://assets/Generated/Bosses/commander_flintshot_08.png",
+				"res://assets/Generated/Bosses/commander_flintshot_09.png",
+				"res://assets/Generated/Bosses/commander_flintshot_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "flintshot",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FLINTSHOT"
+		},
+		"combo_3_2": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_combo_3_2_01.png",
+				"res://assets/Generated/Bosses/commander_combo_3_2_02.png",
+				"res://assets/Generated/Bosses/commander_combo_3_2_03.png",
+				"res://assets/Generated/Bosses/commander_combo_3_2_04.png",
+				"res://assets/Generated/Bosses/commander_combo_3_2_05.png",
+				"res://assets/Generated/Bosses/commander_combo_3_2_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/combo_3_2-v1.png"
+		},
+		"combo_3_3": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_rapid_01.png",
+				"res://assets/Generated/Bosses/commander_rapid_02.png",
+				"res://assets/Generated/Bosses/commander_rapid_03.png",
+				"res://assets/Generated/Bosses/commander_rapid_04.png",
+				"res://assets/Generated/Bosses/commander_rapid_05.png",
+				"res://assets/Generated/Bosses/commander_rapid_06.png",
+				"res://assets/Generated/Bosses/commander_rapid_07.png",
+				"res://assets/Generated/Bosses/commander_rapid_08.png",
+				"res://assets/Generated/Bosses/commander_rapid_09.png",
+				"res://assets/Generated/Bosses/commander_rapid_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "rapid",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/RAPID"
+		},
+		"combo_3_4": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_finalsalvo_01.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_02.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_03.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_04.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_05.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_06.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_07.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_08.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_09.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_10.png"
+			],
+			"placeholder": false,
+			"shared_animation": "finalsalvo",
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FINALSALVO"
+		},
+		"combo_3_5": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_combo_3_5_01.png",
+				"res://assets/Generated/Bosses/commander_combo_3_5_02.png",
+				"res://assets/Generated/Bosses/commander_combo_3_5_03.png",
+				"res://assets/Generated/Bosses/commander_combo_3_5_04.png",
+				"res://assets/Generated/Bosses/commander_combo_3_5_05.png",
+				"res://assets/Generated/Bosses/commander_combo_3_5_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/combo_3_5-v1.png"
+		},
+		"death": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_death_01.png",
+				"res://assets/Generated/Bosses/commander_death_02.png",
+				"res://assets/Generated/Bosses/commander_death_03.png",
+				"res://assets/Generated/Bosses/commander_death_04.png",
+				"res://assets/Generated/Bosses/commander_death_05.png",
+				"res://assets/Generated/Bosses/commander_death_06.png",
+				"res://assets/Generated/Bosses/commander_death_07.png",
+				"res://assets/Generated/Bosses/commander_death_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/death-v1.png"
+		},
+		"finalsalvo": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_finalsalvo_01.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_02.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_03.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_04.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_05.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_06.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_07.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_08.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_09.png",
+				"res://assets/Generated/Bosses/commander_finalsalvo_10.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FINALSALVO"
+		},
+		"flintshot": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_flintshot_01.png",
+				"res://assets/Generated/Bosses/commander_flintshot_02.png",
+				"res://assets/Generated/Bosses/commander_flintshot_03.png",
+				"res://assets/Generated/Bosses/commander_flintshot_04.png",
+				"res://assets/Generated/Bosses/commander_flintshot_05.png",
+				"res://assets/Generated/Bosses/commander_flintshot_06.png",
+				"res://assets/Generated/Bosses/commander_flintshot_07.png",
+				"res://assets/Generated/Bosses/commander_flintshot_08.png",
+				"res://assets/Generated/Bosses/commander_flintshot_09.png",
+				"res://assets/Generated/Bosses/commander_flintshot_10.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/FLINTSHOT"
+		},
+		"heavy": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_heavy_01.png",
+				"res://assets/Generated/Bosses/commander_heavy_02.png",
+				"res://assets/Generated/Bosses/commander_heavy_03.png",
+				"res://assets/Generated/Bosses/commander_heavy_04.png",
+				"res://assets/Generated/Bosses/commander_heavy_05.png",
+				"res://assets/Generated/Bosses/commander_heavy_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/heavy-v1.png"
+		},
+		"hurt": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_hurt_01.png",
+				"res://assets/Generated/Bosses/commander_hurt_02.png",
+				"res://assets/Generated/Bosses/commander_hurt_03.png",
+				"res://assets/Generated/Bosses/commander_hurt_04.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/hurt-v1.png"
+		},
+		"idle": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_idle_01.png",
+				"res://assets/Generated/Bosses/commander_idle_02.png",
+				"res://assets/Generated/Bosses/commander_idle_03.png",
+				"res://assets/Generated/Bosses/commander_idle_04.png",
+				"res://assets/Generated/Bosses/commander_idle_05.png",
+				"res://assets/Generated/Bosses/commander_idle_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/idle-v1.png"
+		},
+		"light": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_light_01.png",
+				"res://assets/Generated/Bosses/commander_light_02.png",
+				"res://assets/Generated/Bosses/commander_light_03.png",
+				"res://assets/Generated/Bosses/commander_light_04.png",
+				"res://assets/Generated/Bosses/commander_light_05.png",
+				"res://assets/Generated/Bosses/commander_light_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/light-v1.png"
+		},
+		"rapid": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_rapid_01.png",
+				"res://assets/Generated/Bosses/commander_rapid_02.png",
+				"res://assets/Generated/Bosses/commander_rapid_03.png",
+				"res://assets/Generated/Bosses/commander_rapid_04.png",
+				"res://assets/Generated/Bosses/commander_rapid_05.png",
+				"res://assets/Generated/Bosses/commander_rapid_06.png",
+				"res://assets/Generated/Bosses/commander_rapid_07.png",
+				"res://assets/Generated/Bosses/commander_rapid_08.png",
+				"res://assets/Generated/Bosses/commander_rapid_09.png",
+				"res://assets/Generated/Bosses/commander_rapid_10.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Animasi Karakter/BOSBELANDA/RAPID"
+		},
+		"reload": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_reload_01.png",
+				"res://assets/Generated/Bosses/commander_reload_02.png",
+				"res://assets/Generated/Bosses/commander_reload_03.png",
+				"res://assets/Generated/Bosses/commander_reload_04.png",
+				"res://assets/Generated/Bosses/commander_reload_05.png",
+				"res://assets/Generated/Bosses/commander_reload_06.png",
+				"res://assets/Generated/Bosses/commander_reload_07.png",
+				"res://assets/Generated/Bosses/commander_reload_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/reload-v1.png"
+		},
+		"run": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_run_01.png",
+				"res://assets/Generated/Bosses/commander_run_02.png",
+				"res://assets/Generated/Bosses/commander_run_03.png",
+				"res://assets/Generated/Bosses/commander_run_04.png",
+				"res://assets/Generated/Bosses/commander_run_05.png",
+				"res://assets/Generated/Bosses/commander_run_06.png",
+				"res://assets/Generated/Bosses/commander_run_07.png",
+				"res://assets/Generated/Bosses/commander_run_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/run-v1.png"
+		},
+		"spawn": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_spawn_01.png",
+				"res://assets/Generated/Bosses/commander_spawn_02.png",
+				"res://assets/Generated/Bosses/commander_spawn_03.png",
+				"res://assets/Generated/Bosses/commander_spawn_04.png",
+				"res://assets/Generated/Bosses/commander_spawn_05.png",
+				"res://assets/Generated/Bosses/commander_spawn_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/spawn-v1.png"
+		},
+		"stagger": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_stagger_01.png",
+				"res://assets/Generated/Bosses/commander_stagger_02.png",
+				"res://assets/Generated/Bosses/commander_stagger_03.png",
+				"res://assets/Generated/Bosses/commander_stagger_04.png",
+				"res://assets/Generated/Bosses/commander_stagger_05.png",
+				"res://assets/Generated/Bosses/commander_stagger_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/stagger-v1.png"
+		},
+		"walk": {
+			"files": [
+				"res://assets/Generated/Bosses/commander_walk_01.png",
+				"res://assets/Generated/Bosses/commander_walk_02.png",
+				"res://assets/Generated/Bosses/commander_walk_03.png",
+				"res://assets/Generated/Bosses/commander_walk_04.png",
+				"res://assets/Generated/Bosses/commander_walk_05.png",
+				"res://assets/Generated/Bosses/commander_walk_06.png",
+				"res://assets/Generated/Bosses/commander_walk_07.png",
+				"res://assets/Generated/Bosses/commander_walk_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Commander/walk-v1.png"
+		}
+	},
+	"headless": {
+		"backhand": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_backhand_01.png",
+				"res://assets/Generated/Bosses/headless_backhand_02.png",
+				"res://assets/Generated/Bosses/headless_backhand_03.png",
+				"res://assets/Generated/Bosses/headless_backhand_04.png",
+				"res://assets/Generated/Bosses/headless_backhand_05.png",
+				"res://assets/Generated/Bosses/headless_backhand_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/backhand-v1.png"
+		},
+		"combo_1_1": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_light_01.png",
+				"res://assets/Generated/Bosses/headless_light_02.png",
+				"res://assets/Generated/Bosses/headless_light_03.png",
+				"res://assets/Generated/Bosses/headless_light_04.png",
+				"res://assets/Generated/Bosses/headless_light_05.png",
+				"res://assets/Generated/Bosses/headless_light_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "light",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/light-v1.png"
+		},
+		"combo_1_2": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_backhand_01.png",
+				"res://assets/Generated/Bosses/headless_backhand_02.png",
+				"res://assets/Generated/Bosses/headless_backhand_03.png",
+				"res://assets/Generated/Bosses/headless_backhand_04.png",
+				"res://assets/Generated/Bosses/headless_backhand_05.png",
+				"res://assets/Generated/Bosses/headless_backhand_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "backhand",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/backhand-v1.png"
+		},
+		"combo_1_3": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_light_01.png",
+				"res://assets/Generated/Bosses/headless_light_02.png",
+				"res://assets/Generated/Bosses/headless_light_03.png",
+				"res://assets/Generated/Bosses/headless_light_04.png",
+				"res://assets/Generated/Bosses/headless_light_05.png",
+				"res://assets/Generated/Bosses/headless_light_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "light",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/light-v1.png"
+		},
+		"combo_1_4": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_backhand_01.png",
+				"res://assets/Generated/Bosses/headless_backhand_02.png",
+				"res://assets/Generated/Bosses/headless_backhand_03.png",
+				"res://assets/Generated/Bosses/headless_backhand_04.png",
+				"res://assets/Generated/Bosses/headless_backhand_05.png",
+				"res://assets/Generated/Bosses/headless_backhand_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "backhand",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/backhand-v1.png"
+		},
+		"combo_1_5": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_heavy_01.png",
+				"res://assets/Generated/Bosses/headless_heavy_02.png",
+				"res://assets/Generated/Bosses/headless_heavy_03.png",
+				"res://assets/Generated/Bosses/headless_heavy_04.png",
+				"res://assets/Generated/Bosses/headless_heavy_05.png",
+				"res://assets/Generated/Bosses/headless_heavy_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "heavy",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/heavy-v1.png"
+		},
+		"combo_2_1": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_lunge_01.png",
+				"res://assets/Generated/Bosses/headless_lunge_02.png",
+				"res://assets/Generated/Bosses/headless_lunge_03.png",
+				"res://assets/Generated/Bosses/headless_lunge_04.png",
+				"res://assets/Generated/Bosses/headless_lunge_05.png",
+				"res://assets/Generated/Bosses/headless_lunge_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "lunge",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/lunge-v1.png"
+		},
+		"combo_2_2": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_light_01.png",
+				"res://assets/Generated/Bosses/headless_light_02.png",
+				"res://assets/Generated/Bosses/headless_light_03.png",
+				"res://assets/Generated/Bosses/headless_light_04.png",
+				"res://assets/Generated/Bosses/headless_light_05.png",
+				"res://assets/Generated/Bosses/headless_light_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "light",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/light-v1.png"
+		},
+		"combo_2_3": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_low_spin_01.png",
+				"res://assets/Generated/Bosses/headless_low_spin_02.png",
+				"res://assets/Generated/Bosses/headless_low_spin_03.png",
+				"res://assets/Generated/Bosses/headless_low_spin_04.png",
+				"res://assets/Generated/Bosses/headless_low_spin_05.png",
+				"res://assets/Generated/Bosses/headless_low_spin_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "low_spin",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/low_spin-v1.png"
+		},
+		"combo_2_4": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_heavy_01.png",
+				"res://assets/Generated/Bosses/headless_heavy_02.png",
+				"res://assets/Generated/Bosses/headless_heavy_03.png",
+				"res://assets/Generated/Bosses/headless_heavy_04.png",
+				"res://assets/Generated/Bosses/headless_heavy_05.png",
+				"res://assets/Generated/Bosses/headless_heavy_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "heavy",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/heavy-v1.png"
+		},
+		"combo_3_1": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_vanish_01.png",
+				"res://assets/Generated/Bosses/headless_vanish_02.png",
+				"res://assets/Generated/Bosses/headless_vanish_03.png",
+				"res://assets/Generated/Bosses/headless_vanish_04.png",
+				"res://assets/Generated/Bosses/headless_vanish_05.png",
+				"res://assets/Generated/Bosses/headless_vanish_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "vanish",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/vanish-v1.png"
+		},
+		"combo_3_2": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_leap_slam_01.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_02.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_03.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_04.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_05.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "leap_slam",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/leap_slam-v1.png"
+		},
+		"combo_3_3": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_light_01.png",
+				"res://assets/Generated/Bosses/headless_light_02.png",
+				"res://assets/Generated/Bosses/headless_light_03.png",
+				"res://assets/Generated/Bosses/headless_light_04.png",
+				"res://assets/Generated/Bosses/headless_light_05.png",
+				"res://assets/Generated/Bosses/headless_light_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "light",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/light-v1.png"
+		},
+		"combo_3_4": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_low_spin_01.png",
+				"res://assets/Generated/Bosses/headless_low_spin_02.png",
+				"res://assets/Generated/Bosses/headless_low_spin_03.png",
+				"res://assets/Generated/Bosses/headless_low_spin_04.png",
+				"res://assets/Generated/Bosses/headless_low_spin_05.png",
+				"res://assets/Generated/Bosses/headless_low_spin_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "low_spin",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/low_spin-v1.png"
+		},
+		"combo_3_5": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_ultimate_01.png",
+				"res://assets/Generated/Bosses/headless_ultimate_02.png",
+				"res://assets/Generated/Bosses/headless_ultimate_03.png",
+				"res://assets/Generated/Bosses/headless_ultimate_04.png",
+				"res://assets/Generated/Bosses/headless_ultimate_05.png",
+				"res://assets/Generated/Bosses/headless_ultimate_06.png"
+			],
+			"placeholder": false,
+			"shared_animation": "ultimate",
+			"source": "res://assets/Generated/Bosses/Sources/Headless/ultimate-v1.png"
+		},
+		"death": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_death_01.png",
+				"res://assets/Generated/Bosses/headless_death_02.png",
+				"res://assets/Generated/Bosses/headless_death_03.png",
+				"res://assets/Generated/Bosses/headless_death_04.png",
+				"res://assets/Generated/Bosses/headless_death_05.png",
+				"res://assets/Generated/Bosses/headless_death_06.png",
+				"res://assets/Generated/Bosses/headless_death_07.png",
+				"res://assets/Generated/Bosses/headless_death_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/death-v1.png"
+		},
+		"heavy": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_heavy_01.png",
+				"res://assets/Generated/Bosses/headless_heavy_02.png",
+				"res://assets/Generated/Bosses/headless_heavy_03.png",
+				"res://assets/Generated/Bosses/headless_heavy_04.png",
+				"res://assets/Generated/Bosses/headless_heavy_05.png",
+				"res://assets/Generated/Bosses/headless_heavy_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/heavy-v1.png"
+		},
+		"hurt": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_hurt_01.png",
+				"res://assets/Generated/Bosses/headless_hurt_02.png",
+				"res://assets/Generated/Bosses/headless_hurt_03.png",
+				"res://assets/Generated/Bosses/headless_hurt_04.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/hurt-v1.png"
+		},
+		"idle": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_idle_01.png",
+				"res://assets/Generated/Bosses/headless_idle_02.png",
+				"res://assets/Generated/Bosses/headless_idle_03.png",
+				"res://assets/Generated/Bosses/headless_idle_04.png",
+				"res://assets/Generated/Bosses/headless_idle_05.png",
+				"res://assets/Generated/Bosses/headless_idle_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/idle-v1.png"
+		},
+		"leap_slam": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_leap_slam_01.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_02.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_03.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_04.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_05.png",
+				"res://assets/Generated/Bosses/headless_leap_slam_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/leap_slam-v1.png"
+		},
+		"light": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_light_01.png",
+				"res://assets/Generated/Bosses/headless_light_02.png",
+				"res://assets/Generated/Bosses/headless_light_03.png",
+				"res://assets/Generated/Bosses/headless_light_04.png",
+				"res://assets/Generated/Bosses/headless_light_05.png",
+				"res://assets/Generated/Bosses/headless_light_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/light-v1.png"
+		},
+		"low_spin": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_low_spin_01.png",
+				"res://assets/Generated/Bosses/headless_low_spin_02.png",
+				"res://assets/Generated/Bosses/headless_low_spin_03.png",
+				"res://assets/Generated/Bosses/headless_low_spin_04.png",
+				"res://assets/Generated/Bosses/headless_low_spin_05.png",
+				"res://assets/Generated/Bosses/headless_low_spin_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/low_spin-v1.png"
+		},
+		"lunge": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_lunge_01.png",
+				"res://assets/Generated/Bosses/headless_lunge_02.png",
+				"res://assets/Generated/Bosses/headless_lunge_03.png",
+				"res://assets/Generated/Bosses/headless_lunge_04.png",
+				"res://assets/Generated/Bosses/headless_lunge_05.png",
+				"res://assets/Generated/Bosses/headless_lunge_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/lunge-v1.png"
+		},
+		"run": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_run_01.png",
+				"res://assets/Generated/Bosses/headless_run_02.png",
+				"res://assets/Generated/Bosses/headless_run_03.png",
+				"res://assets/Generated/Bosses/headless_run_04.png",
+				"res://assets/Generated/Bosses/headless_run_05.png",
+				"res://assets/Generated/Bosses/headless_run_06.png",
+				"res://assets/Generated/Bosses/headless_run_07.png",
+				"res://assets/Generated/Bosses/headless_run_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/run-v1.png"
+		},
+		"spawn": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_spawn_01.png",
+				"res://assets/Generated/Bosses/headless_spawn_02.png",
+				"res://assets/Generated/Bosses/headless_spawn_03.png",
+				"res://assets/Generated/Bosses/headless_spawn_04.png",
+				"res://assets/Generated/Bosses/headless_spawn_05.png",
+				"res://assets/Generated/Bosses/headless_spawn_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/spawn-v1.png"
+		},
+		"stagger": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_stagger_01.png",
+				"res://assets/Generated/Bosses/headless_stagger_02.png",
+				"res://assets/Generated/Bosses/headless_stagger_03.png",
+				"res://assets/Generated/Bosses/headless_stagger_04.png",
+				"res://assets/Generated/Bosses/headless_stagger_05.png",
+				"res://assets/Generated/Bosses/headless_stagger_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/stagger-v1.png"
+		},
+		"ultimate": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_ultimate_01.png",
+				"res://assets/Generated/Bosses/headless_ultimate_02.png",
+				"res://assets/Generated/Bosses/headless_ultimate_03.png",
+				"res://assets/Generated/Bosses/headless_ultimate_04.png",
+				"res://assets/Generated/Bosses/headless_ultimate_05.png",
+				"res://assets/Generated/Bosses/headless_ultimate_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/ultimate-v1.png"
+		},
+		"vanish": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_vanish_01.png",
+				"res://assets/Generated/Bosses/headless_vanish_02.png",
+				"res://assets/Generated/Bosses/headless_vanish_03.png",
+				"res://assets/Generated/Bosses/headless_vanish_04.png",
+				"res://assets/Generated/Bosses/headless_vanish_05.png",
+				"res://assets/Generated/Bosses/headless_vanish_06.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/vanish-v1.png"
+		},
+		"walk": {
+			"files": [
+				"res://assets/Generated/Bosses/headless_walk_01.png",
+				"res://assets/Generated/Bosses/headless_walk_02.png",
+				"res://assets/Generated/Bosses/headless_walk_03.png",
+				"res://assets/Generated/Bosses/headless_walk_04.png",
+				"res://assets/Generated/Bosses/headless_walk_05.png",
+				"res://assets/Generated/Bosses/headless_walk_06.png",
+				"res://assets/Generated/Bosses/headless_walk_07.png",
+				"res://assets/Generated/Bosses/headless_walk_08.png"
+			],
+			"placeholder": false,
+			"source": "res://assets/Generated/Bosses/Sources/Headless/walk-v1.png"
+		}
+	}
+}

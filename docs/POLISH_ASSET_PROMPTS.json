@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-25",
+  "mode": "built-in image_gen",
+  "jobs": [
+    {
+      "id": "headless_spawn",
+      "name": "spawn",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Frame1 purple smoke pool at ground; 2 boots/coat form from smoke; 3 torso assembles; 4 body upright; 5 saber draws; 6 complete ready stance. No head at any time. Final standing figure matches reference scale. Each cell same canvas and ground baseline.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/spawn-v1.png"
+    },
+    {
+      "id": "headless_hurt",
+      "name": "hurt",
+      "count": 4,
+      "columns": 4,
+      "rows": 1,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 4 frames in 4 equal columns by 1 equal rows, row-major. Short non-looping recoil: 1 ready, 2 torso flinches away from a hit on chest, 3 catches balance, 4 returns to guard. No head, no blood, feet stable.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/hurt-v1.png"
+    },
+    {
+      "id": "headless_backhand",
+      "name": "backhand",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. A fast reverse saber backhand strike: 1 guard, 2 coil saber across waist, 3 backswing, 4 clear horizontal slash extended to right, 5 follow-through, 6 guard. Distinct crisp pose changes and a restrained magenta slash on contact.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/backhand-v1.png"
+    },
+    {
+      "id": "headless_low_spin",
+      "name": "low_spin",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Grounded low spinning saber sweep: 1 guard, 2 crouch windup, 3 low turn, 4 sweeping blade horizontally to right at knee height, 5 follow-through, 6 recover. Both boots remain on the ground; compact magenta slash only in contact frames.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/low_spin-v1.png"
+    },
+    {
+      "id": "headless_vanish",
+      "name": "vanish",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Smoke step / vanish and reappear: 1 full ready stance, 2 coat dissolves, 3 body disperses into purple smoke, 4 low smoke streak, 5 body reforms with saber raised, 6 full stable ready stance. Same rooted scale, no head.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/vanish-v1.png"
+    },
+    {
+      "id": "headless_leap_slam",
+      "name": "leap_slam",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Overhead saber slam animation: 1 guard, 2 low crouch, 3 knees bend and saber overhead, 4 forceful vertical downward strike to right, 5 one-knee heavy follow-through, 6 regain guard. In-place root animation, no platforms or floor. Unmistakable windup then contact.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/leap_slam-v1.png"
+    },
+    {
+      "id": "headless_ultimate",
+      "name": "ultimate",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Heavy finisher: 1 saber drawn far back, 2 deep coiling stance, 3 forward thrust/slash, 4 huge downward diagonal saber cut with restrained bright crimson-purple arc, 5 one-knee follow-through, 6 upright guard. Entire arc stays inside padded cell. No head or extra sword.",
+      "refs": [
+        "assets/Generated/Bosses/Sources/Headless/reference-v1.png"
+      ],
+      "transparent": true,
+      "destination": "assets/Generated/Bosses/Sources/Headless/ultimate-v1.png"
+    },
+    {
+      "id": "ending_pulang",
+      "name": "pulang",
+      "prompt": "Generate a landscape 16:9 ending illustration for a Javanese historical-fantasy pixel-art game set near the end of the Java War, 1830. Attached image1 is exact reference for Jaka: young Javanese man with brown patterned headband, dark black-brown jacket with gold embroidery, cream undershirt and shoulder satchel, brown batik waistcloth, dark cropped trousers and sandals. Image2 is exact reference for Sari: young intelligent Javanese woman, dark hair in a low bun with small pale flower, cream kebaya, brown waist sash and batik skirt, simple bag. Preserve faces, clothing and identity. Detailed crisp pixel-art storybook environment, cinematic wide composition, cohesive with supplied characters. No text, letters, UI, watermark, logo, modern objects or gore. Scene takes place away from the historical negotiations; no portrayal of Diponegoro. Keep central characters away from bottom 25% so a dialogue panel can overlay. Bittersweet sunrise at a damaged Javanese village. Jaka and Sari lead a small family home along an earthen path. A little orange tabby cat waits near a broken bamboo fence. Modest damaged traditional houses, new grass and warm morning light; signs of loss but calm hope. Jaka's keris is sheathed, Sari carries rolled notes. Main pair in midground, landscape and sunrise spacious.",
+      "refs": [
+        "assets/Animasi Karakter/Jaka New/Javanese-Inspired Pixel Art Warrior.png",
+        "assets/Karakter/WAIFU .png"
+      ],
+      "transparent": false,
+      "destination": "assets/Generated/Endings/pulang-v1.png"
+    },
+    {
+      "id": "ending_bertahan",
+      "name": "bertahan",
+      "prompt": "Generate a landscape 16:9 ending illustration for a Javanese historical-fantasy pixel-art game set near the end of the Java War, 1830. Attached image1 is exact reference for Jaka: young Javanese man with brown patterned headband, dark black-brown jacket with gold embroidery, cream undershirt and shoulder satchel, brown batik waistcloth, dark cropped trousers and sandals. Image2 is exact reference for Sari: young intelligent Javanese woman, dark hair in a low bun with small pale flower, cream kebaya, brown waist sash and batik skirt, simple bag. Preserve faces, clothing and identity. Detailed crisp pixel-art storybook environment, cinematic wide composition, cohesive with supplied characters. No text, letters, UI, watermark, logo, modern objects or gore. Scene takes place away from the historical negotiations; no portrayal of Diponegoro. Keep central characters away from bottom 25% so a dialogue panel can overlay. Blue dawn with a last warm lantern. Jaka alone in foreground at a narrow broken bamboo fence, determined, holding a small silver keris lowered at his side. In distant right background Sari escorts a few villagers safely down a misty path. Jaka's silhouette faces approaching vague distant patrol silhouettes, no active violence or blood. Quiet brave sacrifice and separation; restrained red glow at horizon, worn village path.",
+      "refs": [
+        "assets/Animasi Karakter/Jaka New/Javanese-Inspired Pixel Art Warrior.png",
+        "assets/Karakter/WAIFU .png"
+      ],
+      "transparent": false,
+      "destination": "assets/Generated/Endings/bertahan-v1.png"
+    },
+    {
+      "id": "ending_jejak",
+      "name": "jejak",
+      "prompt": "Generate a landscape 16:9 ending illustration for a Javanese historical-fantasy pixel-art game set near the end of the Java War, 1830. Attached image1 is exact reference for Jaka: young Javanese man with brown patterned headband, dark black-brown jacket with gold embroidery, cream undershirt and shoulder satchel, brown batik waistcloth, dark cropped trousers and sandals. Image2 is exact reference for Sari: young intelligent Javanese woman, dark hair in a low bun with small pale flower, cream kebaya, brown waist sash and batik skirt, simple bag. Preserve faces, clothing and identity. Detailed crisp pixel-art storybook environment, cinematic wide composition, cohesive with supplied characters. No text, letters, UI, watermark, logo, modern objects or gore. Scene takes place away from the historical negotiations; no portrayal of Diponegoro. Keep central characters away from bottom 25% so a dialogue panel can overlay. Quiet dawn inside an open Javanese shelter overlooking a recovering village. Jaka and Sari sit beside a simple wooden table, carefully writing names and memories on paper with reed/dip pens; small rescued bundle of notes, orange tabby cat sleeping beside them. A few villagers rebuild a distant bamboo fence. Bittersweet calm, soft gold-blue palette, human memories surviving loss. Simple era-appropriate furniture, no modern books/notebook binding.",
+      "refs": [
+        "assets/Animasi Karakter/Jaka New/Javanese-Inspired Pixel Art Warrior.png",
+        "assets/Karakter/WAIFU .png"
+      ],
+      "transparent": false,
+      "destination": "assets/Generated/Endings/jejak-v1.png"
+    }
+  ]
+}

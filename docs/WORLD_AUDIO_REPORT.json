@@ -1,0 +1,31 @@
+{
+  "original_synthetic_audio": true,
+  "note": "Original gamelan-inspired five-tone compositions; not historical tuning reconstruction. All events and loops generated from code without third-party recordings.",
+  "loops": {
+    "headless-smoke-and-bronze": {
+      "seconds": 48.0,
+      "peak_dbfs": -2.18,
+      "sha256": "b71f5342d136dc1639b501955c23176ec1beaf1ee5ab44fd7371faeb5d9952b2"
+    },
+    "commander-last-march": {
+      "seconds": 36.226,
+      "peak_dbfs": -3.42,
+      "sha256": "93b7a1c3c81ecee2cc3f260aa43914f7cf8268801e1c4f49907d1df89f4d1536"
+    },
+    "ending-memory": {
+      "seconds": 53.333,
+      "peak_dbfs": -6.66,
+      "sha256": "4089356fcb342464b6ddf031a1113d306c38151146fcc8a5f653c735a693f287"
+    },
+    "night-village": {
+      "seconds": 24.0,
+      "peak_dbfs": -5.76,
+      "sha256": "0f25d7c41d7d2b5539fb55c96955fee6153b248ac534c2660f745320d54ed8d9"
+    },
+    "day-wind": {
+      "seconds": 24.0,
+      "peak_dbfs": -9.6,
+      "sha256": "6d0075bcb3eca0789783ab9eedddcff09fa704fc80484493e9aeb84262caf6cb"
+    }
+  }
+}

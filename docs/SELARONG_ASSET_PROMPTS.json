@@ -1,0 +1,31 @@
+{
+  "mode": "built-in image_gen",
+  "date": "2026-11-24",
+  "prompts": [
+    {
+      "name": "telescope",
+      "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art prop sprite for a side-scrolling game set in rural Java. Create ONE old brass monocular spyglass mounted on a plain dark wooden tripod, aimed horizontally toward the RIGHT with a slight upward angle. Side view, no perspective floor, no people. The eyepiece is on the left, broad front lens on the right. Tripod is stable and narrow with three visible wooden legs, aged brass bands, worn brown leather barrel grip, small subdued pale blue lens reflection. Refined atmospheric 2D pixel art with deliberate crisp pixel clusters, warm muted brass and earthy browns, a dark clean outline, soft light from upper left, limited palette, readable silhouette at 100 pixels tall. Entire prop centered with generous transparent padding, all legs and full barrel visible. Real transparent alpha background, no ground plane, no cast shadow outside the object, no checkerboard pattern, no text, no labels, no watermark, no modern binoculars, no wheels, no gun, no decorative symbols.",
+      "transparent": true
+    },
+    {
+      "name": "limestone_platform",
+      "prompt": "Use case: stylized-concept. Asset type: transparent terrain ledge sprite for a side-scrolling pixel-art game in the limestone hills of Selarong, Java. Create ONE wide limestone rock platform seen exactly from the side. Roughly 3:1 width to height object ratio. Its WALKABLE TOP IS A STRAIGHT HORIZONTAL LINE across at least 90 percent of the width, edged with a THIN dark olive moss cap and a little short grass at the sides. Below the flat top, a thick layered grey-brown limestone rock body with vertical cracks, uneven angular underside and a few tiny hanging roots; complete floating rock silhouette with transparent space around it. The rock body reaches both left and right edges below the cap with no protrusion above the walkable line in its central span. Detailed 2D pixel art, crisp purposeful pixel clusters, muted warm grey stone, moss green, earthy shadows, subtle upper-left illumination, fits an atmospheric Javanese forest game, readable when scaled to 140 pixels wide. No scenery, no ground plane, no characters, no text, no labels, no grid, no glow, no checkerboard, real transparent alpha background.",
+      "transparent": true
+    },
+    {
+      "name": "selarong_hut",
+      "prompt": "Use case: stylized-concept. Asset type: transparent side-view environmental prop sprite for a 2D pixel-art game in rural Java. Create ONE modest bamboo and timber roadside shelter: small open wooden veranda, woven bamboo wall panels, dark open doorway, broad low thatched roof with slightly worn edges, two simple supporting posts, small stacked baskets beside the wall. Rural Javanese visual character, practical unadorned architecture, no fantasy palace. Side view suitable behind player characters in a side-scrolling platformer, approximately twice as wide as tall. Entire building and all post bases visible and aligned on one flat baseline. Pixel art with rich but controlled earthy detail, crisp small pixel clusters, warm weathered wood and muted straw brown with olive moss accents, diffuse upper-left daylight, matches lush limestone forest surroundings. An isolated usable sprite with generous transparent padding, no surrounding landscape, no opaque sky, no baked ground rectangle, no people, no text, no signs, no icons, no modern materials, no checkerboard, real transparent alpha background.",
+      "transparent": true
+    },
+    {
+      "name": "selarong_valley_depth",
+      "prompt": "Use case: stylized-concept. Asset type: OPAQUE background panorama for a 2D side-scrolling pixel-art game set around Selarong's limestone hills in Java. Create a wide landscape image approximately 2:1. Atmospheric deep tropical ravine, distant grey limestone karst walls covered by olive green vegetation, layered treetops and dense forest down into the valley, subdued blue-green mist in the distance. Crisp coherent pixel-art texture and controlled color clusters; softly lit neutral daylight, no orange sunset baked in. Upper quarter is pale muted sky and distant ridges. Lower THREE QUARTERS must be fully filled with forest, darker rock faces and shadowed vegetation continuously all the way to the BOTTOM EDGE: absolutely no transparent holes, blank bands, checkerboard, white voids, foreground soil cross-section or empty sky below the mountains. Both left and right borders have similar dense vegetation and heights so mirrored copies can join unobtrusively. This is a depth layer behind foreground cliffs, so avoid extremely sharp focal objects and strong foreground silhouettes. Quiet natural colors, readable soft depth, no characters, buildings, props, UI, text, borders or watermark. The entire rectangular image is opaque.",
+      "transparent": false
+    },
+    {
+      "name": "lookout_rock",
+      "prompt": "Use case: stylized-concept. Asset type: transparent pixel-art scenery sprite for a side-scrolling platform game in the limestone hills of Java. ONE squat, sturdy, grounded limestone BOULDER pedestal, approximately 2:1 width to height. A broad FLAT HORIZONTAL walkable top with a thin olive moss cap. A solid bulky grey-brown cracked limestone body extends DOWN to a broad, nearly flat heavy base AS WIDE AS THE TOP, clearly resting on the ground. No narrow tip, no dangling pointed underside, no floating island. Some subtle moss in crevices, sparse low ferns at outer sides, clear pixel clusters, controlled earthy palette, dark clean silhouette, warm upper-left light, consistent detailed 2D pixel-art platformer style. Exact side view. Isolated sprite with all edges and base visible, generous padding, actual transparent alpha background. No ground plane, sky, people, telescope, text, numbers, grid, glow or checkerboard.",
+      "transparent": true
+    }
+  ]
+}

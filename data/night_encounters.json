@@ -1,0 +1,44 @@
+{
+  "chapter_four.gd": {
+    "kind":"headless",
+    "speaker":"Penjaga kebun",
+    "x":3550,
+    "clue_x":5150,
+    "clue_name":"Bekas pedang di pagar timur",
+    "clue_text":"Ada bekas tebasan baru di pagar. Dari balik rumah kosong terdengar langkah sepatu, tetapi sosok yang lewat tidak mempunyai kepala. Asap ungu bergerak di atas kerah mantelnya.",
+    "portrait":"res://assets/Karakter/NPC cwo.png",
+    "region":[253,150,483,1330],
+    "rumor":"Saat malam, ada sosok bermantel merah berpatroli dekat pagar timur. Ia membawa pedang, tetapi aku tidak melihat kepala di atas kerahnya.",
+    "invitation":"Kalau ingin memeriksa, cari bekas pedang di pagar dekat ujung desa. Jangan mendekat sebelum kau siap.",
+    "accepted":"Ikuti jalan ke timur sampai melewati rumah tempat Sari menunggu. Bekas tebasannya terlihat saat malam.",
+    "after":"Langkah sepatu itu tak terdengar lagi. Warga bisa melewati pagar tanpa takut pada sosok tersebut."
+  },
+  "chapter_one.gd": {
+    "kind": "buto",
+    "speaker": "Penjaga sawah",
+    "x": 1900,
+    "clue_x": 3060,
+    "clue_name": "Bekas seretan pedang",
+    "clue_text": "Goresan panjang membelah pematang. Di ujung sawah terdengar langkah berat, disusul denting pedang. Sosok yang diceritakan warga menunggu di balik pepohonan.",
+    "portrait": "res://assets/Karakter/NPC Ibu2.png",
+    "region": [254,152,463,1314],
+    "rumor": "Sejak gelap, dari batas sawah terdengar besi diseret. Aku melihat sosok hijau membawa pedang besar. Orang-orang menyebutnya Buto Ijo.",
+    "invitation": "Kalau ingin memeriksa, ikuti petunjukku menuju batas sawah. Perhatikan pedangnya; ayunan beratnya jangan kau tangkis.",
+    "accepted": "Lewati jalan kecil di belakang rumah. Aku akan menunggumu kembali di sini.",
+    "after": "Suara pedang itu sudah berhenti. Terima kasih sudah kembali dengan selamat."
+  },
+  "chapter_two.gd": {
+    "kind": "banaspati",
+    "speaker": "Penjaga singgah",
+    "x": 5480,
+    "clue_x": 6220,
+    "clue_name": "Jejak bara di tepi jurang",
+    "clue_text": "Bara menyala tanpa membakar daun di sekitarnya. Cahayanya bergerak menuju jurang, lalu melambung tinggi. Jalan pulang masih terbuka; melangkah lebih jauh berarti menghadapi sumber api itu.",
+    "portrait": "res://assets/Karakter/NPC cwo.png",
+    "region": [253,150,483,1330],
+    "rumor": "Dari tempat singgah ini aku melihat api bergerak di atas jurang. Tidak ada orang membawa obor. Warga menyebutnya Banaspati.",
+    "invitation": "Ada jalan menuju jurang itu. Kalau apinya melambung, bertahanlah dan terus bergerak sampai menemukan tanah aman.",
+    "accepted": "Ikuti cahaya dari tepi jalan. Jangan berhenti ketika api mulai mengejarmu.",
+    "after": "Nyala yang mengejar di jurang sudah padam. Beristirahatlah sebelum melanjutkan perjalanan."
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "mode": "built-in image_gen",
+  "reference": "assets/Generated/Bosses/Sources/Headless/reference-v1.png",
+  "prompts": [
+    {
+      "name": "idle",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 6 frames in 3 equal columns x 2 equal rows, read row-major. Seamless ready idle: subtle weight shift and coat/smoke motion, saber held ready, boots fixed."
+    },
+    {
+      "name": "walk",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 8 frames in 4 equal columns x 2 equal rows, read row-major. Seamless measured forward walk cycle in place with alternating boot contacts and coat sway, saber guarded."
+    },
+    {
+      "name": "run",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 8 frames in 4 equal columns x 2 equal rows, read row-major. Seamless aggressive pursuit run in place, clear alternating contacts, forward lean and trailing coat/smoke, saber held safely."
+    },
+    {
+      "name": "light",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 6 frames in 3 equal columns x 2 equal rows, read row-major. One fast diagonal saber cut: concise windup, active diagonal cut, follow through, return to guard. No detached sword effects."
+    },
+    {
+      "name": "heavy",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 6 frames in 3 equal columns x 2 equal rows, read row-major. One heavy overhead saber attack: plant boots, obvious high windup, committed downward slash, deep exposed follow-through, recovery."
+    },
+    {
+      "name": "lunge",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 6 frames in 3 equal columns x 2 equal rows, read row-major. One gap-closing saber thrust in place: crouch, push-off, deep body lunge and long arm extension, foot plant, recovery. Code will translate root."
+    },
+    {
+      "name": "stagger",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 6 frames in 3 equal columns x 2 equal rows, read row-major. Stance-break transition: saber knocked aside, recoil, knees buckle, lower torso, one knee contacts ground, stable vulnerable kneel frame6. Keep saber in grip; reverse cleanly to stand."
+    },
+    {
+      "name": "death",
+      "count": 8,
+      "columns": 4,
+      "rows": 2,
+      "prompt": "Use the attached headless swordsman as the exact design reference: NO HEAD, face, skull or helmet; purple smoke comes out of empty white-cravat collar; torn crimson-red long military coat with gold trim and buttons, white trousers, black gloves and tall black boots, curved silver saber with gold guard. Keep sword in same hand, same colors, anatomy and costume, no redesign. Detailed crisp pixel art matching reference, 2D platformer side view facing RIGHT. Fixed scale and root position, full body, saber, smoke and coat inside each cell with ample padding, stable grounded baseline. Genuinely transparent alpha, no backdrop, ground plane, shadows, numbers, labels, gridlines, blur, blood or additional characters. Exactly 8 frames in 4 equal columns x 2 equal rows, read row-major. Non-graphic defeated transition: stagger, weaken, buckle to knees, slump, fall to side, settle, lie motionless with saber retained visible. Purple smoke weakens without a baked fade or missing body; reverse will be used for a phase recovery."
+    },
+    {
+      "name": "spawn",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Frame1 purple smoke pool at ground; 2 boots/coat form from smoke; 3 torso assembles; 4 body upright; 5 saber draws; 6 complete ready stance. No head at any time. Final standing figure matches reference scale. Each cell same canvas and ground baseline."
+    },
+    {
+      "name": "hurt",
+      "count": 4,
+      "columns": 4,
+      "rows": 1,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 4 frames in 4 equal columns by 1 equal rows, row-major. Short non-looping recoil: 1 ready, 2 torso flinches away from a hit on chest, 3 catches balance, 4 returns to guard. No head, no blood, feet stable."
+    },
+    {
+      "name": "backhand",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. A fast reverse saber backhand strike: 1 guard, 2 coil saber across waist, 3 backswing, 4 clear horizontal slash extended to right, 5 follow-through, 6 guard. Distinct crisp pose changes and a restrained magenta slash on contact."
+    },
+    {
+      "name": "low_spin",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Grounded low spinning saber sweep: 1 guard, 2 crouch windup, 3 low turn, 4 sweeping blade horizontally to right at knee height, 5 follow-through, 6 recover. Both boots remain on the ground; compact magenta slash only in contact frames."
+    },
+    {
+      "name": "vanish",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Smoke step / vanish and reappear: 1 full ready stance, 2 coat dissolves, 3 body disperses into purple smoke, 4 low smoke streak, 5 body reforms with saber raised, 6 full stable ready stance. Same rooted scale, no head."
+    },
+    {
+      "name": "leap_slam",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Overhead saber slam animation: 1 guard, 2 low crouch, 3 knees bend and saber overhead, 4 forceful vertical downward strike to right, 5 one-knee heavy follow-through, 6 regain guard. In-place root animation, no platforms or floor. Unmistakable windup then contact."
+    },
+    {
+      "name": "ultimate",
+      "count": 6,
+      "columns": 3,
+      "rows": 2,
+      "prompt": "Use the attached image as exact CHARACTER DESIGN REFERENCE, not an edit target. Same headless swordsman: absolutely NO head, skull, face or helmet; purple smoke from empty white-cravat collar, torn crimson red military long coat with gold trim/buttons, white trousers, black gloves, tall black boots, curved silver saber with gold guard. Keep this identity and sword hand. Crisp detailed pixel art for a 2D side-scrolling game, side view facing RIGHT. Stable body scale and fixed cell root; all limbs, coat, smoke and weapon fully inside each cell with generous margins. Real transparent alpha, no background, checkerboard, ground, shadow, text, numbers, borders or grid lines. Exactly 6 frames in 3 equal columns by 2 equal rows, row-major. Heavy finisher: 1 saber drawn far back, 2 deep coiling stance, 3 forward thrust/slash, 4 huge downward diagonal saber cut with restrained bright crimson-purple arc, 5 one-knee follow-through, 6 upright guard. Entire arc stays inside padded cell. No head or extra sword."
+    }
+  ]
+}

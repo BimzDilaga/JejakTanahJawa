@@ -1,5 +1,41 @@
 # Status integrasi aset — 18 November 2026
 
+## Pembaruan terbaru — 25 November 2026
+
+Lima bab, tiga epilog bergambar, dua fase Buto/Banaspati, 15 lembar komandan, 15 lembar Headless berbasis desain chat, panorama Magelang, menu ilustrasi empat karakter, matahari/bulan, ultimate transparan Jaka serta SFX swing telah ditambahkan. Pack Buto dan Headless masing-masing berisi **12 WAV sintetis**, dengan musik khusus Headless/komandan dan ambience malam. Save/load serta peta teleport progresif kini berfungsi. Headless diperkecil menjadi sekitar 1,2 kali tinggi Jaka. Gambar asli dari ChatGPT Library belum dapat diambil; sumber generasi tetap terpisah. Rincian: [PERSISTENCE_AND_PRESENTATION.md](PERSISTENCE_AND_PRESENTATION.md), [UPDATE_2026_11_25.md](UPDATE_2026_11_25.md). Catatan lama di bawah adalah riwayat, bukan daftar pekerjaan terbaru.
+
+## Pembaruan Jaka — 23 November 2026 (menggantikan aturan lama di bawah)
+
+- Runtime Jaka kini memakai `scripts/jaka_visual.gd` dan PNG hasil persiapan di `assets/Generated/Jaka/`, dari tujuh lembar `Jaka New`. Gambar sumber tetap utuh.
+- Jalan/lari/heal/ultimate masing-masing 8 frame, kena hit 3, parry keris 6, efek ultimate 8. Potret dialog juga berasal dari desain terbaru.
+- Idle diperbarui 24 November: gambar asli `Jaka New/Javanese-Inspired Pixel Art Warrior.png`, dipotong ke kanvas gameplay dengan kaki dan tinggi yang konsisten. Frame runtime: `assets/Generated/Jaka/idle_01.png`.
+- Serangan pertama memakai enam frame `Jaka New/Attack/Jaka’s Keris Slash Animation.png`; combo kedua/ketiga memakai hasil generasi. Lompat, stance break, kalah, dash maju dan mundur kini memiliki frame khusus. Sumber dan cara menyiapkan: `COMBAT_POLISH.md`.
+- Parry: frame pertama ditahan 0,4 detik, frame 2–6 hanya setelah sukses. Sukses tanpa cooldown, gagal cooldown 2 detik. Setiap sukses menambah satu stance sampai 5; mencoba lagi ketika penuh memberi stun 2 detik. Stance pulih satu poin per detik tanpa parry.
+- HUD lima slot stance dan partikel debu/benturan/parry/ultimate dibuat lewat kode.
+- Pada pembaruan 23 November, sumber boss belum terhubung. Integrasi arena uji dan AI Buto Ijo/Banaspati selesai pada pembaruan 24 November yang dicatat di bawah.
+- Empat audio `.mp3` berisi kontainer ISO BMFF sudah dikonversi ke WAV/OGG dan terhubung: parry, stance break boss, musik Buto Ijo, musik Banaspati. File sumber dipertahankan dan dikecualikan dari ekspor.
+- Daftar pekerjaan terperinci: `docs/DEVELOPMENT_TASKS.md`.
+
+Catatan bertanggal sebelumnya di bawah adalah riwayat integrasi, termasuk senjata bambu dan cooldown lama.
+
+## Filter waktu
+
+- `scripts/day_night_cycle.gd` dan `shaders/day_night.gdshader`: filter dunia pada CanvasLayer 5; UI tetap pada layer 10.
+- Siklus pagi–siang–sore–malam berlangsung 240 detik waktu aktif sesuai keputusan pengguna. Transisi halus; jam berjalan lintas bab dalam sesi.
+- Waktu berhenti saat dialog, pause, menu, kalah, dan akhir bab. Perjalanan baru dimulai sore sesuai prolog.
+- HUD menampilkan fase waktu. F6 hanya pada debug/editor untuk melihat fase berikutnya.
+- Tidak membutuhkan aset gambar baru pada tahap filter ini. Matahari/bulan dan pertemuan boss lewat rumor masih pekerjaan berikutnya.
+
+## Arena uji boss — 24 November 2026
+
+- Buto Ijo/Banaspati dapat dicoba dari panel Urban Legend / Arena Uji pada menu utama.
+- 350 PNG hasil potong dan 64 pemetaan animasi/alias disiapkan lewat `tools/prepare_bosses.gd`; sumber asli dipertahankan.
+- Buto memakai light/heavy/tiga combo, stance break berlutut 4 detik lalu reverse, serta gelombang tanah. Spawn/mati dan transisi berlutut kini memakai tiga lembar hasil generasi, enam frame per animasi.
+- Banaspati memakai aset tanah/terbang/naik/turun, combo, spawn/stance/mati, projectile/retikel/pilar/gelombang/api belakang, dan platform runtuh. Lari serta beberapa gerakan ultimate masih sementara.
+- Sembilan SFX WAV Banaspati dipakai dari salinan `assets/Generated/Audio/Banaspati/`; MP3 lama yang tidak cocok tetap tidak dipakai.
+- Nilai sementara telah diizinkan pengguna dan dicatat di `data/boss_tuning.json`; audit dan batasan ada di `docs/BOSS_TRIALS.md`.
+- Banaspati kini memiliki sembilan platform per fase udara, tembok api besar dari aset yang ada, tanah aman untuk bertarung, dan cooldown terbang sementara 16 detik. Rute bertambah agar siklus dapat terus berulang.
+
 ## Pembaruan ini
 - Background/gapura/gapura awal.png dan gapura akhir.png: gerbang masuk/keluar Tegalrejo. Latar putih dibersihkan saat runtime; sumber tidak diubah.
 - Arsip lari, lompat, tertembak: animasi gerak dan reaksi terkena serangan Jaka.
@@ -51,3 +87,26 @@ Sistem level, upgrade, stamina, dan teleport masih dalam perencanaan.
 ## Taby dan warga desa
 - Taby memakai sepuluh frame dari masing-masing Jalan.png, Lompat.png, dan Menjilat.png; gambar dipotong saat runtime. Jalan saat mengikuti Jaka, lompat saat Jaka melompat, menjilat ketika berhenti.
 - Dua warga berjalan di Tegalrejo Bab 1 dan satu di tepi desa Bab 2 memakai lembar NPC laki-laki/perempuan. Hutan dan jalur patroli tidak memiliki warga berjalan.
+
+## Pembaruan 24 November 2026 — arena dan atmosfer
+
+- Buto Ijo dan Banaspati dapat dicoba melalui panel arena uji di menu. Potongan runtime: 350 PNG pada `assets/Generated/Bosses/`, pemetaan pada `data/boss_assets.json`.
+- Banaspati memakai sembilan SFX WAV yang tersedia, platform runtuh, efek api, fase udara, spawn, stance break, dan mati. Spawn/stance break/mati Buto Ijo memiliki frame khusus; rincian ada pada `BOSS_TRIALS.md`.
+- `assets/Background/Tanah Baru.png` menggantikan visual tanah di Bab 1–3 dan kedua arena. Lapisan tanah bawah diperpanjang tanpa meregangkan rumput. Collider dan celah parkour tetap sesuai rute.
+- Arena memakai panorama bertumpuk dan sambungan mirror dengan overlap. Hutan jauh mengisi kedalaman di bawah platform, termasuk jurang Bab 2. Bab 3 mendapat lapisan tebing jauh untuk menutup bidang langit di bawah jurang.
+- Debu langkah/lompat/mendarat, percikan, cincin parry/hit, serpihan platform, mote/kabut, serta bara dan jejak api dibuat dengan kode. Banaspati mendapat filter merah-oranye tipis; HUD boss dipindahkan ke bawah layar.
+- Jaka versi terbaru menggunakan keris serta parry enam frame dengan stance lima, pemulihan satu per detik, gagal cooldown dua detik, dan stance break stun dua detik. Catatan parry sepuluh frame/cooldown satu detik di bagian migrasi adalah riwayat.
+
+## Audit visual Selarong — 24 November 2026
+
+- Aset hasil imagegen pada `assets/Generated/Selarong/`: teropong, pijakan kapur berlumut, batu pengamat yang bertumpu ke tanah, gubuk, dan panorama lembah.
+- Teropong terpasang pada pos pengamat dengan petunjuk E; dialog pengamatan mengikuti fungsi alat itu. Gubuk menggantikan bentuk geometris sementara.
+- Pijakan memakai permukaan lumut yang disejajarkan dengan collider. Panorama lembah sepenuhnya opaque, ubin mirror saling overlap, dan gambar mencapai bawah viewport di seluruh rute.
+- Rincian audit, asal gambar, prompt, dan cara verifikasi: `SELARONG_VISUAL_AUDIT.md` dan `SELARONG_ASSET_PROMPTS.json`.
+
+## Rumor malam dan chained attack
+
+- Dua saksi diam muncul malam hari di lokasi aman: Penjaga sawah Tegalrejo untuk Buto Ijo, Penjaga singgah Bab 2 untuk Banaspati. Pertemuan dapat ditunda dan perjalanan dipulihkan setelah kembali dari boss.
+- Serangan biasa memakai enam PNG baru `assets/Generated/Jaka/attack_01.png` sampai `attack_06.png`.
+- Chained attack tiga hit sudah berfungsi: lembar Attack pengguna sebagai hit pertama, baris 2/3 dari spritesheet image_gen sebagai sambungan. Sumber `assets/Generated/Jaka/Concepts/chained-combo-sheet-v1.png` tetap disimpan; frame runtime dipotong terpisah. Klik kiri berulang untuk menyambung, klik kanan untuk parry, Shift untuk dash lalu lari saat ditahan.
+- Prompt audio Headless Swordsman/Buto Ijo dan rencana pack 12 SFX tersedia di docs. Generasi SFX AI tertahan saldo fal habis; audio sumber yang sudah tersedia kini dikonversi dan terpasang sebagai cue combat dan musik boss.
