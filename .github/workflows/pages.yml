@@ -42,7 +42,7 @@ jobs:
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/day_night_smoke.tscn
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/jaka_combat.tscn
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/combat_chain_dash.tscn
-          Godot_v4.7.2-stable_linux.x86_64 --headless --path . res://tests/chapter_smoke.tscn
+          Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/chapter_smoke.tscn
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/chapter_two_smoke.tscn
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/chapter_three_smoke.tscn
           Godot_v4.7.2-stable_linux.x86_64 --headless --fixed-fps 60 --path . res://tests/selarong_visual_audit.tscn
