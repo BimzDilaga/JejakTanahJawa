@@ -7,11 +7,13 @@ func frames(count: int) -> void:
 func wall_seconds(duration: float) -> void:
 	var end := Time.get_ticks_msec()+roundi(duration*1000)
 	while Time.get_ticks_msec()<end: await get_tree().process_frame
-func contains_sound(recording: AudioStreamWAV) -> bool:
-	if recording==null or recording.data.is_empty(): return false
-	for value in recording.data:
-		if value!=0: return true
-	return false
+func peak_level(recording: AudioStreamWAV) -> float:
+	if recording==null or recording.data.is_empty(): return 0.0
+	check(recording.format==AudioStreamWAV.FORMAT_16_BITS,"Mixer recording uses PCM16")
+	var peak := 0
+	for index in range(0,recording.data.size()-1,2):
+		peak = maxi(peak,absi(recording.data.decode_s16(index)))
+	return float(peak)/32768.0
 func check(ok: bool, message: String) -> void:
 	if not ok:
 		failures+=1
@@ -42,19 +44,28 @@ func _run() -> void:
 		await wall_seconds(1.0)
 		recorder.set_recording_active(false)
 		var mixed: AudioStreamWAV = recorder.get_recording()
-		check(contains_sound(mixed),"The real audio mixer outputs the supplied daytime music")
+		check(peak_level(mixed)>0.0001,"The real audio mixer outputs the supplied daytime music")
 		if mixed!=null:
 			DirAccess.make_dir_recursive_absolute("res://.godot/audio-review")
 			mixed.save_to_wav("res://.godot/audio-review/world-day-mix.wav")
 		AudioPrefs.set_level("Music",0)
-		await wall_seconds(0.3)
+		AudioServer.remove_bus_effect(0,effect_index)
+		await wall_seconds(0.5)
+		recorder = AudioEffectRecord.new()
+		AudioServer.add_bus_effect(0,recorder)
+		effect_index = AudioServer.get_bus_effect_count(0)-1
 		recorder.set_recording_active(true)
 		await wall_seconds(0.5)
 		recorder.set_recording_active(false)
-		check(not contains_sound(recorder.get_recording()),"The music volume control mutes the actual mixed output")
+		check(peak_level(recorder.get_recording())<0.0001,"The music volume control mutes the actual mixed output below -80 dBFS")
 		AudioServer.remove_bus_effect(0,effect_index)
 		AudioPrefs.set_level("Music",1)
 		AudioPrefs.set_level("Ambience",1)
+		remove_child(game)
+		await frames(3)
+		add_child(game)
+		await frames(3)
+		check(audio.day_music.playing and audio.wind.playing,"World music and ambience resume after the story scene returns from a boss")
 	GameState.time_of_day = 0.75
 	audio._process(1)
 	check(audio.music_night_mix>0 and audio.music_night_mix<1,"Music crossfades at the beginning of night")
