@@ -45,7 +45,19 @@ func _capture_phases(chapter: int) -> void:
 func _run() -> void:
 	preload("res://tests/test_session.gd").isolate("day_night_smoke.gd")
 	GameState.reset_campaign()
-	check(is_equal_approx(GameState.day_cycle_seconds,240.0),"A full cycle lasts four minutes")
+	check(is_equal_approx(GameState.day_cycle_seconds,420.0),"The cycle retains one-minute morning/evening and 150-second noon/night")
+	for phase in range(4):
+		var expected: float = 150.0 if phase in [1,3] else 60.0
+		check(is_equal_approx(GameState.day_phase_duration(phase),expected),"Configured duration for "+Cycle.PHASE_NAMES[phase])
+		GameState.time_of_day = phase*0.25
+		GameState.advance_day_time(expected-1.0)
+		check(Cycle.phase_index(GameState.time_of_day)==phase,"Phase remains active until its final second: "+Cycle.PHASE_NAMES[phase])
+		GameState.advance_day_time(1.0)
+		check(is_equal_approx(GameState.time_of_day,fposmod((phase+1)*0.25,1.0)),"Phase advances at exactly its configured duration: "+Cycle.PHASE_NAMES[phase]+" "+str(GameState.time_of_day))
+	GameState.time_of_day = 0.625
+	GameState.advance_day_time(840.0)
+	check(is_equal_approx(GameState.time_of_day,0.625),"Advancing two complete cycles preserves the phase")
+	GameState.reset_campaign()
 	game = load("res://bab_tegalrejo.tscn").instantiate()
 	add_child(game)
 	await frames(6)
@@ -78,7 +90,7 @@ func _run() -> void:
 	game.player.dead = false
 	game.player.controls_enabled = false
 	GameState.time_of_day = 0.9
-	GameState.advance_day_time(48.0)
+	GameState.advance_day_time(84.0)
 	check(is_equal_approx(GameState.time_of_day,0.1),"Cycle wraps from night into morning")
 	var left: Dictionary = Cycle.sample_grade(0.999999)
 	var right: Dictionary = Cycle.sample_grade(0.000001)

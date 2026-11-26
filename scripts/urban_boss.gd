@@ -336,6 +336,7 @@ func take_damage(amount: int, _source_x: float) -> bool:
 			velocity = Vector2.ZERO
 			_set_state("phase_fall")
 			if kind=="buto": arena.play_buto_sound("death",position)
+			elif kind=="headless": arena.play_headless_sound("death",position)
 			phase_transition_started.emit()
 			return true
 		dead = true

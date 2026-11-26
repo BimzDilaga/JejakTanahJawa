@@ -38,11 +38,13 @@ Perangkat sentuh mendapat tombol gerak, lompat, serang, parry, dash/lari, mundur
 
 ## Siklus waktu
 
-Pagi → siang → sore → malam berganti otomatis dengan filter warna yang bertransisi halus. Satu siklus berlangsung **4 menit waktu bermain aktif**, sekitar satu menit per fase. Perjalanan baru dimulai pada sore hari sesuai prolog. Waktu diteruskan saat pindah bab dan berhenti selama dialog, jeda, menu, kalah, atau akhir bab.
+Pagi → siang → sore → malam berganti otomatis dengan filter warna yang bertransisi halus. **Siang dan malam masing-masing 2 menit 30 detik**; pagi dan sore tetap masing-masing 1 menit. Total satu siklus **7 menit waktu bermain aktif**. Perjalanan baru dimulai pada sore hari sesuai prolog. Waktu diteruskan saat pindah bab dan berhenti selama dialog, jeda, menu, kalah, atau akhir bab.
 
 Filter mencakup langit, lingkungan, karakter, dan efek dunia. HUD, menu, dan panel dialog berada di atas filter agar tetap jelas. Matahari, bulan sabit, bintang, kabut, daun, dan partikel memakai kode. Malam mempertahankan detail pijakan; api Banaspati memberi warna hangat secukupnya.
 
-Durasi bisa diubah melalui `day_cycle_seconds` di `game_state.gd`. `time_of_day` adalah fase 0–1 dalam sesi: pusat pagi 0.125, siang 0.375, sore 0.625, dan malam 0.875. `scripts/day_night_cycle.gd` dan `shaders/day_night.gdshader` mengatur filter bersama untuk lima bab.
+Durasi bisa diubah melalui `day_cycle_seconds` dan `DAY_PHASE_WEIGHTS` di `game_state.gd`. Jam memakai durasi tiap fase; pembagian warna tetap menggunakan `time_of_day` 0–1: pusat pagi 0.125, siang 0.375, sore 0.625, dan malam 0.875. `scripts/day_night_cycle.gd` dan `shaders/day_night.gdshader` mengatur filter bersama untuk lima bab.
+
+Soundtrack siang pengguna (`Theme song siang.mpeg`) kini diputar melalui salinan OGG sepanjang sekitar 3:16, dengan volume mengikuti slider Musik. Day/night theme disimpan pada `data/world_audio.json`; perpindahan musik memakai crossfade dua detik. File soundtrack malam belum ditemukan, sehingga malam masih memakai ambience angin/jangkrik sampai sumbernya ditentukan. Musik dunia tidak ditumpuk di atas soundtrack boss. Siapkan ulang audio dengan `tools/prepare_world_soundtracks.ps1 -Ffmpeg <path-executable>`; parameter `-NightSource <file>` juga menyiapkan dan menghubungkan soundtrack malam bila sudah tersedia.
 
 ## Alur Bab 1
 
@@ -64,7 +66,7 @@ Desa Terdampak berfokus pada kabar tetua, keluarga warga, dan laporan kepada Sar
 
 Semua bab memiliki patroli biasa yang boleh dilewati dan gubuk upgrade. Demo mulai **600 poin, semua level 0, tiga hati**. Tiga tentara memberi satu poin; biaya atribut **2, 4, 8, 16, ...**. Hati maksimum enam. Stamina awal **200**, pulih **100/detik saat diam, berjalan, maupun berlari** di tanah di luar aksi combat. Serangan/parry/lompat memakai 15/10/20 stamina sementara. Nilai di `data/progression.json`.
 
-Buto Ijo dan Banaspati memiliki **72/56 HP per fase, dua fase**. Bar pertama habis: tumbang, kamera mengunci boss, tahan pose dua detik, reverse untuk bangkit, HP penuh. Fase dua bertempo lebih cepat. Stance break terpisah: berlutut empat detik lalu reverse. Komandan juga memiliki dua fase dengan 160 HP per fase; Headless sementara satu fase 64 HP. Semua angka boss ada di `data/boss_tuning.json`.
+Buto Ijo dan Banaspati memiliki **72/56 HP per fase, dua fase**. Bar pertama habis: tumbang, kamera mengunci boss, tahan pose dua detik, reverse untuk bangkit, HP penuh. Fase dua bertempo lebih cepat. Stance break terpisah: berlutut empat detik lalu reverse. Komandan juga memiliki dua fase dengan 160 HP per fase; **Headless kini dua fase, 64 HP per fase**, tempo fase dua 1,25× dan lebih sering memakai chain ultimate. Semua angka boss ada di `data/boss_tuning.json`.
 
 Setelah komandan kalah, **Pulang Membawa Nyala** memilih mengantar warga; **Bambu Terakhir** memilih bertahan agar mereka lolos. **Menang, Tapi Tak Mengubahnya** membutuhkan kemenangan cerita atas **Buto Ijo, Banaspati, Headless Swordsman, dan komandan**, lalu memilih membawa warga dan catatan. Kemenangan arena menu tidak memenuhi syarat cerita. Hasil sejarah Diponegoro tetap dipertahankan. Data: `data/endings.json`.
 
@@ -122,7 +124,7 @@ Tes siklus waktu:
 
     --headless --fixed-fps 60 --path . res://tests/day_night_smoke.tscn
 
-Mencakup durasi empat menit, perpindahan fase yang halus, jeda saat dialog/menu/pause/kalah/ending, kesinambungan waktu antar bab, dan F6 pada debug. Tanpa `--headless`, tambahkan `-- --screenshots=<folder>` untuk menangkap empat fase pada setiap bab.
+Mencakup durasi setiap fase (60/150/60/150 detik), pergantian tepat di batas waktu, perpindahan warna yang halus, jeda saat dialog/menu/pause/kalah/ending, kesinambungan waktu antar bab, dan F6 pada debug. Tanpa `--headless`, tambahkan `-- --screenshots=<folder>` untuk menangkap empat fase pada setiap bab.
 
 Tes kedua boss dan platform runtuh:
 

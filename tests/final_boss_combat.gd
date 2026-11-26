@@ -72,6 +72,24 @@ func _run() -> void:
 			check(not boss.invulnerable,"Headless becomes vulnerable after the smoke step")
 			for i in range(4): boss.on_parried()
 			check(boss.state=="stagger_in","Headless has its own stance break")
+			boss.sequence = 3
+			check(boss.take_damage(999,0) and not boss.dead and boss.phase==1,"Headless first bar starts a knockdown instead of victory")
+			check(arena.phase_camera_locked and not arena.player.controls_enabled and not GameState.ending_started,"Headless phase transition locks the camera and player without ending the encounter")
+			boss.set_physics_process(true)
+			await frames(58)
+			var last_frame: int = boss.sprite.sprite_frames.get_frame_count("death")-1
+			check(boss.state=="phase_hold" and boss.sprite.frame==last_frame,"Headless holds the last fallen frame")
+			await frames(110)
+			check(boss.state=="phase_hold" and boss.sprite.frame==last_frame,"Headless keeps the fallen pose for the two-second hold")
+			await frames(75)
+			check(boss.phase==2 and boss.health==boss.max_health and not boss.dead and boss.tempo()>1.2,"Headless rises with a full second HP bar and faster tempo")
+			check(not arena.phase_camera_locked and arena.player.controls_enabled and boss.sequence==0,"Headless returns camera/control and restarts its phase-two pattern")
+			boss.set_physics_process(false)
+			arena.player.position.x = boss.position.x-120
+			boss._choose_attack()
+			check(boss.current_combo==3 and boss.attack.effect=="smoke_step","Headless phase two opens its ultimate chain at close range")
+			boss._set_state("recovery")
+			check(boss.take_damage(999,0) and boss.dead and arena.stage==arena.Stage.COMPLETE,"Only defeating Headless's second bar finishes the fight")
 		arena.queue_free()
 		await frames(4)
 	for key in ["swing_1","swing_2","swing_3"]:

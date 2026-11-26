@@ -16,7 +16,7 @@ Lima belas lembar dari referensi desain pengguna menyediakan idle/jalan/lari/lig
 
 Tiga pola berisi 5/4/5 gerakan. Smoke step mengunci sasaran saat ancang-ancang; tebasan rendah dapat dilompati; lompatan memiliki kontak tertunda saat mendarat. Kebal hanya selama smoke step, lalu terbuka untuk balasan. Stance break tetap berlutut empat detik sebelum reverse.
 
-Sesuai koreksi terbaru, skala visual **0,62** dari ukuran persiapan: tinggi idle sekitar 1,2 kali Jaka termasuk asap. Kaki tetap berada di tanah; collider dan jangkauan serangan disesuaikan. HP 64/satu fase dan tuning combat masih sementara. Gambar asli dari ChatGPT Library belum berhasil diambil; versi generasi berbasis desain chat dipakai tanpa menimpa sumber pengguna.
+Sesuai koreksi terbaru, skala visual **0,62** dari ukuran persiapan: tinggi idle sekitar 1,2 kali Jaka termasuk asap. Kaki tetap berada di tanah; collider dan jangkauan serangan disesuaikan. Pembaruan 26 November: **dua fase dengan 64 HP per fase**; tumbang, tahan pose dua detik dengan kamera terkunci, lalu reverse untuk bangkit. Fase kedua memiliki tempo 1,25× dan lebih sering memakai chain ultimate. Tuning combat masih sementara. Gambar asli dari ChatGPT Library belum berhasil diambil; versi generasi berbasis desain chat dipakai tanpa menimpa sumber pengguna.
 
 ## Gambar menu dan ending
 

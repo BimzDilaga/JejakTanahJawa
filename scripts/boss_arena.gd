@@ -591,6 +591,7 @@ func _phase_changed(_phase: int) -> void:
 	phase_camera_locked = false
 	player.controls_enabled = _phase_controls_enabled
 	if kind=="buto": play_buto_sound("spawn",boss.position)
+	elif kind=="headless": play_headless_sound("spawn",boss.position)
 	_notify("FASE 2 — tempo pertarungan meningkat!")
 
 func boss_name() -> String:

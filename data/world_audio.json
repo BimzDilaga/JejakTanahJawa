@@ -1,0 +1,8 @@
+{
+  "day_music": "res://assets/Generated/Audio/Music/world-day.ogg",
+  "night_music": "",
+  "day_music_db": -24.0,
+  "night_music_db": -24.0,
+  "crossfade_seconds": 2.0,
+  "note": "Soundtrack siang dari aset pengguna. Soundtrack malam menunggu nama/lokasi file pengguna; ambience malam tetap aktif."
+}

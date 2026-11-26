@@ -11,7 +11,7 @@
   "headless": {
     "visual_scale": 0.62,
     "health": 64, "stance_max": 8, "damage": 1, "heavy_damage": 2,
-    "phase_count": 1, "phase_hold": 2.0, "phase_two_tempo": 1.25,
+    "phase_count": 2, "phase_hold": 2.0, "phase_two_tempo": 1.25,
     "light_knockback": 250.0, "heavy_knockback": 380.0,
     "walk_speed": 90, "run_speed": 225, "melee_range": 135,
     "windup": 0.5, "heavy_windup": 0.9, "recovery": 0.8,

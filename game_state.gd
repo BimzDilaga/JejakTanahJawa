@@ -45,13 +45,29 @@ var night_boss_defeated: Dictionary = {}
 var encounter_chapter: Node
 var encounter_snapshot: Dictionary = {}
 const ENCOUNTER_FIELDS := ["start_on_load","dialogue_active","ending_started","objective_completed","supply_checked","enemies_defeated","objective","heal_stock","defeats_toward_heal","aid_heal_claimed","time_of_day"]
-@export_range(30.0,3600.0,1.0) var day_cycle_seconds := 240.0
+const DAY_PHASE_WEIGHTS := [1.0,2.5,1.0,2.5] # Pagi 60s, siang 150s, sore 60s, malam 150s.
+@export_range(30.0,3600.0,1.0) var day_cycle_seconds := 420.0
 
 func _notification(what: int) -> void:
 	if what==NOTIFICATION_WM_CLOSE_REQUEST: save_campaign()
 
 func advance_day_time(delta: float) -> void:
-	time_of_day = fposmod(time_of_day + maxf(delta,0.0) / maxf(day_cycle_seconds,1.0),1.0)
+	var remaining := fposmod(maxf(delta,0.0),maxf(day_cycle_seconds,1.0))
+	time_of_day = fposmod(time_of_day,1.0)
+	while remaining>0.000000001:
+		var phase := clampi(int(time_of_day*4.0),0,3)
+		var boundary := float(phase+1)*0.25
+		var duration := day_phase_duration(phase)
+		var to_boundary := (boundary-time_of_day)*4.0*duration
+		if remaining+0.000000001>=to_boundary:
+			remaining = maxf(0.0,remaining-to_boundary)
+			time_of_day = fposmod(boundary,1.0)
+		else:
+			time_of_day += remaining/(4.0*duration)
+			remaining = 0.0
+
+func day_phase_duration(phase: int) -> float:
+	return maxf(day_cycle_seconds,1.0)*float(DAY_PHASE_WEIGHTS[clampi(phase,0,3)])/7.0
 
 func claim_aid_heal() -> bool:
 	if aid_heal_claimed:

@@ -5,7 +5,7 @@ var smoke_step_active := false
 func _choose_attack() -> void:
 	if absf(target.position.x-position.x)>350: start_combo(2)
 	else:
-		start_combo([1,2,1,3][sequence%4])
+		start_combo(([3,2,1,3] if phase>=2 else [1,2,1,3])[sequence%4])
 		sequence += 1
 
 func start_combo(number: int) -> void:
@@ -30,6 +30,7 @@ func _begin_strike() -> void:
 	elif attack.heavy: arena.play_headless_sound("windup",position)
 
 func _set_state(value: String) -> void:
+	if value=="phase_rise": sequence = 0
 	if smoke_step_active and value!="attack":
 		smoke_step_active = false
 		invulnerable = false
