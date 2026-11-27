@@ -49,6 +49,7 @@ func _run() -> void:
 	GameState.heal_stock = 2
 	GameState.time_of_day = 0.875
 	GameState.night_boss_defeated.buto = true
+	GameState.story_notes["diponegoro_arrest_seen"] = true
 	GameState.set_objective("Seberangi jalur patroli tanpa wajib bertarung.")
 	check(GameState.save_campaign(game),"Campaign writes a valid disk save")
 	var points: int = GameState.upgrade_points
@@ -58,6 +59,7 @@ func _run() -> void:
 	check(GameState.load_campaign(),"Save can be loaded after all in-memory progress is reset")
 	check(GameState.upgrade_points==points and GameState.upgrade_levels.heart==1 and GameState.upgrade_levels.attack==1,"Purchases and enemy reward survive reload")
 	check(GameState.heal_stock==2 and GameState.night_boss_defeated.buto and GameState.unlocked_chapter==2,"Supplies, boss victory and progressive unlock survive reload")
+	check(GameState.story_notes.get("diponegoro_arrest_seen",false),"The historical slideshow seen flag survives save/load")
 	GameState.pending_restore = 2
 	game = load("res://bab_jalur_perlawanan.tscn").instantiate()
 	add_child(game)

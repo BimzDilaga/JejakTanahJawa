@@ -1,0 +1,13 @@
+# Slideshow penangkapan Diponegoro — Bab 5
+
+Delapan ilustrasi hasil built-in `image_gen` disimpan di `assets/Generated/History/DiponegoroArrest/slide-01-v1.png` sampai `slide-08-v1.png`. Prompt final dan referensi gaya dicatat pada `DIPONEGORO_SLIDESHOW_PROMPTS.json`. Gambar sumber di folder generasi tetap dipertahankan; aset proyek memakai salinan PNG.
+
+Rangkaian tampil setelah komandan fiksi dikalahkan dan dialog kabar Sari selesai, sebelum pilihan tiga ending. Isi slide: pagi Magelang; kedatangan untuk berunding; pertemuan; perundingan tanpa kesepakatan; penjagaan; penangkapan; keberangkatan dalam pengawalan; kembali ke pertanyaan nasib warga. Narasi slide terakhir secara jelas kembali ke cerita fiksi Jaka dan Sari. Tidak ada dialog sejarah yang dibuat seolah-olah kutipan langsung.
+
+Peristiwa ditempatkan di rumah Residen Kedu, Magelang, pada 28 Maret 1830, mengikuti [Dinas Pendidikan dan Kebudayaan Kota Magelang](https://disdikbud.magelangkota.go.id/index.php/main/selanjutnya/21). Jaminan meninggalkan pertemuan, pelanggarannya, penahanan dan pembuangan merujuk pada [pameran Perpustakaan Universitas Leiden](https://webpresentations.universiteitleiden.nl/s/diponegoro/page/diponegoro-rebel-en-held). [Sekretariat Kabinet RI](https://setkab.go.id/mengenal-koleksi-benda-seni-kenegaraan-bag-3/) digunakan sebagai konteks ikonografi peristiwa. Komposisi, interior, ekspresi, gerak penjagaan dan penggambaran kereta adalah ilustrasi dramatik, bukan klaim rekonstruksi persis atau dokumentasi sezaman. Komandan permainan tidak digambarkan sebagai De Kock; tokoh fiksi Jaka/Sari tidak ditempatkan dalam ruang perundingan.
+
+Narasi berada di bawah gambar. E/Space atau tombol Lanjut menampilkan teks penuh lalu pindah slide; Sebelumnya mengulang gambar sebelumnya. Esc atau Lewati menuju pilihan ending. Pergantian gambar memakai crossfade dan gerak framing halus, dengan musik melalui bus Musik. Gameplay, waktu, musuh dan kontrol sentuh berhenti selama slideshow. Saat selesai/skip, tree kembali berjalan dan tiga syarat ending tetap berlaku.
+
+Flag `GameState.story_notes.diponegoro_arrest_seen` disimpan bersama progres agar slide tidak berulang saat melanjutkan pilihan ending. Ulangi Magelang menghapus flag itu. Tidak ada syarat tambahan untuk ending rahasia.
+
+Verifikasi: `late_chapters_endings` menguji urutan setelah kemenangan komandan, delapan aset, navigasi maju/mundur, waktu berhenti, pemulihan pause, skip dan tiga pilihan akhir. `campaign_persistence` memeriksa flag tersimpan. `export_package` memastikan data, script dan delapan tekstur ikut paket Web. Screenshot native dipakai untuk memeriksa teks dan framing.

@@ -360,8 +360,16 @@ func _label(parent: Node, text: String, bounds: Rect2, font_size: int = 20, colo
 	return label
 
 func _paragraph(parent: Node, text: String, bounds: Rect2, font_size: int = 20, color: Color = PAPER) -> Label:
-	var label := _label(parent, text, bounds, font_size, color)
+	var label := Label.new()
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.clip_text = true
+	label.position = bounds.position
+	label.add_theme_font_size_override("font_size",font_size)
+	label.add_theme_color_override("font_color",color)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.text = text
+	label.size = bounds.size
+	parent.add_child(label)
 	return label
 
 func _button(parent: Node, text: String, bounds: Rect2, callback: Callable, primary: bool = false) -> Button:

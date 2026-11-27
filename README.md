@@ -72,6 +72,8 @@ Buto Ijo dan Banaspati memiliki **72/56 HP per fase, dua fase**. Bar pertama hab
 
 Setelah komandan kalah, **Pulang Membawa Nyala** memilih mengantar warga; **Bambu Terakhir** memilih bertahan agar mereka lolos. **Menang, Tapi Tak Mengubahnya** membutuhkan kemenangan cerita atas **Buto Ijo, Banaspati, Headless Swordsman, dan komandan**, lalu memilih membawa warga dan catatan. Kemenangan arena menu tidak memenuhi syarat cerita. Hasil sejarah Diponegoro tetap dipertahankan. Data: `data/endings.json`.
 
+Bab 5 menampilkan delapan ilustrasi penangkapan Diponegoro setelah kabar Sari dan sebelum pilihan ending. Narasi ada di bawah gambar, dengan crossfade, musik, tombol maju/mundur, E/Space dan Lewati/Esc. Gameplay dan waktu berhenti selama adegan; save menyimpan status sudah melihat. Ulangi Magelang memutar rangkaian lagi. Data: `data/diponegoro_arrest.json`; sumber sejarah, prompt generasi dan verifikasi: `docs/DIPONEGORO_SLIDESHOW.md`.
+
 Progres, upgrade, ending, bekal, waktu dan checkpoint disimpan otomatis, dengan tombol simpan di peta. Teleport ke gubuk daerah terbuka mempertahankan progres dan mengembalikan patroli biasa. Mulai perjalanan baru meminta konfirmasi sebelum mereset level ke nol dan poin demo ke 600. Save web mengikuti data situs browser; gunakan profil biasa dan pertahankan data situs untuk melanjutkan di perangkat yang sama.
 
 Durasi permainan perlu dinilai lewat playtest karena tes otomatis membaca dialog seketika.

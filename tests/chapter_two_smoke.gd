@@ -208,6 +208,10 @@ func _run() -> void:
 	await frames(20)
 	check(dash_target.health==1 and dash_target.stun_time>0.0 and game.player.ultimate_charge==0,"Ultimate dash hits once, stuns, and spends its charge")
 	game.player.invulnerable_time=0
+	var protected_health: int = game.player.health
+	check(game.player.take_damage(5,game.player.position.x-1) and game.player.health==protected_health,"The active Chapter 2 ultimate blocks a fatal hit")
+	await frames(12)
+	check(game.player.ultimate_time==0,"Wait for ultimate immunity to end before testing the death checkpoint")
 	game.player.take_damage(5,game.player.position.x-1)
 	await frames(3)
 	check(game.stage==game.Stage.FAILED,"Death offers checkpoint")

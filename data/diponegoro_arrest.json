@@ -1,0 +1,21 @@
+{
+  "title": "Penangkapan Pangeran Diponegoro",
+  "place_date": "Magelang • 28 Maret 1830",
+  "note": "Ilustrasi dramatik berdasarkan peristiwa sejarah",
+  "music": "res://assets/Generated/Audio/Music/ending-memory.ogg",
+  "sources": [
+    {"title":"Dinas Pendidikan dan Kebudayaan Kota Magelang", "url":"https://disdikbud.magelangkota.go.id/index.php/main/selanjutnya/21"},
+    {"title":"Perpustakaan Universitas Leiden — Diponegoro, rebel en held", "url":"https://webpresentations.universiteitleiden.nl/s/diponegoro/page/diponegoro-rebel-en-held"},
+    {"title":"Sekretariat Kabinet RI — Penangkapan Diponegoro dalam lukisan Raden Saleh", "url":"https://setkab.go.id/mengenal-koleksi-benda-seni-kenegaraan-bag-3/"}
+  ],
+  "slides": [
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-01-v1.png", "heading":"Pagi di Magelang", "text":"Magelang, 28 Maret 1830. Setelah hampir lima tahun perang, pertemuan di rumah Residen Kedu menjadi titik yang menentukan."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-02-v1.png", "heading":"Datang untuk berunding", "text":"Pangeran Diponegoro datang untuk berunding dengan pihak Belanda. Ia menerima pertemuan dengan jaminan dapat pergi dengan aman bila kesepakatan tidak tercapai."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-03-v1.png", "heading":"Di rumah Residen Kedu", "text":"Diponegoro bertemu Jenderal De Kock di Magelang. Perundingan berlangsung di tengah upaya Belanda menghentikan perlawanan yang telah berlangsung bertahun-tahun."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-04-v1.png", "heading":"Tanpa kesepakatan", "text":"Perundingan tidak menghasilkan kesepakatan. Jalan untuk mengakhiri perang melalui pertemuan itu berujung pada tekanan terhadap Diponegoro."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-05-v1.png", "heading":"Jaminan yang dilanggar", "text":"Pihak Belanda telah menyiapkan penangkapan. Jaminan agar Diponegoro dapat meninggalkan pertemuan dengan aman tidak dipenuhi."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-06-v1.png", "heading":"28 Maret 1830", "text":"Diponegoro ditangkap di rumah Residen Kedu, Magelang. Peristiwa ini menjadi bagian penting dari berakhirnya Perang Jawa."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-07-v1.png", "heading":"Dibawa dari Jawa", "text":"Penangkapan itu diikuti pembuangan ke luar Jawa. Melalui Batavia, Diponegoro kemudian dibawa ke Manado dan kelak menjalani pengasingan di Makassar."},
+    {"image":"res://assets/Generated/History/DiponegoroArrest/slide-08-v1.png", "heading":"Jejak yang masih bisa dijaga", "text":"Dalam kisah Jaka dan Sari, kabar itu menyisakan pertanyaan: siapa yang masih dapat mereka selamatkan? Perjalanan mereka kini kembali kepada warga yang menunggu."}
+  ]
+}

@@ -11,6 +11,7 @@ var markers: Array[Dictionary] = []
 var panorama: Node2D
 var location_label: Label
 var ending_director: CanvasLayer
+var history_director: CanvasLayer
 
 func _ready() -> void:
 	GameState.start_on_load = false
@@ -163,7 +164,7 @@ func _process(delta: float) -> void:
 	if chapter_number==5 and mission==2 and GameState.night_boss_defeated.get("commander",false) and not GameState.dialogue_active:
 		mission = 3
 		facts_unlocked = 3
-		_start_dialogue(story.after,_ending_choice)
+		_start_dialogue(story.after,_play_arrest_history)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo(): return
@@ -242,6 +243,21 @@ func _ending_choice() -> void:
 	_paragraph(box,"Penangkapan Diponegoro tetap menjadi bagian sejarah. Yang berubah adalah jejak orang-orang yang kamu lindungi.",Rect2(40,458,780,70),18,MUTED)
 	_button(box,"Lengkapi legenda melalui peta [M]",Rect2(40,527,780,36),func() -> void: journey.show_map()).add_theme_font_size_override("font_size",16)
 
+func _play_arrest_history() -> void:
+	if GameState.story_notes.get("diponegoro_arrest_seen",false):
+		_ending_choice()
+		return
+	if is_instance_valid(history_director): return
+	var director := preload("res://scripts/history_slideshow.gd").new()
+	history_director = director
+	director.chapter = self
+	director.finished.connect(func() -> void:
+		history_director = null
+		GameState.story_notes["diponegoro_arrest_seen"] = true
+		_ending_choice()
+		GameState.request_save())
+	add_child(director)
+
 func _show_ending(id: String) -> void:
 	if id=="jejak" and not GameState.secret_ending_ready(): return
 	var ending: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/endings.json"))[id]
@@ -295,6 +311,8 @@ func _on_player_died() -> void:
 	_button(box,"Menu utama",Rect2(40,440,780,58),_return_menu)
 
 func _restart() -> void:
-	if chapter_number==5: GameState.night_boss_defeated.erase("commander")
+	if chapter_number==5:
+		GameState.night_boss_defeated.erase("commander")
+		GameState.story_notes.erase("diponegoro_arrest_seen")
 	get_tree().paused = false
 	get_tree().reload_current_scene()

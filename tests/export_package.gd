@@ -14,8 +14,12 @@ func _run() -> void:
 	check(state.upgrade_points==600 and state.player_max_stamina()==200 and state.player_max_health()==3,"Current progression ships in the pack")
 	check(is_equal_approx(state.day_phase_duration(1),150) and is_equal_approx(state.day_phase_duration(3),150),"Noon and night each last 150 seconds in the package")
 	check(root.has_node("AudioPrefs") and ResourceLoader.exists("res://scripts/campaign_save.gd"),"Save and audio services ship in the pack")
-	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","audio_mix","sword_slashes","night_encounters","chapter_four","chapter_five","endings"]:
+	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","audio_mix","sword_slashes","diponegoro_arrest","night_encounters","chapter_four","chapter_five","endings"]:
 		check(JSON.parse_string(FileAccess.get_file_as_string("res://data/"+data+".json")) is Dictionary,"Packaged JSON: "+data)
+	var history_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/diponegoro_arrest.json"))
+	check(history_data.slides.size()==8 and ResourceLoader.exists("res://scripts/history_slideshow.gd"),"Historical slideshow ships in the web package")
+	for slide: Dictionary in history_data.slides:
+		check(load(str(slide.image)) is Texture2D,"Distinct historical illustration ships: "+str(slide.heading))
 	var ulti_f := InputEventKey.new()
 	ulti_f.physical_keycode = KEY_F
 	var old_ulti_l := InputEventKey.new()
