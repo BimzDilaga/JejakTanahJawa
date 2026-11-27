@@ -186,13 +186,22 @@ func _run() -> void:
 	check(player.ultimate_time>0 and player.ultimate_charge==0,"Pressing F starts a fully charged ultimate")
 	await keyboard(KEY_F,false)
 	var remaining_ultimate: float = player.ultimate_time
-	player.take_damage(1,player.position.x+40,false,380)
-	check(player.health==4 and is_equal_approx(player.ultimate_time,remaining_ultimate),"A nonlethal hit deals normal damage without cancelling ultimate time")
+	player.stance = 2
+	var parry_cooldown: float = player.parry_cooldown
+	check(player.take_damage(2,player.position.x+40,false,380),"Ulti automatically deflects even an otherwise unblockable incoming hit")
+	check(player.health==5 and is_equal_approx(player.ultimate_time,remaining_ultimate),"Ulti blocks damage without cancelling its remaining time")
+	check(player.stance==2 and is_equal_approx(player.parry_cooldown,parry_cooldown) and player.parry_time==0,"Auto parry adds no stance load or manual parry cooldown")
+	check(player.invulnerable_time==0 and player._parry_flash>0,"Auto parry shows feedback without adding immunity beyond the skill duration")
 	check(player.velocity.x>600,"An active ultimate resists incoming knockback")
 	player.perform_attack()
 	check(not player.is_attacking and not player.perform_parry() and not player.perform_dash() and not player.perform_heal(),"Other combat actions cannot cancel a committed ultimate")
+	var auto_shot := preload("res://scripts/patrol_shot.gd").new()
+	auto_shot.position = player.position+Vector2(60,-66)
+	auto_shot.direction = -1
+	add_child(auto_shot)
 	Input.action_press("move_left")
 	await frames(10)
+	check(not is_instance_valid(auto_shot) and player.health==5 and player.stance==2,"A real projectile is automatically parried during ulti without health or stance cost")
 	check(player.ultimate_time>0 and player.anim.animation=="ultimate" and player.facing==1 and player.position.x>530,"The ultimate keeps moving and animating despite damage and opposite input")
 	check(target.hits==2 and target.stuns==1,"The uninterrupted ultimate damages and stuns a target once")
 	await frames(24)
@@ -200,9 +209,14 @@ func _run() -> void:
 	check(player.ultimate_time==0 and target.hits==2,"The ultimate ends naturally without applying duplicate target damage")
 	player.reset_health()
 	player.ultimate_charge = player.ULTIMATE_HITS
+	player.stance = player.STANCE_MAX
 	check(player.perform_ultimate(),"Another charged ultimate can start after resetting")
 	player.take_damage(99,player.position.x+40)
-	check(player.dead and player.ultimate_time==0,"Lethal damage still ends the ultimate and defeats Jaka")
+	check(not player.dead and player.health==5 and player.ultimate_time>0,"Even a fatal-size hit is blocked during ulti")
+	check(player.stance==player.STANCE_MAX and player.stun_time==0,"Auto parry cannot overflow a full stance bar into a stun")
+	await frames(32)
+	player.take_damage(99,player.position.x+40)
+	check(player.dead and player.ultimate_time==0,"Damage applies again immediately after ulti expires")
 	player.reset_health()
 	player.position.x = 400
 	var wall := StaticBody2D.new()

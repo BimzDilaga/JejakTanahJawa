@@ -153,7 +153,7 @@ func _run() -> void:
 	await walk(6600)
 	await frames(6)
 	check(game.checkpoint_reached,"Risk checkpoint")
-	check(get_tree().get_nodes_in_group("enemies").size()==16,"Sixteen soldiers spawned")
+	check(get_tree().get_nodes_in_group("enemies").size()==10,"Exactly ten soldiers spawn in Chapter 2")
 	await shot("checkpoint")
 	# Test that real combat deals damage, respects invulnerability, and can defeat an enemy.
 	var enemy: Node=game.soldiers[0]
@@ -214,7 +214,7 @@ func _run() -> void:
 	game._respawn()
 	await frames(5)
 	check(game.player.health==5 and game.delivered,"Checkpoint retains completed aid")
-	check(get_tree().get_nodes_in_group("enemies").size()==16,"Retry restores patrol once")
+	check(get_tree().get_nodes_in_group("enemies").size()==10,"Retry restores exactly ten soldiers without duplicate patrols")
 	await walk(6880)
 	await hop(7030)
 	await walk(7080)

@@ -65,7 +65,7 @@ func _run() -> void:
 	check(not GameState.dialogue_active and game.mission==4 and game.delivered and game.checkpoint_reached,"Loading restores the quest instead of restarting its intro")
 	check(game.player.health==2 and game.player.max_health==4 and game.player.ultimate_charge==3,"Loading preserves current HP and ultimate charge")
 	check(game.player.position.distance_to(Vector2(6580,570))<3 and game.night_events.rumor_learned,"Position/checkpoint and learned rumor are restored")
-	check(game.soldiers.size()==16 and game.soldiers[0].health==3 and not game.soldiers[0].dead,"All regular patrol enemies reset when a chapter reloads")
+	check(game.soldiers.size()==10 and game.soldiers[0].health==3 and not game.soldiers[0].dead,"Exactly ten regular patrol enemies reset when a chapter reloads")
 	game.journey.show_map()
 	var buttons: Array = game.journey.map_root.find_children("*","Button",true,false)
 	check(get_tree().paused and buttons.size()==7 and not buttons[0].disabled and not buttons[1].disabled and buttons[2].disabled and buttons[4].disabled,"Map locks later chapters and exposes only visited regions")
@@ -91,7 +91,7 @@ func _run() -> void:
 	GameState.travel_to(2,game)
 	await frames(60)
 	game = get_tree().current_scene
-	check(game.mission==4 and game.soldiers.size()==16 and game.soldiers[0].health==3,"Returning by map retains the quest and repopulates regular enemies")
+	check(game.mission==4 and game.soldiers.size()==10 and game.soldiers[0].health==3,"Returning by map retains the quest and repopulates exactly ten regular enemies")
 	GameState.night_boss_defeated = {"buto":true,"banaspati":true,"headless":true,"commander":true}
 	GameState.unlocked_endings.jejak = true
 	check(GameState.save_campaign(game),"Ending and victory progress can be saved")

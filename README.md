@@ -16,6 +16,8 @@ Pilihan **Arena uji boss** menyediakan Buto Ijo, Banaspati, Headless Swordsman d
 
 Banaspati bergantian bertarung di tanah dan terbang kebal. Saat terbang, tembok api mengejar pemain melewati sembilan platform runtuh menuju tanah aman; setelah mendarat, skill terbang memiliki cooldown sementara 16 detik. Rute diperpanjang saat diperlukan. Pembaruan visual memakai `Tanah Baru.png`, bar boss di bawah, partikel debu/bara/benturan, dan filter api tipis khusus Banaspati.
 
+Bab 2 memiliki total sepuluh tentara patroli dengan jarak yang lebih renggang. Musuh biasa tetap boleh dilewati; retry maupun kembali melalui peta memulihkan sepuluh tentara tanpa menambah duplikat.
+
 ## Kontrol
 
 - A/D atau panah: bergerak
@@ -27,7 +29,7 @@ Banaspati bergantian bertarung di tanah dan terbang kebal. Saat terbang, tembok 
 - Klik kiri: serang dengan keris; klik lagi selama ayunan untuk menyambung sampai tiga serangan. Menahan klik tidak mengulang serangan.
 - Klik kanan: parry keris selama 0,4 detik. Sukses tanpa cooldown; gagal cooldown 2 detik. Lima sukses memenuhi stance; percobaan berikutnya menyebabkan stun 2 detik. Stance pulih satu poin per detik tanpa parry.
 - H: gunakan satu item heal untuk memulihkan satu hati. Item diperoleh dari bekal atau setiap tujuh tentara yang dikalahkan.
-- F: dash yang melukai dan membuat musuh terkena stun. Lima serangan yang mengenai musuh mengisi ulti. Setelah aktif, hit musuh dan aksi combat lain tidak membatalkan ulti; damage tetap masuk dan serangan fatal tetap mengalahkan Jaka.
+- F: dash yang melukai dan membuat musuh terkena stun. Lima serangan yang mengenai musuh mengisi ulti. Selama aktif, Jaka kebal damage dan otomatis menangkis tanpa menambah beban stance. Hit dan aksi combat lain tidak membatalkan ulti; kekebalan berakhir bersama durasi skill.
 - T: catatan sejarah
 - M: peta, teleport ke daerah terbuka, dan simpan perjalanan
 - F11 atau tombol Layar penuh di menu: fullscreen/keluar fullscreen pada Windows dan browser

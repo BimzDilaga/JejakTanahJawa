@@ -39,10 +39,14 @@ func capture(label: String, trigger: Callable) -> void:
 	print("MIX_REVIEW ",label," rms_db=",linear_to_db(maxf(rms,0.000001))," peak_db=",linear_to_db(maxf(peak,0.000001)))
 	AudioServer.remove_bus_effect(0,index)
 func check_parry_voice(combat: Node, context: String) -> void:
-	check(combat.get_child_count()>0,"Parry starts a real audio voice: "+context)
-	if combat.get_child_count()==0: return
-	var voice: AudioStreamPlayer = combat.get_child(combat.get_child_count()-1)
-	check(voice.stream==load("res://assets/Generated/Audio/Combat/parry.wav") and voice.playing,"Canonical playing parry in "+context)
+	var voice: AudioStreamPlayer
+	for candidate: Node in combat.get_children():
+		if candidate is AudioStreamPlayer and candidate.stream==load("res://assets/Generated/Audio/Combat/parry.wav") and candidate.playing and not candidate.is_queued_for_deletion():
+			voice = candidate
+			break
+	# A simultaneous boss stance break may add another cue after the parry.
+	check(voice!=null,"Canonical playing parry in "+context)
+	if voice==null: return
 	check(is_equal_approx(voice.volume_db,-5.0),"Parry volume is consistent in "+context)
 func _run() -> void:
 	preload("res://tests/test_session.gd").isolate("audio_mix_playback")
@@ -97,6 +101,16 @@ func _run() -> void:
 		arena.player.perform_parry()
 		shot._damage_target()
 		check_parry_voice(arena.player.combat_audio,kind+" projectile")
+		arena.player.combat_audio.stop_all()
+		arena.player.reset_health()
+		await frames(2)
+		arena.player.stance = arena.player.STANCE_MAX
+		arena.player.ultimate_charge = arena.player.ULTIMATE_HITS
+		check(arena.player.perform_ultimate(),"Ulti starts at a full stance bar")
+		arena.boss.attack.heavy = true
+		arena.boss._strike()
+		check(arena.player.health==arena.player.max_health and arena.player.ultimate_time>0 and arena.player.stance==arena.player.STANCE_MAX and arena.player.stun_time==0,"Ulti auto parry blocks boss heavy damage without stance cost or stun: "+kind)
+		check_parry_voice(arena.player.combat_audio,kind+" ulti auto parry")
 		arena.queue_free()
 		await frames(4)
 	await wall_seconds(0.2)

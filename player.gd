@@ -323,9 +323,12 @@ func _complete_parry(parry_audio: AudioStream = null) -> void:
 	parry_reaction = PARRY_REACTION
 	stance = mini(STANCE_MAX, stance + 1)
 	stance_recovery_time = 0.0
+	stance_changed.emit(stance, STANCE_MAX)
+	_parry_feedback(parry_audio)
+
+func _parry_feedback(parry_audio: AudioStream = null) -> void:
 	_parry_flash = 0.19
 	_white_flash = 0.13
-	stance_changed.emit(stance, STANCE_MAX)
 	parry_succeeded.emit()
 	combat_audio.play_effect("parry",parry_audio)
 	effects.burst(global_position + Vector2(35 * facing, -65), 22, Color("ffe7a6"), 1.5, Vector2(facing, -0.4))
@@ -368,14 +371,19 @@ func _hit_dash_targets(previous_position: Vector2) -> void:
 		enemy.apply_stun(1.3)
 
 func take_damage(amount: int, source_x: float, can_parry: bool = false, knockback := 170.0, parry_audio: AudioStream = null) -> bool:
-	if dead or amount <= 0 or invulnerable_time > 0.0 or not controls_enabled or GameState.dialogue_active or GameState.ending_started:
+	if dead or amount <= 0 or not controls_enabled or GameState.dialogue_active or GameState.ending_started:
+		return false
+	if ultimate_time>0.0:
+		# Ulti deflects incoming hits without health loss, stance load, or cancelling.
+		_parry_feedback(parry_audio)
+		return true
+	if invulnerable_time>0.0:
 		return false
 	if can_parry and amount > 0 and parry_time > 0.0:
 		_complete_parry(parry_audio)
 		return true
 	if parry_time>0.0:
 		parry_cooldown = PARRY_COOLDOWN
-	var committed_ultimate: bool = ultimate_time>0.0
 	_cancel_attack()
 	dash_time = 0.0
 	parry_time = 0.0
@@ -384,9 +392,7 @@ func take_damage(amount: int, source_x: float, can_parry: bool = false, knockbac
 	health = maxi(0, health - maxi(0, amount))
 	invulnerable_time = 1.05
 	hurt_time = 0.22
-	# A nonlethal hit still hurts, but cannot interrupt or push back an active ulti.
-	if not committed_ultimate:
-		velocity.x = knockback if global_position.x >= source_x else -knockback
+	velocity.x = knockback if global_position.x >= source_x else -knockback
 	effects.burst(global_position + Vector2(0, -55), 12, Color("e6b891"), 0.9, Vector2(signf(global_position.x - source_x), -0.4))
 	health_changed.emit(health, max_health)
 	if health == 0:
