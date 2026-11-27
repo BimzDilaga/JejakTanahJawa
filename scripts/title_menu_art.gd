@@ -18,5 +18,5 @@ func _process(delta: float) -> void:
 		elapsed += delta
 		picture.position = Vector2(-8+sin(elapsed*0.055)*6,-6+sin(elapsed*0.04)*4)
 		if not score.playing and DisplayServer.get_name()!="headless": score.play()
-	score.volume_db = move_toward(score.volume_db,-27.0 if active else -60.0,delta*22)
+	score.volume_db = move_toward(score.volume_db,AudioPrefs.mix_db("title_music_db",-7.0) if active else -60.0,delta*22)
 	if not active and score.volume_db<=-59 and score.playing: score.stop()

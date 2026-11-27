@@ -14,6 +14,15 @@ func peak_level(recording: AudioStreamWAV) -> float:
 	for index in range(0,recording.data.size()-1,2):
 		peak = maxi(peak,absi(recording.data.decode_s16(index)))
 	return float(peak)/32768.0
+func rms_level(recording: AudioStreamWAV) -> float:
+	if recording==null or recording.data.is_empty(): return 0.0
+	var total := 0.0
+	var samples := 0
+	for index in range(0,recording.data.size()-1,2):
+		var value: float = float(recording.data.decode_s16(index))/32768.0
+		total += value*value
+		samples += 1
+	return sqrt(total/maxi(1,samples))
 func capture_music(filename: String) -> float:
 	var recorder := AudioEffectRecord.new()
 	AudioServer.add_bus_effect(0,recorder)
@@ -45,7 +54,7 @@ func _run() -> void:
 	while GameState.dialogue_active: game.advance_dialogue()
 	GameState.time_of_day = 0.375
 	audio._process(3)
-	check(audio.day_music.volume_db>-30,"The daytime theme is audible during exploration")
+	check(audio.day_music.volume_db>-18,"The daytime theme stays above the previously inaudible mix level")
 	if DisplayServer.get_name()!="headless":
 		AudioPrefs.set_level("Ambience",0)
 		await wall_seconds(1.7)
@@ -59,6 +68,7 @@ func _run() -> void:
 		recorder.set_recording_active(false)
 		var mixed: AudioStreamWAV = recorder.get_recording()
 		check(peak_level(mixed)>0.0001,"The real audio mixer outputs the supplied daytime music")
+		check(peak_level(mixed)>0.015 and rms_level(mixed)>0.004,"The actual daytime music mix is audible, rather than merely nonzero")
 		if mixed!=null:
 			DirAccess.make_dir_recursive_absolute("res://.godot/audio-review")
 			mixed.save_to_wav("res://.godot/audio-review/world-day-mix.wav")

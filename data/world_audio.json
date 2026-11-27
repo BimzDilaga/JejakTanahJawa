@@ -1,8 +1,8 @@
 {
   "day_music": "res://assets/Generated/Audio/Music/world-day.ogg",
   "night_music": "res://assets/Generated/Audio/Music/world-night.ogg",
-  "day_music_db": -24.0,
-  "night_music_db": -24.0,
+  "day_music_db": -8.0,
+  "night_music_db": -10.0,
   "crossfade_seconds": 2.0,
   "note": "Soundtrack siang dan malam memakai aset pengguna; ambience angin dan jangkrik tetap terpisah."
 }

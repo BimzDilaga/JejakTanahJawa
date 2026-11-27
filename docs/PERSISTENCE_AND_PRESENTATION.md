@@ -28,7 +28,9 @@ Ketiga ending memiliki ilustrasi sendiri dan epilog berparagraf. E/Space melanju
 
 ## Audio
 
-Pembaruan 27 November: malam memakai `malam.mp3` dan Headless memakai `Halloween Music – The Headless Horseman.mp3` dari pengguna melalui salinan OGG runtime. Lagu Headless sintetis sebelumnya disimpan sebagai arsip. Komandan tetap memakai komposisi sementara. Rincian: `UPDATE_2026_11_27.md`.
+Pembaruan 27 November juga memasang lagu final boss pengguna (2:48), memperkeras musik/ambience/SFX lewat `data/audio_mix.json` dan `data/world_audio.json`, serta menyamakan parry di semua arena ke `Combat/parry.wav` (-5 dB). Master memakai limiter -1 dB, slider tetap mengikuti pilihan pengguna. Uji native `audio_mix_playback` memeriksa rekaman mixer, empat boss, parry melee/proyektil dan suara bertumpuk. Catatan sintetis di bawah menjelaskan aset awal; musik Headless dan komandan sekarang memakai kiriman pengguna.
+
+Pembaruan 27 November: malam memakai `malam.mp3`, Headless memakai `Halloween Music – The Headless Horseman.mp3`, dan komandan memakai `National Anthem of the Netherlands but it's a boss theme.mp3` dari pengguna melalui salinan OGG runtime. Lagu sintetis Headless/komandan sebelumnya disimpan sebagai arsip. Rincian: `UPDATE_2026_11_27.md`.
 
 Dua belas SFX Headless, tiga musik original bernuansa perkusi perunggu, ambience jangkrik/katak/angin malam dan angin siang dibuat secara sintetis dengan `tools/prepare_world_audio.py`. Musik khusus dipasang pada Headless dan komandan; epilog/menu memakai komposisi ketiga. Ini komposisi baru yang terinspirasi gamelan, bukan rekonstruksi laras atau rekaman tradisional. Musik pengguna untuk Buto/Banaspati tetap dipakai.
 

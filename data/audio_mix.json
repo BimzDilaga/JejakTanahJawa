@@ -1,0 +1,15 @@
+{
+  "title_music_db": -7.0,
+  "ending_music_db": -6.0,
+  "boss_music_db": {"buto": -7.0, "banaspati": -7.0, "headless": -4.0, "commander": -7.0},
+  "day_wind_db": -8.0,
+  "night_insects_db": -7.0,
+  "keris_swing_db": -8.0,
+  "parry_db": -5.0,
+  "stance_break_db": -6.0,
+  "boss_sfx_gain_db": 8.0,
+  "banaspati_sfx_db": -6.0,
+  "banaspati_vocal_db": -8.0,
+  "commander_shot_db": -8.0,
+  "master_ceiling_db": -1.0
+}

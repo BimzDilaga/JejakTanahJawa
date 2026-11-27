@@ -261,8 +261,7 @@ func _strike() -> void:
 		if kind=="buto" and attack.heavy and target.parry_time>0 and target.invulnerable_time<=0:
 			target.add_stance_load(2)
 		var push := float(tuning.get("heavy_knockback",380) if attack.heavy else tuning.get("light_knockback",250))
-		var parry_audio: AudioStream = arena.sounds.get("parry") if kind in ["buto","headless"] else null
-		var parried: bool = target.take_damage(int(tuning.heavy_damage if attack.heavy else tuning.damage),position.x,not attack.heavy,push,parry_audio)
+		var parried: bool = target.take_damage(int(tuning.heavy_damage if attack.heavy else tuning.damage),position.x,not attack.heavy,push)
 		if parried: on_parried()
 	if kind=="buto" and current_combo==3 and combo_index==4:
 		arena.emit_boss_attack(self,"earth_wave")

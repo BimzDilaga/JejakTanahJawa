@@ -54,7 +54,7 @@ func _ready() -> void:
 	score.bus = "Music"
 	score.stream = load("res://assets/Generated/Audio/Music/ending-memory.ogg")
 	(score.stream as AudioStreamOggVorbis).loop = true
-	score.volume_db = -25
+	score.volume_db = AudioPrefs.mix_db("ending_music_db",-6.0)
 	add_child(score)
 	if DisplayServer.get_name()!="headless": score.play()
 

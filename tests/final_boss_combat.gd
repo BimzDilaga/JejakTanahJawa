@@ -24,6 +24,7 @@ func _run() -> void:
 			check(boss.combo.size()==(4 if chain==2 else 5),"Chain length for "+kind+"/"+str(chain))
 			for strike in boss.combo: check(boss.sprite.sprite_frames.has_animation(str(strike.animation)),"Every chained strike has usable art")
 		if kind=="commander":
+			check(arena.boss_music.stream.resource_path.ends_with("commander-final-theme.ogg") and arena.boss_music.stream.get_length()>165,"Commander plays the supplied final boss theme at full length")
 			for animation in ["rapid","flintshot","finalsalvo","reload"]:
 				check(boss.sprite.sprite_frames.get_frame_count(animation)==(8 if animation=="reload" else 10),"Final boss retains original shots and new reload")
 			arena.player.position = Vector2(500,570)

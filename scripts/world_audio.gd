@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 	var playing: bool = chapter.stage not in [chapter.Stage.MENU,chapter.Stage.COMPLETE,chapter.Stage.FAILED]
 	intensity = move_toward(intensity,1.0 if playing else 0.0,delta*1.6)
 	var amount: float = chapter.day_night.sample_grade(GameState.time_of_day).night
-	wind.volume_db = linear_to_db(maxf(0.0001,intensity*(1.0-amount*0.5))) - 29
-	night.volume_db = linear_to_db(maxf(0.0001,intensity*amount)) - 26
+	wind.volume_db = linear_to_db(maxf(0.0001,intensity*(1.0-amount*0.5))) + AudioPrefs.mix_db("day_wind_db",-8.0)
+	night.volume_db = linear_to_db(maxf(0.0001,intensity*amount)) + AudioPrefs.mix_db("night_insects_db",-7.0)
 	var target_mix := 1.0 if chapter.day_night.phase_index(GameState.time_of_day)==3 else 0.0
 	music_night_mix = move_toward(music_night_mix,target_mix,delta/maxf(0.1,float(music_settings.crossfade_seconds)))
 	if is_instance_valid(day_music):

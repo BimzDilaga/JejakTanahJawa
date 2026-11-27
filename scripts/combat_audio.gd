@@ -12,9 +12,13 @@ func play_effect(key: String, override: AudioStream = null) -> void:
 	if DisplayServer.get_name()=="headless" or not streams.has(key) or get_child_count()>=4: return
 	var voice := AudioStreamPlayer.new()
 	voice.bus = "SFX"
-	voice.stream = override if override!=null else streams[key]
-	var default_volume := -20.0 if key.begins_with("swing_") else -14.0
-	voice.volume_db = float(override.get_meta("combat_volume_db",default_volume)) if override!=null else default_volume
+	# One canonical parry cue in story, projectiles, and every boss arena.
+	var selected: AudioStream = streams[key] if key=="parry" or override==null else override
+	voice.stream = selected
+	var default_volume: float = AudioPrefs.mix_db("stance_break_db",-6.0)
+	if key.begins_with("swing_"): default_volume = AudioPrefs.mix_db("keris_swing_db",-8.0)
+	elif key=="parry": default_volume = AudioPrefs.mix_db("parry_db",-5.0)
+	voice.volume_db = float(selected.get_meta("combat_volume_db",default_volume)) if key!="parry" else default_volume
 	add_child(voice)
 	voice.finished.connect(voice.queue_free)
 	voice.play()

@@ -4,15 +4,18 @@ signal levels_changed
 var levels := {"Master":1.0,"Music":1.0,"SFX":1.0,"Ambience":1.0}
 var settings_path := "user://audio-settings.cfg"
 var save_timer: Timer
+var mix_settings: Dictionary
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	mix_settings = JSON.parse_string(FileAccess.get_file_as_string("res://data/audio_mix.json"))
 	for key in levels:
 		if AudioServer.get_bus_index(key)<0:
 			AudioServer.add_bus()
 			var index := AudioServer.bus_count-1
 			AudioServer.set_bus_name(index,key)
 			AudioServer.set_bus_send(index,"Master")
+	_ensure_master_limiter()
 	var config := ConfigFile.new()
 	if config.load(settings_path)==OK:
 		for key in levels:
@@ -24,6 +27,18 @@ func _ready() -> void:
 	save_timer.one_shot = true
 	add_child(save_timer)
 	save_timer.timeout.connect(_save)
+
+func mix_db(key: String, fallback: float) -> float:
+	return float(mix_settings.get(key,fallback))
+
+func _ensure_master_limiter() -> void:
+	for index in range(AudioServer.get_bus_effect_count(0)):
+		if AudioServer.get_bus_effect(0,index) is AudioEffectHardLimiter: return
+	var limiter := AudioEffectHardLimiter.new()
+	limiter.ceiling_db = mix_db("master_ceiling_db",-1.0)
+	limiter.pre_gain_db = 0.0
+	limiter.release = 0.08
+	AudioServer.add_bus_effect(0,limiter)
 
 func _apply() -> void:
 	for key in levels:

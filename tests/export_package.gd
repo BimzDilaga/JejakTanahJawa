@@ -14,7 +14,7 @@ func _run() -> void:
 	check(state.upgrade_points==600 and state.player_max_stamina()==200 and state.player_max_health()==3,"Current progression ships in the pack")
 	check(is_equal_approx(state.day_phase_duration(1),150) and is_equal_approx(state.day_phase_duration(3),150),"Noon and night each last 150 seconds in the package")
 	check(root.has_node("AudioPrefs") and ResourceLoader.exists("res://scripts/campaign_save.gd"),"Save and audio services ship in the pack")
-	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","night_encounters","chapter_four","chapter_five","endings"]:
+	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","audio_mix","night_encounters","chapter_four","chapter_five","endings"]:
 		check(JSON.parse_string(FileAccess.get_file_as_string("res://data/"+data+".json")) is Dictionary,"Packaged JSON: "+data)
 	for name in ["01-Tegalrejo","02-Jalur-Hutan","03-Selarong","04-Pemukiman-Terdampak","05-Magelang"]:
 		check(load("res://assets/Asset in game/peta/"+name+".png") is Texture2D,"Map preview ships: "+name)
@@ -48,7 +48,7 @@ func _run() -> void:
 			check(int(arena.boss.tuning.phase_count)==2,"Headless has two HP bars in the package")
 			check(is_equal_approx(arena.boss.sprite.scale.y,0.62),"Smaller Headless scale ships")
 			check(arena.boss_music.stream.resource_path.ends_with("headless-horseman.ogg") and arena.boss_music.stream.get_length()>185,"The supplied Headless score ships")
-		if kind=="commander": check(arena.sounds.has("shot") and arena.boss_music.stream.resource_path.ends_with("commander-last-march.ogg"),"Commander score and shot ship")
+		if kind=="commander": check(arena.sounds.has("shot") and arena.boss_music.stream.resource_path.ends_with("commander-final-theme.ogg") and arena.boss_music.stream.get_length()>165,"The supplied final boss score and shot ship")
 		if kind=="banaspati": check(arena.sounds.size()==9,"All Banaspati SFX ship")
 		arena.queue_free()
 		await frames(4)

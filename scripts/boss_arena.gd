@@ -62,8 +62,8 @@ func _ready() -> void:
 	boss_music.name = "BossMusic"
 	boss_music.bus = "Music"
 	boss_music.process_mode = Node.PROCESS_MODE_PAUSABLE
-	boss_music.volume_db = -22.0
-	var music_file: String = {"buto":"buto-akusara.ogg","banaspati":"banaspati-fight-fire.ogg","headless":"headless-horseman.ogg","commander":"commander-last-march.ogg"}[kind]
+	boss_music.volume_db = float(AudioPrefs.mix_settings.boss_music_db[kind])
+	var music_file: String = {"buto":"buto-akusara.ogg","banaspati":"banaspati-fight-fire.ogg","headless":"headless-horseman.ogg","commander":"commander-final-theme.ogg"}[kind]
 	boss_music.stream = load("res://assets/Generated/Audio/Music/"+music_file)
 	(boss_music.stream as AudioStreamOggVorbis).loop = true
 	add_child(boss_music)
@@ -537,7 +537,7 @@ func _load_sounds() -> void:
 
 func play_banaspati_sound(key: String, at: Vector2) -> void:
 	if kind!="banaspati" or not sounds.has(key): return
-	_play_sound(key,at,-18 if key in ["roar","laugh"] else -14)
+	_play_sound(key,at,AudioPrefs.mix_db("banaspati_vocal_db",-8.0) if key in ["roar","laugh"] else AudioPrefs.mix_db("banaspati_sfx_db",-6.0))
 
 func play_buto_sound(key: String, at: Vector2) -> bool:
 	if kind!="buto" or not sounds.has(key): return false
@@ -545,10 +545,10 @@ func play_buto_sound(key: String, at: Vector2) -> bool:
 	var now := Time.get_ticks_msec()/1000.0
 	if now-float(_last_sound.get(key,-100))<float(definition.cooldown): return false
 	_last_sound[key] = now
-	return _play_sound(key,at,float(definition.volume_db))
+	return _play_sound(key,at,float(definition.volume_db)+AudioPrefs.mix_db("boss_sfx_gain_db",8.0))
 
 func play_commander_sound(key: String, at: Vector2) -> void:
-	if kind=="commander" and sounds.has(key): _play_sound(key,at,-19)
+	if kind=="commander" and sounds.has(key): _play_sound(key,at,AudioPrefs.mix_db("commander_shot_db",-8.0))
 
 func play_headless_sound(key: String, at: Vector2) -> bool:
 	if kind!="headless" or not sounds.has(key): return false
@@ -556,7 +556,7 @@ func play_headless_sound(key: String, at: Vector2) -> bool:
 	var now := Time.get_ticks_msec()/1000.0
 	if now-float(_last_sound.get(key,-100))<float(definition.cooldown): return false
 	_last_sound[key] = now
-	return _play_sound(key,at,float(definition.volume_db))
+	return _play_sound(key,at,float(definition.volume_db)+AudioPrefs.mix_db("boss_sfx_gain_db",8.0))
 
 func _play_sound(key: String, at: Vector2, volume: float) -> bool:
 	if DisplayServer.get_name()=="headless": return false

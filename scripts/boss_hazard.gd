@@ -97,8 +97,7 @@ func _damage_target() -> void:
 	if visual_kind=="buto" and not parryable and target.parry_time>0 and target.invulnerable_time<=0:
 		target.add_stance_load(2)
 	var source_x := owner_boss.global_position.x if is_instance_valid(owner_boss) else global_position.x
-	var parry_audio: AudioStream = owner_boss.arena.sounds.get("parry") if visual_kind=="buto" and is_instance_valid(owner_boss) else null
-	var deflected: bool = target.take_damage(damage,source_x,parryable,knockback,parry_audio)
+	var deflected: bool = target.take_damage(damage,source_x,parryable,knockback)
 	if deflected and is_instance_valid(owner_boss):
 		owner_boss.on_parried()
 

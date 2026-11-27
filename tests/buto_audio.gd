@@ -3,7 +3,7 @@ var failures := 0
 class ParryProbe extends "res://scripts/combat_audio.gd":
 	var selected: AudioStream
 	func play_effect(_key: String, override: AudioStream = null) -> void:
-		selected = override
+		selected = streams.get(_key) if _key=="parry" or override==null else override
 func _ready() -> void: _run.call_deferred()
 func frames(count: int) -> void:
 	for i in range(count): await get_tree().physics_frame
@@ -60,7 +60,7 @@ func _run() -> void:
 	arena.player.perform_parry()
 	arena.boss.attack = {"animation":"light","effect":"melee","heavy":false}
 	arena.boss._strike()
-	check(probe.selected==arena.sounds.parry and arena.player.health==3,"Successful live parry selects the Buto metal clash and prevents damage")
+	check(probe.selected==probe.streams.parry and probe.selected!=arena.sounds.parry and arena.player.health==3,"Boss parry uses the same canonical cue as regular exploration and prevents damage")
 	arena.emit_boss_attack(arena.boss,"earth_wave")
 	check(arena._last_sound.has("wave"),"Earth shockwave triggers its ground fracture sound")
 	arena._clear_hazards()
