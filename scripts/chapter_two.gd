@@ -198,7 +198,7 @@ func _process(delta: float) -> void:
 	location_label.visible = not GameState.dialogue_active
 	combat_label.visible = not GameState.dialogue_active
 	var parry_status: String = player.parry_status()
-	combat_label.text = "Klik kanan Parry: %s   •   H Heal: %d   •   L Ulti: %d/%d" % [parry_status, GameState.heal_stock, player.ultimate_charge, player.ULTIMATE_HITS]
+	combat_label.text = "Klik kanan Parry: %s   •   H Heal: %d   •   F Ulti: %d/%d" % [parry_status, GameState.heal_stock, player.ultimate_charge, player.ULTIMATE_HITS]
 	nearest = -1
 	var best := 130.0
 	for i in range(markers.size()):

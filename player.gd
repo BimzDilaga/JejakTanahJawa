@@ -375,19 +375,22 @@ func take_damage(amount: int, source_x: float, can_parry: bool = false, knockbac
 		return true
 	if parry_time>0.0:
 		parry_cooldown = PARRY_COOLDOWN
+	var committed_ultimate: bool = ultimate_time>0.0
 	_cancel_attack()
 	dash_time = 0.0
 	parry_time = 0.0
 	parry_reaction = 0.0
 	heal_time = 0.0
-	ultimate_time = 0.0
 	health = maxi(0, health - maxi(0, amount))
 	invulnerable_time = 1.05
 	hurt_time = 0.22
-	velocity.x = knockback if global_position.x >= source_x else -knockback
+	# A nonlethal hit still hurts, but cannot interrupt or push back an active ulti.
+	if not committed_ultimate:
+		velocity.x = knockback if global_position.x >= source_x else -knockback
 	effects.burst(global_position + Vector2(0, -55), 12, Color("e6b891"), 0.9, Vector2(signf(global_position.x - source_x), -0.4))
 	health_changed.emit(health, max_health)
 	if health == 0:
+		ultimate_time = 0.0
 		dead = true
 		_death_elapsed = 0.0
 		is_attacking = false

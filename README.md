@@ -27,7 +27,7 @@ Banaspati bergantian bertarung di tanah dan terbang kebal. Saat terbang, tembok 
 - Klik kiri: serang dengan keris; klik lagi selama ayunan untuk menyambung sampai tiga serangan. Menahan klik tidak mengulang serangan.
 - Klik kanan: parry keris selama 0,4 detik. Sukses tanpa cooldown; gagal cooldown 2 detik. Lima sukses memenuhi stance; percobaan berikutnya menyebabkan stun 2 detik. Stance pulih satu poin per detik tanpa parry.
 - H: gunakan satu item heal untuk memulihkan satu hati. Item diperoleh dari bekal atau setiap tujuh tentara yang dikalahkan.
-- L: dash yang melukai dan membuat musuh terkena stun. Lima serangan yang mengenai musuh mengisi ulti.
+- F: dash yang melukai dan membuat musuh terkena stun. Lima serangan yang mengenai musuh mengisi ulti. Setelah aktif, hit musuh dan aksi combat lain tidak membatalkan ulti; damage tetap masuk dan serangan fatal tetap mengalahkan Jaka.
 - T: catatan sejarah
 - M: peta, teleport ke daerah terbuka, dan simpan perjalanan
 - F11 atau tombol Layar penuh di menu: fullscreen/keluar fullscreen pada Windows dan browser
@@ -79,6 +79,8 @@ Menu, dialog dengan potret dan pilihan jawaban, catatan sejarah per bab, kucing 
 Arena memakai sembilan SFX Banaspati, musik pengguna untuk keempat boss, cue parry/stance break, serta tiga swing Jaka dan tembakan komandan sintetis sementara. Headless memakai `Halloween Music – The Headless Horseman.mp3` melalui OGG sekitar 3:10; komandan memakai `National Anthem of the Netherlands but it's a boss theme.mp3` melalui `commander-final-theme.ogg` sekitar 2:48. Dua belas SFX Buto dan dua belas SFX Headless dibuat melalui kode. Ambience angin dan serangga mengikuti siklus waktu. Ketiga ending memiliki ilustrasi dan epilog yang dapat dilewati. Rincian dan batasan ada di `docs/PERSISTENCE_AND_PRESENTATION.md` dan `docs/BUTO_IJO_SFX.md`. Tidak ada pemakaian fal untuk pack pengganti ini.
 
 Mix atmosfer diperkeras melalui `data/audio_mix.json`: menu, epilog, keempat boss, ambience, ayunan dan benturan. Musik siang/malam tetap di `data/world_audio.json` (-8/-10 dB). Semua tangkisan, termasuk melee dan proyektil boss, memakai satu `Combat/parry.wav` pada -5 dB. Master limiter -1 dB menahan lonjakan suara bertumpuk; empat slider pengguna tetap berlaku dan tidak direset. Lagu komandan dapat disiapkan ulang dengan `tools/prepare_final_boss_music.ps1 -Ffmpeg <ffmpeg.exe>`. Verifikasi mixer native: `--rendering-method gl_compatibility --audio-driver Dummy --fixed-fps 60 --path . res://tests/audio_mix_playback.tscn`.
+
+SFX pedang pengguna `sword slash (sound effects) mani creation.mp3` dipotong pada sembilan jeda bunyi, tanpa menimpa sumber. Combo Jaka memakai potongan 1 → 2 → 3 di `assets/Generated/Audio/Combat/SwordSlashes/`; potongan 4–9 tetap tersedia. Rentang sumber dan mapping ada pada `data/sword_slashes.json`. Siapkan ulang dengan `tools/prepare_sword_sfx.py --ffmpeg <ffmpeg.exe>`.
 
 Jaka dan NPC pendukung adalah tokoh fiksi; percakapan bukan kutipan historis. Lihat `docs/HISTORY.md` untuk sumber dan pilihan redaksi.
 

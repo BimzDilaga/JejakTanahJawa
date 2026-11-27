@@ -1,0 +1,87 @@
+{
+  "source": "assets/SFX & Soundtrack/Mechanique game/sword slash (sound effects) mani creation.mp3",
+  "source_sha256": "8460e4e962b546357183a20acc18784eadfbd1c47ccdfb7bb9b5a0417b3b946a",
+  "source_seconds": 12.283356009070294,
+  "format": "WAV PCM16 mono 44100 Hz",
+  "silence_threshold_db": -38,
+  "clips": [
+    {
+      "number": 1,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-01.wav",
+      "source_start_seconds": 0.752982,
+      "source_end_seconds": 1.612381,
+      "seconds": 0.859388,
+      "peak_db": -1.5
+    },
+    {
+      "number": 2,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-02.wav",
+      "source_start_seconds": 2.006156,
+      "source_end_seconds": 2.967642,
+      "seconds": 0.961497,
+      "peak_db": -1.5
+    },
+    {
+      "number": 3,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-03.wav",
+      "source_start_seconds": 3.27144,
+      "source_end_seconds": 4.074354,
+      "seconds": 0.802902,
+      "peak_db": -1.5
+    },
+    {
+      "number": 4,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-04.wav",
+      "source_start_seconds": 4.28627,
+      "source_end_seconds": 5.359025,
+      "seconds": 1.072744,
+      "peak_db": -1.5
+    },
+    {
+      "number": 5,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-05.wav",
+      "source_start_seconds": 5.721327,
+      "source_end_seconds": 6.726644,
+      "seconds": 1.005306,
+      "peak_db": -1.5
+    },
+    {
+      "number": 6,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-06.wav",
+      "source_start_seconds": 6.922868,
+      "source_end_seconds": 8.291338,
+      "seconds": 1.368481,
+      "peak_db": -1.5
+    },
+    {
+      "number": 7,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-07.wav",
+      "source_start_seconds": 8.635023,
+      "source_end_seconds": 9.575306,
+      "seconds": 0.940272,
+      "peak_db": -1.5
+    },
+    {
+      "number": 8,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-08.wav",
+      "source_start_seconds": 9.879535,
+      "source_end_seconds": 10.832562,
+      "seconds": 0.953039,
+      "peak_db": -1.5
+    },
+    {
+      "number": 9,
+      "file": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-09.wav",
+      "source_start_seconds": 11.163186,
+      "source_end_seconds": 11.99551,
+      "seconds": 0.832313,
+      "peak_db": -1.5
+    }
+  ],
+  "combo": {
+    "swing_1": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-01.wav",
+    "swing_2": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-02.wav",
+    "swing_3": "res://assets/Generated/Audio/Combat/SwordSlashes/slash-03.wav"
+  },
+  "note": "Original source order. First three sounds are Jaka combo hits 1, 2, 3; remaining cuts retained for review. Source preserved; 2ms/10ms edge fades, peak -1.5 dB."
+}

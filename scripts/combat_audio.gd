@@ -5,7 +5,9 @@ func _ready() -> void:
 	for key in ["parry","boss-stance-break"]:
 		streams[key] = load("res://assets/Generated/Audio/Combat/"+key+".wav")
 	for index in range(1,4):
-		var file := "res://assets/Generated/Audio/Temporary/keris-swing-%d.wav" % index
+		var file := "res://assets/Generated/Audio/Combat/SwordSlashes/slash-%02d.wav" % index
+		if not ResourceLoader.exists(file):
+			file = "res://assets/Generated/Audio/Temporary/keris-swing-%d.wav" % index
 		if ResourceLoader.exists(file): streams["swing_%d" % index] = load(file)
 
 func play_effect(key: String, override: AudioStream = null) -> void:

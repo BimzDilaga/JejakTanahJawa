@@ -7,7 +7,7 @@ Pembaruan terbaru: [25 November 2026](UPDATE_2026_11_25.md), termasuk dua fase b
 Jalankan `project.godot`, lalu pilih **Arena uji boss** pada menu utama dan tentukan salah satu dari empat boss. Akses latihan tetap tersedia di samping pertemuan cerita melalui rumor.
 
 - A/D: jalan; tahan Shift: lari; Space: lompat.
-- Klik kiri: combo keris; klik kanan: parry; H: heal; L: ultimate.
+- Klik kiri: combo keris; klik kanan: parry; H: heal; F: ultimate.
 - Shift: dash saat ditekan, lari saat ditahan; S + Shift: dash mundur. Cooldown bersama 1 detik; tetap bisa terkena serangan.
 - T: petunjuk pertarungan; Esc: jeda, ulang arena, atau kembali ke menu.
 - Pertemuan lewat cerita juga tersedia saat malam: Penjaga sawah di Tegalrejo dan Penjaga singgah di tempat singgah Bab 2. Pilih mengikuti petunjuk, lalu kembali ke perjalanan yang sama setelah pertarungan. Lihat `NIGHT_ENCOUNTERS.md`.

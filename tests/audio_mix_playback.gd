@@ -53,6 +53,12 @@ func _run() -> void:
 	AudioPrefs.set_level("Ambience",0)
 	var regular := Combat.new()
 	add_child(regular)
+	for index in range(1,4):
+		await capture("jaka-slash-%d" % index,func() -> void:
+			regular.play_effect("swing_%d" % index)
+			check(regular.get_child(regular.get_child_count()-1).stream.resource_path.ends_with("/slash-%02d.wav" % index),"Live slash follows combo source order"))
+		regular.stop_all()
+		await frames(2)
 	var other: AudioStream = load("res://assets/Generated/Audio/Headless/parry.wav")
 	regular.play_effect("parry",other)
 	check_parry_voice(regular,"regular exploration even with a legacy override")

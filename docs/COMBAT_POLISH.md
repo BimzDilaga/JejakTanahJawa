@@ -13,8 +13,10 @@ Aturan terbaru 25 November ada di [UPDATE_2026_11_25.md](UPDATE_2026_11_25.md): 
 | Lompat | Space |
 | Combo keris | Klik kiri berulang |
 | Parry | Klik kanan |
-| Heal / ulti | H / L |
+| Heal / ulti | H / F |
 | Bicara / catatan / jeda | E / T / Esc |
+
+Ulti yang sudah aktif tidak terputus oleh hit nonfatal, knockback atau aksi combat lain. Damage tetap mengurangi hati, satu target hanya terkena damage/stun sekali, dan serangan fatal tetap mengalahkan Jaka. Aturan dash gerak biasa tidak berubah: hit tetap dapat membatalkannya.
 
 Klik yang diterima tombol UI tidak masuk ke combat. Menahan klik kiri tidak menghasilkan serangan otomatis. Melepas Shift kembali berjalan. Dash hanya terjadi saat Shift baru ditekan, sehingga tidak berulang selama ditahan.
 

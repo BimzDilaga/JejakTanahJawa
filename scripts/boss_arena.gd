@@ -268,7 +268,7 @@ func _process(delta: float) -> void:
 	if stage==Stage.INTRO and boss.state!="spawn":
 		stage = Stage.EXPLORE
 		player.controls_enabled = true
-		_notify("Bertarung di tanah. Saat Banaspati terbang, lari dari tembok api!" if kind=="banaspati" else "Klik kanan: parry  •  H: heal  •  L: ulti  •  T: bantuan")
+		_notify("Bertarung di tanah. Saat Banaspati terbang, lari dari tembok api!" if kind=="banaspati" else "Klik kanan: parry  •  H: heal  •  F: ulti  •  T: bantuan")
 	var half_width := 640/1.1
 	var focus := boss.position.x if phase_camera_locked else player.position.x+150
 	camera.position.x = lerpf(camera.position.x,clampf(focus,half_width,length-half_width),1-exp(-delta*5))
@@ -490,7 +490,7 @@ func _show_journal() -> void:
 	paused = true
 	get_tree().paused = true
 	var box := _new_overlay("journal","Petunjuk pertarungan","Baca ancang-ancang boss. Tangkis serangan ringan dan hindari tanda merah.")
-	_paragraph(box,"Klik kiri: combo keris  •  Klik kanan: parry  •  H: heal  •  L: ulti\nShift: dash lalu tahan untuk lari  •  S + Shift: dash mundur\nDash tetap bisa terkena serangan; cooldown bersama 1 detik.\n\nLima stance Jaka adalah batas aman. Satu poin pulih setiap detik.\nMencoba parry heavy Buto Ijo: +2 beban stance dan tetap terkena damage.\nTanda merah: hindari serangannya. Saat boss berlutut, serang balik.\n\nBanaspati terbang: ia kebal. Lewati sembilan platform dan tembok api.\nBertarung lagi setelah keduanya di tanah aman.",Rect2(40,180,780,300),17,PAPER)
+	_paragraph(box,"Klik kiri: combo keris  •  Klik kanan: parry  •  H: heal  •  F: ulti\nShift: dash lalu tahan untuk lari  •  S + Shift: dash mundur\nDash tetap bisa terkena serangan; cooldown bersama 1 detik.\n\nLima stance Jaka adalah batas aman. Satu poin pulih setiap detik.\nMencoba parry heavy Buto Ijo: +2 beban stance dan tetap terkena damage.\nTanda merah: hindari serangannya. Saat boss berlutut, serang balik.\n\nBanaspati terbang: ia kebal. Lewati sembilan platform dan tembok api.\nBertarung lagi setelah keduanya di tanah aman.",Rect2(40,180,780,300),17,PAPER)
 	_button(box,"Kembali",Rect2(40,490,780,58),_close_overlay)
 
 func _unhandled_input(event: InputEvent) -> void:

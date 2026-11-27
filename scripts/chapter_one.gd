@@ -910,7 +910,7 @@ func _show_pause() -> void:
 	_button(box,"Lanjutkan perjalanan",Rect2(40,190,780,58),_close_overlay,true)
 	_button(box,"Ulangi Bab 1",Rect2(40,267,780,58),_restart)
 	_button(box,"Menu utama",Rect2(40,344,780,58),_return_menu)
-	_paragraph(box,"A/D: jalan • Shift: dash lalu tahan untuk lari • Space: lompat\nKlik kiri: combo • Klik kanan: parry • S+Shift: dash mundur\nE: bicara • H: heal • L: ulti • T: catatan",Rect2(40,448,780,92),16,MUTED)
+	_paragraph(box,"A/D: jalan • Shift: dash lalu tahan untuk lari • Space: lompat\nKlik kiri: combo • Klik kanan: parry • S+Shift: dash mundur\nE: bicara • H: heal • F: ulti • T: catatan",Rect2(40,448,780,92),16,MUTED)
 
 func _show_journal() -> void:
 	paused = true

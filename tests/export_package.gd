@@ -14,8 +14,13 @@ func _run() -> void:
 	check(state.upgrade_points==600 and state.player_max_stamina()==200 and state.player_max_health()==3,"Current progression ships in the pack")
 	check(is_equal_approx(state.day_phase_duration(1),150) and is_equal_approx(state.day_phase_duration(3),150),"Noon and night each last 150 seconds in the package")
 	check(root.has_node("AudioPrefs") and ResourceLoader.exists("res://scripts/campaign_save.gd"),"Save and audio services ship in the pack")
-	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","audio_mix","night_encounters","chapter_four","chapter_five","endings"]:
+	for data in ["progression","boss_assets","boss_tuning","buto_sfx","headless_sfx","world_audio","audio_mix","sword_slashes","night_encounters","chapter_four","chapter_five","endings"]:
 		check(JSON.parse_string(FileAccess.get_file_as_string("res://data/"+data+".json")) is Dictionary,"Packaged JSON: "+data)
+	var ulti_f := InputEventKey.new()
+	ulti_f.physical_keycode = KEY_F
+	var old_ulti_l := InputEventKey.new()
+	old_ulti_l.physical_keycode = KEY_L
+	check(InputMap.event_is_action(ulti_f,"ultimate") and not InputMap.event_is_action(old_ulti_l,"ultimate"),"The packaged ultimate is bound to F, not the old L key")
 	for name in ["01-Tegalrejo","02-Jalur-Hutan","03-Selarong","04-Pemukiman-Terdampak","05-Magelang"]:
 		check(load("res://assets/Asset in game/peta/"+name+".png") is Texture2D,"Map preview ships: "+name)
 	check(load("res://assets/Generated/Menu/title-keyart-v1.png") is Texture2D,"Generated title artwork ships")
@@ -30,6 +35,8 @@ func _run() -> void:
 		check(game.panorama.get_child_count()>3 and is_instance_valid(game.day_night.sky),"Late chapter art and sky load: "+chapter)
 		check(is_instance_valid(game.upgrade_hut.hut) and is_instance_valid(game.journey),"Upgrade hut and map controller load")
 		check(game.player.anim.sprite_frames.get_frame_texture("ultimate",0).resource_path.contains("ultimate_clean"),"Clean ultimate ships")
+		for index in range(1,4):
+			check(game.player.combat_audio.streams["swing_%d" % index].resource_path.ends_with("/slash-%02d.wav" % index),"Prepared sword audio ships in combo order")
 		check(game.world_audio.night.stream.get_length()>20 and game.world_audio.wind.stream.loop,"World ambience ships")
 		check(game.world_audio.day_music.stream.get_length()>190 and game.world_audio.day_music.bus=="Music","The supplied daytime theme ships in the package")
 		check(game.world_audio.night_music.stream.get_length()>190 and game.world_audio.night_music.bus=="Music","The supplied night theme ships in the package")

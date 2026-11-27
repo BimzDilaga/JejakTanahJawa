@@ -5,9 +5,12 @@ class Target extends Node2D:
 	var active := true
 	var dead := false
 	var hits := 0
+	var stuns := 0
 	func take_damage(amount: int, _source: float) -> bool:
 		hits += amount
 		return true
+	func apply_stun(_duration: float) -> void:
+		stuns += 1
 func _ready() -> void: _run.call_deferred()
 func frames(count: int) -> void:
 	for i in range(count): await get_tree().physics_frame
@@ -40,6 +43,13 @@ func jump(pressed: bool) -> void:
 	var event := InputEventKey.new()
 	event.physical_keycode = KEY_SPACE
 	event.keycode = KEY_SPACE
+	event.pressed = pressed
+	Input.parse_input_event(event)
+	await frames(2)
+func keyboard(code: Key, pressed: bool) -> void:
+	var event := InputEventKey.new()
+	event.physical_keycode = code
+	event.keycode = code
 	event.pressed = pressed
 	Input.parse_input_event(event)
 	await frames(2)
@@ -163,6 +173,37 @@ func _run() -> void:
 	player.take_damage(1,player.position.x+20,false)
 	check(player.health==4 and player.dash_time==0,"A hit damages and interrupts dash")
 	player.reset_health()
+	player.position = Vector2(400,570)
+	player.facing = 1
+	target.position = Vector2(520,570)
+	target.hits = 0
+	target.stuns = 0
+	player.ultimate_charge = player.ULTIMATE_HITS
+	await keyboard(KEY_L,true)
+	check(player.ultimate_time==0 and player.ultimate_charge==5,"The old L key no longer spends the ultimate")
+	await keyboard(KEY_L,false)
+	await keyboard(KEY_F,true)
+	check(player.ultimate_time>0 and player.ultimate_charge==0,"Pressing F starts a fully charged ultimate")
+	await keyboard(KEY_F,false)
+	var remaining_ultimate: float = player.ultimate_time
+	player.take_damage(1,player.position.x+40,false,380)
+	check(player.health==4 and is_equal_approx(player.ultimate_time,remaining_ultimate),"A nonlethal hit deals normal damage without cancelling ultimate time")
+	check(player.velocity.x>600,"An active ultimate resists incoming knockback")
+	player.perform_attack()
+	check(not player.is_attacking and not player.perform_parry() and not player.perform_dash() and not player.perform_heal(),"Other combat actions cannot cancel a committed ultimate")
+	Input.action_press("move_left")
+	await frames(10)
+	check(player.ultimate_time>0 and player.anim.animation=="ultimate" and player.facing==1 and player.position.x>530,"The ultimate keeps moving and animating despite damage and opposite input")
+	check(target.hits==2 and target.stuns==1,"The uninterrupted ultimate damages and stuns a target once")
+	await frames(24)
+	Input.action_release("move_left")
+	check(player.ultimate_time==0 and target.hits==2,"The ultimate ends naturally without applying duplicate target damage")
+	player.reset_health()
+	player.ultimate_charge = player.ULTIMATE_HITS
+	check(player.perform_ultimate(),"Another charged ultimate can start after resetting")
+	player.take_damage(99,player.position.x+40)
+	check(player.dead and player.ultimate_time==0,"Lethal damage still ends the ultimate and defeats Jaka")
+	player.reset_health()
 	player.position.x = 400
 	var wall := StaticBody2D.new()
 	var wall_shape := CollisionShape2D.new()
@@ -187,5 +228,7 @@ func _run() -> void:
 	check(player.dash_cooldown==0 and player.combo_step==0,"Retry clears movement and combo state")
 	for key in player.combat_audio.streams:
 		check(player.combat_audio.streams[key]!=null and player.combat_audio.streams[key].get_length()>0,"Converted combat audio decodes: "+str(key))
+	for index in range(1,4):
+		check(player.combat_audio.streams["swing_%d" % index].resource_path.ends_with("/slash-%02d.wav" % index),"Combo strike selects its matching supplied sword cut: "+str(index))
 	print("COMBAT_CHAIN_DASH failures=",failures)
 	get_tree().quit(0 if failures==0 else 1)
