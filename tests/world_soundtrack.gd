@@ -14,6 +14,20 @@ func peak_level(recording: AudioStreamWAV) -> float:
 	for index in range(0,recording.data.size()-1,2):
 		peak = maxi(peak,absi(recording.data.decode_s16(index)))
 	return float(peak)/32768.0
+func capture_music(filename: String) -> float:
+	var recorder := AudioEffectRecord.new()
+	AudioServer.add_bus_effect(0,recorder)
+	var effect_index := AudioServer.get_bus_effect_count(0)-1
+	recorder.set_recording_active(true)
+	await wall_seconds(0.8)
+	recorder.set_recording_active(false)
+	var recording: AudioStreamWAV = recorder.get_recording()
+	var level := peak_level(recording)
+	if recording!=null:
+		DirAccess.make_dir_recursive_absolute("res://.godot/audio-review")
+		recording.save_to_wav("res://.godot/audio-review/"+filename+".wav")
+	AudioServer.remove_bus_effect(0,effect_index)
+	return level
 func check(ok: bool, message: String) -> void:
 	if not ok:
 		failures+=1
@@ -72,7 +86,16 @@ func _run() -> void:
 	audio._process(2)
 	check(audio.day_music.volume_db<-60 and audio.night.volume_db>-40,"Daytime music fades out while night ambience remains")
 	var night_path: String = str(audio.music_settings.get("night_music",""))
-	check(is_instance_valid(audio.night_music) if not night_path.is_empty() else not is_instance_valid(audio.night_music),"A night song is used only when an explicit asset is configured")
+	check(night_path.ends_with("world-night.ogg") and is_instance_valid(audio.night_music),"Night uses the newly supplied soundtrack")
+	check(audio.night_music.stream.get_length()>190 and audio.night_music.stream.loop and audio.night_music.bus=="Music","The full-length night theme loops through the music volume bus")
+	check(audio.night_music.volume_db>-30,"Night music is audible once the day theme fades out")
+	if DisplayServer.get_name()!="headless":
+		AudioPrefs.set_level("Ambience",0)
+		audio.night_music.seek(12)
+		check(audio.night_music.playing,"The supplied night soundtrack actually plays")
+		var night_peak: float = await capture_music("world-night-mix")
+		check(night_peak>0.0001,"The live audio mixer outputs the supplied night music")
+		AudioPrefs.set_level("Ambience",1)
 	GameState.time_of_day = 0.375
 	audio._process(3)
 	check(audio.day_music.volume_db>-30,"Daytime soundtrack returns after night")
@@ -80,7 +103,7 @@ func _run() -> void:
 	audio._process(3)
 	check(audio.day_music.volume_db<-60,"World music fades before the completion/ending music")
 	audio.stop_all()
-	check(not audio.day_music.playing and not audio.wind.playing and not audio.night.playing,"Stopping world audio clears all streams")
+	check(not audio.day_music.playing and not audio.night_music.playing and not audio.wind.playing and not audio.night.playing,"Stopping world audio clears all streams")
 	game.queue_free()
 	await frames(4)
 	GameState.boss_trial_kind = "headless"
@@ -88,9 +111,19 @@ func _run() -> void:
 	add_child(game)
 	await frames(70)
 	check(not is_instance_valid(game.world_audio.day_music) and not is_instance_valid(game.world_audio.night_music),"World themes do not overlap the boss soundtrack")
-	check(game.boss_music.stream.resource_path.ends_with("headless-smoke-and-bronze.ogg"),"The boss retains its own music")
+	check(game.boss_music.stream.resource_path.ends_with("headless-horseman.ogg") and game.boss_music.stream.get_length()>185,"Headless plays the supplied Headless Horseman soundtrack")
 	if DisplayServer.get_name()!="headless":
+		game.boss.set_physics_process(false)
+		AudioPrefs.set_level("Ambience",0)
+		AudioPrefs.set_level("SFX",0)
+		game.boss_music.seek(12)
+		check(game.boss_music.playing,"The supplied Headless soundtrack actually plays")
+		var boss_peak: float = await capture_music("headless-horseman-mix")
+		check(boss_peak>0.0001,"The live audio mixer outputs the supplied Headless music")
+		AudioPrefs.set_level("Ambience",1)
+		AudioPrefs.set_level("SFX",1)
 		game.boss.take_damage(999,0)
+		game.boss.set_physics_process(true)
 		await frames(240)
 		game.boss.set_physics_process(false)
 		await RenderingServer.frame_post_draw

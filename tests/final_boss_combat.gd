@@ -61,7 +61,7 @@ func _run() -> void:
 			var jaka_height: float = arena.player.anim.sprite_frames.get_frame_texture("idle",0).get_image().get_used_rect().size.y
 			check(headless_height>jaka_height and headless_height<=jaka_height*1.25,"Headless is only slightly taller than Jaka")
 			check(is_equal_approx(boss.sprite.position.y+144*boss.sprite.scale.y,0),"Smaller Headless keeps its boots on the ground")
-			check(arena.sounds.size()==12 and arena.boss_music.stream.resource_path.ends_with("headless-smoke-and-bronze.ogg"),"Headless has its own complete sound pack and music")
+			check(arena.sounds.size()==12 and arena.boss_music.stream.resource_path.ends_with("headless-horseman.ogg") and arena.boss_music.stream.get_length()>185,"Headless uses the supplied full-length soundtrack and its complete sound pack")
 			check(boss.invulnerable and boss.attack.effect=="smoke_step","The ultimate chain clearly begins with a smoke step")
 			var aim: Vector2 = boss.attack.aim_point
 			var direction: int = boss.facing

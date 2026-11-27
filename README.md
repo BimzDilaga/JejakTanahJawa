@@ -44,7 +44,7 @@ Filter mencakup langit, lingkungan, karakter, dan efek dunia. HUD, menu, dan pan
 
 Durasi bisa diubah melalui `day_cycle_seconds` dan `DAY_PHASE_WEIGHTS` di `game_state.gd`. Jam memakai durasi tiap fase; pembagian warna tetap menggunakan `time_of_day` 0–1: pusat pagi 0.125, siang 0.375, sore 0.625, dan malam 0.875. `scripts/day_night_cycle.gd` dan `shaders/day_night.gdshader` mengatur filter bersama untuk lima bab.
 
-Soundtrack siang pengguna (`Theme song siang.mpeg`) kini diputar melalui salinan OGG sepanjang sekitar 3:16, dengan volume mengikuti slider Musik. Day/night theme disimpan pada `data/world_audio.json`; perpindahan musik memakai crossfade dua detik. File soundtrack malam belum ditemukan, sehingga malam masih memakai ambience angin/jangkrik sampai sumbernya ditentukan. Musik dunia tidak ditumpuk di atas soundtrack boss. Siapkan ulang audio dengan `tools/prepare_world_soundtracks.ps1 -Ffmpeg <path-executable>`; parameter `-NightSource <file>` juga menyiapkan dan menghubungkan soundtrack malam bila sudah tersedia.
+Soundtrack siang pengguna (`Theme song siang.mpeg`) dan malam (`malam.mp3`) diputar melalui salinan OGG, masing-masing sekitar 3:16, dengan volume mengikuti slider Musik. Day/night theme disimpan pada `data/world_audio.json`; perpindahan musik memakai crossfade dua detik, dengan angin/jangkrik tetap pada bus Ambience. Musik dunia tidak ditumpuk di atas soundtrack boss. Siapkan ulang siang dengan `tools/prepare_world_soundtracks.ps1 -Ffmpeg <path-executable>`, atau malam dan Headless melalui `tools/prepare_night_headless_audio.ps1 -Ffmpeg <path-executable>`.
 
 ## Alur Bab 1
 
@@ -76,7 +76,7 @@ Durasi permainan perlu dinilai lewat playtest karena tes otomatis membaca dialog
 
 Menu, dialog dengan potret dan pilihan jawaban, catatan sejarah per bab, kucing pendamping, jeda, dan layar selesai tersedia. Panel dialog berada di bawah area permainan, dengan potret setengah badan yang muncul sedikit di atas panel.
 
-Arena memakai sembilan SFX Banaspati, musik pengguna untuk Buto/Banaspati, cue parry/stance break, serta tiga swing Jaka dan tembakan komandan sintetis sementara. Dua belas SFX Buto dan dua belas SFX Headless dibuat melalui kode. Headless/komandan memiliki musik original sendiri; ambience angin dan serangga mengikuti siklus waktu. Ketiga ending memiliki ilustrasi dan epilog yang dapat dilewati. Rincian dan batasan ada di `docs/PERSISTENCE_AND_PRESENTATION.md` dan `docs/BUTO_IJO_SFX.md`. Tidak ada pemakaian fal untuk pack pengganti ini.
+Arena memakai sembilan SFX Banaspati, musik pengguna untuk Buto/Banaspati/Headless, cue parry/stance break, serta tiga swing Jaka dan tembakan komandan sintetis sementara. Headless memakai `Halloween Music – The Headless Horseman.mp3` melalui salinan OGG sekitar 3:10. Dua belas SFX Buto dan dua belas SFX Headless dibuat melalui kode. Komandan masih memakai musik sementara; ambience angin dan serangga mengikuti siklus waktu. Ketiga ending memiliki ilustrasi dan epilog yang dapat dilewati. Rincian dan batasan ada di `docs/PERSISTENCE_AND_PRESENTATION.md` dan `docs/BUTO_IJO_SFX.md`. Tidak ada pemakaian fal untuk pack pengganti ini.
 
 Jaka dan NPC pendukung adalah tokoh fiksi; percakapan bukan kutipan historis. Lihat `docs/HISTORY.md` untuk sumber dan pilihan redaksi.
 

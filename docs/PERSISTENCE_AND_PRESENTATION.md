@@ -28,6 +28,8 @@ Ketiga ending memiliki ilustrasi sendiri dan epilog berparagraf. E/Space melanju
 
 ## Audio
 
+Pembaruan 27 November: malam memakai `malam.mp3` dan Headless memakai `Halloween Music – The Headless Horseman.mp3` dari pengguna melalui salinan OGG runtime. Lagu Headless sintetis sebelumnya disimpan sebagai arsip. Komandan tetap memakai komposisi sementara. Rincian: `UPDATE_2026_11_27.md`.
+
 Dua belas SFX Headless, tiga musik original bernuansa perkusi perunggu, ambience jangkrik/katak/angin malam dan angin siang dibuat secara sintetis dengan `tools/prepare_world_audio.py`. Musik khusus dipasang pada Headless dan komandan; epilog/menu memakai komposisi ketiga. Ini komposisi baru yang terinspirasi gamelan, bukan rekonstruksi laras atau rekaman tradisional. Musik pengguna untuk Buto/Banaspati tetap dipakai.
 
 Pack Buto berisi 12 SFX sintetis, Banaspati sembilan SFX sumber pengguna, Jaka tiga ayunan keris sementara. Tidak ada job fal baru. Keempat bus audio mengikuti slider, jeda, transisi dan pembersihan arena. Mixer native telah merekam SFX Buto yang benar-benar diputar, termasuk pemeriksaan batas voice dan retry.

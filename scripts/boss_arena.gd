@@ -63,7 +63,7 @@ func _ready() -> void:
 	boss_music.bus = "Music"
 	boss_music.process_mode = Node.PROCESS_MODE_PAUSABLE
 	boss_music.volume_db = -22.0
-	var music_file: String = {"buto":"buto-akusara.ogg","banaspati":"banaspati-fight-fire.ogg","headless":"headless-smoke-and-bronze.ogg","commander":"commander-last-march.ogg"}[kind]
+	var music_file: String = {"buto":"buto-akusara.ogg","banaspati":"banaspati-fight-fire.ogg","headless":"headless-horseman.ogg","commander":"commander-last-march.ogg"}[kind]
 	boss_music.stream = load("res://assets/Generated/Audio/Music/"+music_file)
 	(boss_music.stream as AudioStreamOggVorbis).loop = true
 	add_child(boss_music)

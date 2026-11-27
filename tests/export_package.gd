@@ -32,6 +32,7 @@ func _run() -> void:
 		check(game.player.anim.sprite_frames.get_frame_texture("ultimate",0).resource_path.contains("ultimate_clean"),"Clean ultimate ships")
 		check(game.world_audio.night.stream.get_length()>20 and game.world_audio.wind.stream.loop,"World ambience ships")
 		check(game.world_audio.day_music.stream.get_length()>190 and game.world_audio.day_music.bus=="Music","The supplied daytime theme ships in the package")
+		check(game.world_audio.night_music.stream.get_length()>190 and game.world_audio.night_music.bus=="Music","The supplied night theme ships in the package")
 		game.queue_free()
 		await frames(4)
 	for kind in ["buto","banaspati","headless","commander"]:
@@ -46,7 +47,7 @@ func _run() -> void:
 		if kind=="headless":
 			check(int(arena.boss.tuning.phase_count)==2,"Headless has two HP bars in the package")
 			check(is_equal_approx(arena.boss.sprite.scale.y,0.62),"Smaller Headless scale ships")
-			check(arena.boss_music.stream.resource_path.ends_with("headless-smoke-and-bronze.ogg"),"Distinct Headless score ships")
+			check(arena.boss_music.stream.resource_path.ends_with("headless-horseman.ogg") and arena.boss_music.stream.get_length()>185,"The supplied Headless score ships")
 		if kind=="commander": check(arena.sounds.has("shot") and arena.boss_music.stream.resource_path.ends_with("commander-last-march.ogg"),"Commander score and shot ship")
 		if kind=="banaspati": check(arena.sounds.size()==9,"All Banaspati SFX ship")
 		arena.queue_free()
